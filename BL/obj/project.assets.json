@@ -218,6 +218,21 @@
           }
         }
       },
+      "Acceso/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Conexion": "1.0.0",
+          "Modelos": "1.0.0",
+          "System.Data.SqlClient": "4.8.2"
+        },
+        "compile": {
+          "bin/placeholder/Acceso.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Acceso.dll": {}
+        }
+      },
       "Conexion/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -868,6 +883,11 @@
         "version.txt"
       ]
     },
+    "Acceso/1.0.0": {
+      "type": "project",
+      "path": "../Acceso/Acceso.csproj",
+      "msbuildProject": "../Acceso/Acceso.csproj"
+    },
     "Conexion/1.0.0": {
       "type": "project",
       "path": "../Conexion/Conexion.csproj",
@@ -881,10 +901,9 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Conexion >= 1.0.0",
+      "Acceso >= 1.0.0",
       "Modelos >= 1.0.0",
-      "NETStandard.Library >= 2.0.3",
-      "System.Data.SqlClient >= 4.8.2"
+      "NETStandard.Library >= 2.0.3"
     ]
   },
   "packageFolders": {
@@ -894,11 +913,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\Acceso.csproj",
-      "projectName": "Acceso",
-      "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\Acceso.csproj",
+      "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\BL\\BL.csproj",
+      "projectName": "BL",
+      "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\BL\\BL.csproj",
       "packagesPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\obj\\",
+      "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\BL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -919,8 +938,8 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "projectReferences": {
-            "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Conexion\\Conexion.csproj": {
-              "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Conexion\\Conexion.csproj"
+            "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\Acceso.csproj": {
+              "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\Acceso.csproj"
             },
             "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Modelos\\Modelos.csproj": {
               "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Modelos\\Modelos.csproj"
@@ -943,10 +962,6 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
-          },
-          "System.Data.SqlClient": {
-            "target": "Package",
-            "version": "[4.8.2, )"
           }
         },
         "imports": [

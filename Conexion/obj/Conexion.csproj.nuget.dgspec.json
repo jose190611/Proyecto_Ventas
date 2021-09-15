@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Conexion\\Conexion.csproj": {}
+    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Conexion\\Conexion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Conexion\\Conexion.csproj": {
+    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Conexion\\Conexion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Conexion\\Conexion.csproj",
+        "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Conexion\\Conexion.csproj",
         "projectName": "Conexion",
-        "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Conexion\\Conexion.csproj",
+        "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Conexion\\Conexion.csproj",
         "packagesPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Conexion\\obj\\",
+        "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Conexion\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

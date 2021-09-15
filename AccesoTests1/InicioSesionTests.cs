@@ -30,7 +30,7 @@ namespace AccesoBD.Acceso.Tests
 
             c.Usuario = "ADMI";
 
-            string x = i.IngresarSesion(c);
+            string x = i.CerrarSesion(c);
         }
     }
 }

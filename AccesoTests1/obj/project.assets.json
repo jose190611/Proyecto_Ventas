@@ -6589,11 +6589,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\AccesoTests1\\AccesoTests1.csproj",
+      "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\AccesoTests1\\AccesoTests1.csproj",
       "projectName": "AccesoTests1",
-      "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\AccesoTests1\\AccesoTests1.csproj",
+      "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\AccesoTests1\\AccesoTests1.csproj",
       "packagesPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\AccesoTests1\\obj\\",
+      "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\AccesoTests1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6614,8 +6614,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Acceso\\Acceso.csproj": {
-              "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Acceso\\Acceso.csproj"
+            "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\Acceso.csproj": {
+              "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\Acceso.csproj"
             }
           }
         }

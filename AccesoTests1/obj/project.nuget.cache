@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wIbXjfJnZXgycMdZ8I7nQusJAEZ/TyLrbOyZU+TGwtbSRr/v4cvqPV9hdf4ZVxWaO7PnF90YoXlR0Er+BaiIXw==",
+  "dgSpecHash": "SewPv4p90FDihrmNrsvzZnh2yAcRCaaJROOsjV2FPTJUsPTStDxrr6H8rTx+Um/1BUT/0rgspV0CH+s0FkSgTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\AccesoTests1\\AccesoTests1.csproj",
+  "projectFilePath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\AccesoTests1\\AccesoTests1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

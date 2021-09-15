@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Hlr4UlNSXcCST77pH3VgAEpLHchC+kOT7FdDlKaI3nc1hVqRMmbFSIo5QsqR8qPSsG29uxUDYAYO5ux6UAGZkQ==",
+  "dgSpecHash": "uk2MPgc1CS/5AUK3ifu95AmXlAbt+wSFTezav6lKOf3rMxdNQ5rcl8JWu209iRRee0mWlTRJCpe0CjnvD5hPrw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\Acceso.csproj",
+  "projectFilePath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\BL\\BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

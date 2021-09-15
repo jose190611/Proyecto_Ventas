@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Modelos\\Modelos.csproj": {}
+    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Modelos\\Modelos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Modelos\\Modelos.csproj": {
+    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Modelos\\Modelos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Modelos\\Modelos.csproj",
+        "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Modelos\\Modelos.csproj",
         "projectName": "Modelos",
-        "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Modelos\\Modelos.csproj",
+        "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Modelos\\Modelos.csproj",
         "packagesPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Proyecto_Ventas\\Modelos\\obj\\",
+        "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Modelos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
