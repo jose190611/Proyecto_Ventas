@@ -1,0 +1,12 @@
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Interfaces.exe.config
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Interfaces.exe
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Interfaces.pdb
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.csproj.AssemblyReference.cache
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.Properties.Resources.resources
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.Sesion.resources
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.csproj.GenerateResource.cache
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.csproj.CopyComplete
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.exe
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.pdb
