@@ -1,5 +1,5 @@
 ﻿
-namespace Inicio_sesion
+namespace Interfaces
 {
     partial class I_Sesion
     {
