@@ -4,7 +4,7 @@ using AccesoBD.Modelos;
 
 namespace Negocio.BL
 {
-    public class Sesion
+    public class Sesiones
     {
         public string NuevaSesion(string usuario, string clave)
         {

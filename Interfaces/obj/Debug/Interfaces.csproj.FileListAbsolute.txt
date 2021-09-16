@@ -10,3 +10,12 @@ C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.csproj.CopyComplete
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.exe
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.pdb
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\BL.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Modelos.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Acceso.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Conexion.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\BL.pdb
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Modelos.pdb
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Acceso.pdb
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Conexion.pdb
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.Cargando.resources

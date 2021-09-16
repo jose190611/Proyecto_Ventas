@@ -7,3 +7,12 @@ C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Proyecto_Ventas\Conexion\obj\Debug\n
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Proyecto_Ventas\Conexion\obj\Debug\netstandard2.0\Conexion.csproj.CoreCompileInputs.cache
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Proyecto_Ventas\Conexion\obj\Debug\netstandard2.0\Conexion.dll
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Proyecto_Ventas\Conexion\obj\Debug\netstandard2.0\Conexion.pdb
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Conexion\bin\Debug\netstandard2.0\Conexion.deps.json
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Conexion\bin\Debug\netstandard2.0\Conexion.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Conexion\bin\Debug\netstandard2.0\Conexion.pdb
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Conexion\obj\Debug\netstandard2.0\Conexion.csproj.AssemblyReference.cache
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Conexion\obj\Debug\netstandard2.0\Conexion.AssemblyInfoInputs.cache
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Conexion\obj\Debug\netstandard2.0\Conexion.AssemblyInfo.cs
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Conexion\obj\Debug\netstandard2.0\Conexion.csproj.CoreCompileInputs.cache
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Conexion\obj\Debug\netstandard2.0\Conexion.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Conexion\obj\Debug\netstandard2.0\Conexion.pdb

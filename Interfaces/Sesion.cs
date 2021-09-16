@@ -7,16 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using Interfaces.Logica;
 
 namespace Interfaces
 {
     public partial class Sesion : Form
     {
+        //-------------------Codigo para redondear bordes en formularios-----------------------------------
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        
+        private static extern IntPtr CreateRoundRectRgn
+            (
+            int izquierda,
+            int top,
+            int derecha,
+            int fondo,
+            int anchoelipse,
+            int altoelipse
+            );
+        //------------------------------------------------------------------------------------------------
         public Sesion()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.StartPosition = FormStartPosition.CenterScreen;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0,0,Width,Height,25,25)); //Linea que llama al método que redondea borde
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)
@@ -59,7 +75,8 @@ namespace Interfaces
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-
+            LogicaSesion lg = new LogicaSesion();
+            lg.IniciarNuevaSesion(txtUsuario, txtContra);
         }
 
         private void btnContinuar_MouseHover(object sender, EventArgs e)
@@ -72,6 +89,15 @@ namespace Interfaces
         {
             btnContinuar.Size = new Size(220, 45);
             btnContinuar.Location = new Point(70, 320);
+        }
+
+        private void btnContinuar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                LogicaSesion lg = new LogicaSesion();
+                lg.IniciarNuevaSesion(txtUsuario, txtContra);
+            }
         }
     }
 }

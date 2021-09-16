@@ -130,6 +130,7 @@ namespace Interfaces
             this.btnContinuar.Text = "Iniciar";
             this.btnContinuar.UseVisualStyleBackColor = false;
             this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
+            this.btnContinuar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnContinuar_KeyDown);
             this.btnContinuar.MouseLeave += new System.EventHandler(this.btnContinuar_MouseLeave);
             this.btnContinuar.MouseHover += new System.EventHandler(this.btnContinuar_MouseHover);
             // 
