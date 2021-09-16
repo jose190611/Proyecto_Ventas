@@ -67,7 +67,7 @@ namespace Interfaces
         {
             if (txtContra.Text == "")
             {
-                txtContra.Text = "Constraseña";
+                txtContra.Text = "Contraseña";
                 txtContra.PasswordChar = '*';
                 txtContra.ForeColor = Color.White;
             }
@@ -98,6 +98,11 @@ namespace Interfaces
                 LogicaSesion lg = new LogicaSesion();
                 lblejemplo.Text = lg.IniciarNuevaSesion(txtUsuario, txtContra);
             }
+        }
+
+        private void Sesion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

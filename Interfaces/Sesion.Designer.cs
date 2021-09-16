@@ -138,7 +138,8 @@ namespace Interfaces
             // lblejemplo
             // 
             this.lblejemplo.AutoSize = true;
-            this.lblejemplo.Location = new System.Drawing.Point(470, 81);
+            this.lblejemplo.BackColor = System.Drawing.Color.Chartreuse;
+            this.lblejemplo.Location = new System.Drawing.Point(393, 74);
             this.lblejemplo.Name = "lblejemplo";
             this.lblejemplo.Size = new System.Drawing.Size(44, 13);
             this.lblejemplo.TabIndex = 6;
@@ -158,6 +159,7 @@ namespace Interfaces
             this.Controls.Add(this.pictureBox1);
             this.Name = "Sesion";
             this.Text = "Sesion";
+            this.Load += new System.EventHandler(this.Sesion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
