@@ -10,10 +10,11 @@ namespace Interfaces.Logica
 {
    public class LogicaSesion
     {
-        public void IniciarNuevaSesion(TextBox usuario, TextBox contra)
+        public string IniciarNuevaSesion(TextBox usuario, TextBox contra)
         {
             Sesiones se = new Sesiones();
-            se.NuevaSesion(usuario.Text,contra.Text);
+            var x =se.NuevaSesion(usuario.Text,contra.Text);
+            return x;
         }
     }
 }

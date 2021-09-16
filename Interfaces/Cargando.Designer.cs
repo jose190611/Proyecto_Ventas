@@ -72,9 +72,8 @@ namespace Interfaces
             this.lblmsj1.ForeColor = System.Drawing.Color.White;
             this.lblmsj1.Location = new System.Drawing.Point(69, 183);
             this.lblmsj1.Name = "lblmsj1";
-            this.lblmsj1.Size = new System.Drawing.Size(147, 25);
+            this.lblmsj1.Size = new System.Drawing.Size(0, 25);
             this.lblmsj1.TabIndex = 1;
-            this.lblmsj1.Text = "Cargando. . .";
             // 
             // Cargando
             // 

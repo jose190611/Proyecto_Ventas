@@ -76,7 +76,7 @@ namespace Interfaces
         private void btnContinuar_Click(object sender, EventArgs e)
         {
             LogicaSesion lg = new LogicaSesion();
-            lg.IniciarNuevaSesion(txtUsuario, txtContra);
+            lblejemplo.Text = lg.IniciarNuevaSesion(txtUsuario, txtContra);
         }
 
         private void btnContinuar_MouseHover(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace Interfaces
             if (e.KeyData == Keys.Enter)
             {
                 LogicaSesion lg = new LogicaSesion();
-                lg.IniciarNuevaSesion(txtUsuario, txtContra);
+                lblejemplo.Text = lg.IniciarNuevaSesion(txtUsuario, txtContra);
             }
         }
     }

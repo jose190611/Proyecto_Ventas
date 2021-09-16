@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+using Interfaces.Logica;
 
 
 namespace Interfaces
@@ -30,7 +30,7 @@ namespace Interfaces
             );
         //-------------------------------------------------------------------------------------------------
         #endregion
-        public Cargando()
+        public Cargando(Action proceso, string descripcion)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -38,7 +38,6 @@ namespace Interfaces
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
             barraCircular.Value = 0;//Inicializar valor de la barra de progreso
         }
-
         private void Cargando_Load(object sender, EventArgs e)
         {
 
