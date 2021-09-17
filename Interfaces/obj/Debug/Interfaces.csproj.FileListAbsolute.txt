@@ -19,3 +19,10 @@ C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Acceso.pdb
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\Conexion.pdb
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.Cargando.resources
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\CircularProgressBar.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\System.Data.SqlClient.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\WinFormAnimation.dll
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\CircularProgressBar.xml
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\bin\Debug\System.Data.SqlClient.xml
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.exe.config
+C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Interfaces\obj\Debug\Interfaces.Principal.resources

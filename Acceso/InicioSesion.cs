@@ -35,9 +35,9 @@ namespace AccesoBD.Acceso
                         comando.CommandText = procedimiento;
                         comando.CommandType = CommandType.StoredProcedure;
 
-                        comando.Parameters.Add("@Usuario", SqlDbType.VarBinary);
+                        comando.Parameters.Add("@Usuario", SqlDbType.VarChar);
                         comando.Parameters["@Usuario"].Value = cuenta.Usuario;
-                        comando.Parameters.Add("@Clave", SqlDbType.VarBinary);
+                        comando.Parameters.Add("@Clave", SqlDbType.VarChar);
                         comando.Parameters["@Clave"].Value = cuenta.Clave;
                         comando.Parameters.Add("@Salida", SqlDbType.VarChar, 1000).Direction = ParameterDirection.Output;
                         comando.ExecuteNonQuery();
@@ -71,7 +71,7 @@ namespace AccesoBD.Acceso
                         comando.CommandText = procedimiento;
                         comando.CommandType = CommandType.StoredProcedure;
 
-                        comando.Parameters.Add("@Usuario", SqlDbType.VarBinary);
+                        comando.Parameters.Add("@Usuario", SqlDbType.VarChar);
                         comando.Parameters["@Usuario"].Value = cuenta.Usuario;
                         comando.Parameters.Add("@Salida", SqlDbType.VarChar, 1000).Direction = ParameterDirection.Output;
                         comando.ExecuteNonQuery();

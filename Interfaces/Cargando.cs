@@ -30,7 +30,7 @@ namespace Interfaces
             );
         //-------------------------------------------------------------------------------------------------
         #endregion
-        public Cargando(Action proceso, string descripcion)
+        public Cargando()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;

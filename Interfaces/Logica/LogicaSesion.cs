@@ -16,5 +16,12 @@ namespace Interfaces.Logica
             var x =se.NuevaSesion(usuario.Text,contra.Text);
             return x;
         }
+
+        public string CerrarSesiones(TextBox usuario)
+        {
+            Sesiones se = new Sesiones();
+            var x = se.CerrarSesion(usuario.Text);
+            return x;
+        }
     }
 }

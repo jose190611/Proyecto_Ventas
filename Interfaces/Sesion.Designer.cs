@@ -35,7 +35,6 @@ namespace Interfaces
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblejemplo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -134,23 +133,14 @@ namespace Interfaces
             this.pictureBox1.Size = new System.Drawing.Size(634, 411);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // lblejemplo
-            // 
-            this.lblejemplo.AutoSize = true;
-            this.lblejemplo.BackColor = System.Drawing.Color.Chartreuse;
-            this.lblejemplo.Location = new System.Drawing.Point(393, 74);
-            this.lblejemplo.Name = "lblejemplo";
-            this.lblejemplo.Size = new System.Drawing.Size(44, 13);
-            this.lblejemplo.TabIndex = 6;
-            this.lblejemplo.Text = "Ejemplo";
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // Sesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 411);
-            this.Controls.Add(this.lblejemplo);
             this.Controls.Add(this.btnContinuar);
             this.Controls.Add(this.iconPictureBox2);
             this.Controls.Add(this.txtContra);
@@ -176,6 +166,5 @@ namespace Interfaces
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private System.Windows.Forms.TextBox txtContra;
         private FontAwesome.Sharp.IconButton btnContinuar;
-        private System.Windows.Forms.Label lblejemplo;
     }
 }
