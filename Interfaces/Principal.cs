@@ -46,8 +46,11 @@ namespace Interfaces
                 LogicaSesion se = new LogicaSesion();
                 se.CerrarSesiones("ADMI");
                 Application.Exit();
+            }else if (x == DialogResult.No || x == DialogResult.Cancel)
+            {
+                MessageBox.Show("No se cerro" + "ADMI", "Cerrar Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         private void pbMaximizar_Click(object sender, EventArgs e)
