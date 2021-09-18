@@ -43,6 +43,9 @@ namespace Interfaces
             // 
             // panelPrincipal
             // 
+            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(140)))), ((int)(((byte)(246)))));
             this.panelPrincipal.Controls.Add(this.panelHerramientas);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -159,6 +162,8 @@ namespace Interfaces
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.ControlBox = false;
             this.Controls.Add(this.panelPrincipal);

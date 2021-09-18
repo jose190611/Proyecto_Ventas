@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Interfaces.Logica;
 
 namespace Interfaces
 {
@@ -19,7 +20,7 @@ namespace Interfaces
 
             #region Adaptar_Formulario
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width,Screen.PrimaryScreen.WorkingArea.Height);
             #endregion
             this.FormBorderStyle = FormBorderStyle.None;
         }
@@ -38,11 +39,21 @@ namespace Interfaces
 
         private void pbCerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            var x = MessageBox.Show("¿Estás seguro de cerrar el programa?", "ADVERTENCIA", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            if (x == DialogResult.Yes)
+            {
+                MessageBox.Show("Estamos cerrando tu sesión: " + "ADMI", "Cerrar Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LogicaSesion se = new LogicaSesion();
+                se.CerrarSesiones("ADMI");
+                Application.Exit();
+            }
+            
         }
 
         private void pbMaximizar_Click(object sender, EventArgs e)
         {
+            var workingArea = Screen.FromHandle(Handle).WorkingArea;
+            MaximizedBounds = new Rectangle(0, 0, workingArea.Width, workingArea.Height);
             this.WindowState = FormWindowState.Maximized;
         }
 
