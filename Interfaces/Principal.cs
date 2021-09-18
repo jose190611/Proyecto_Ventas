@@ -12,6 +12,7 @@ namespace Interfaces
 {
     public partial class Principal : Form
     {
+
         public Principal()
         {
             InitializeComponent();
@@ -80,5 +81,6 @@ namespace Interfaces
             pbMinimizar.BackColor = Color.Transparent;
             pbMinimizar.IconColor = Color.FromArgb(51, 241, 5);
         }
+
     }
 }

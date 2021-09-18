@@ -64,7 +64,7 @@ namespace Interfaces
             // 
             // pbMaximizar
             // 
-<<<<<<< HEAD
+
             this.pbMaximizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
             this.pbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMaximizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(6)))));
@@ -80,7 +80,7 @@ namespace Interfaces
             this.pbMaximizar.Click += new System.EventHandler(this.pbMaximizar_Click);
             this.pbMaximizar.MouseLeave += new System.EventHandler(this.pbMaximizar_MouseLeave);
             this.pbMaximizar.MouseHover += new System.EventHandler(this.pbMaximizar_MouseHover);
-=======
+
             this.pbCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
             this.pbCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -97,7 +97,7 @@ namespace Interfaces
             this.pbCerrar.Click += new System.EventHandler(this.pbCerrar_Click);
             this.pbCerrar.MouseLeave += new System.EventHandler(this.pbCerrar_MouseLeave);
             this.pbCerrar.MouseHover += new System.EventHandler(this.pbCerrar_MouseHover);
->>>>>>> master
+
             // 
             // pbMinimizar
             // 
@@ -120,7 +120,7 @@ namespace Interfaces
             // 
             // pbCerrar
             // 
-<<<<<<< HEAD
+
             this.pbCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
             this.pbCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(5)))), ((int)(((byte)(1)))));
@@ -136,7 +136,7 @@ namespace Interfaces
             this.pbCerrar.Click += new System.EventHandler(this.pbCerrar_Click);
             this.pbCerrar.MouseLeave += new System.EventHandler(this.pbCerrar_MouseLeave);
             this.pbCerrar.MouseHover += new System.EventHandler(this.pbCerrar_MouseHover);
-=======
+
             this.pbMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbMaximizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
             this.pbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -153,7 +153,7 @@ namespace Interfaces
             this.pbMaximizar.Click += new System.EventHandler(this.pbMaximizar_Click);
             this.pbMaximizar.MouseLeave += new System.EventHandler(this.pbMaximizar_MouseLeave);
             this.pbMaximizar.MouseHover += new System.EventHandler(this.pbMaximizar_MouseHover);
->>>>>>> master
+
             // 
             // Principal
             // 
