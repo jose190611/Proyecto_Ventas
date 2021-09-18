@@ -153,7 +153,7 @@ namespace AccesoBD.Acceso
 
             if (!Convert.IsDBNull(lector["ClaTien"])) { mbt.ClaTien = lector["ClaTien"].ToString(); }
             else { mbt.ClaTien = "Null"; }
-            if (!Convert.IsDBNull(lector["Nombre"])) { mbt.Nombre = lector["Nmobre"].ToString(); }
+            if (!Convert.IsDBNull(lector["Nombre"])) { mbt.Nombre = lector["Nombre"].ToString(); }
             else { mbt.Nombre = "Null"; }
 
             return mbt;

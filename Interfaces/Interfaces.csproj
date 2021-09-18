@@ -65,6 +65,7 @@
       <DependentUpon>Cargando.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica\LogicaSesion.cs" />
+    <Compile Include="Logica\LogicaPrincipal.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
