@@ -93,7 +93,7 @@ namespace Interfaces
             }else if (y.Contains("iniciada"))
             {
                 MessageBox.Show(y, "¡ M e n s a j e !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lg.CerrarSesiones(txtUsuario);
+                lg.CerrarSesiones(txtUsuario.Text);
             }
             else
             {

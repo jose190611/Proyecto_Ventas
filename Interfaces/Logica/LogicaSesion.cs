@@ -17,10 +17,10 @@ namespace Interfaces.Logica
             return x;
         }
 
-        public string CerrarSesiones(TextBox usuario)
+        public string CerrarSesiones(string usuario)
         {
             Sesiones se = new Sesiones();
-            var x = se.CerrarSesion(usuario.Text);
+            var x = se.CerrarSesion(usuario);
             return x;
         }
     }
