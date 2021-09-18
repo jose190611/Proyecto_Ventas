@@ -16,3 +16,13 @@ C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Modelos\obj\Debug\net
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.csproj.CoreCompileInputs.cache
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.dll
 C:\Users\silvi.DESKTOP-J7MR0VK\source\repos\Sistema_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.pdb
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\bin\Debug\netstandard2.0\Modelos.deps.json
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\bin\Debug\netstandard2.0\Modelos.dll
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\bin\Debug\netstandard2.0\Modelos.pdb
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.csproj.AssemblyReference.cache
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.AssemblyInfoInputs.cache
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.AssemblyInfo.cs
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.dll
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Modelos\obj\Debug\netstandard2.0\Modelos.pdb

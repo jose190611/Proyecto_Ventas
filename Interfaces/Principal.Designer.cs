@@ -31,14 +31,14 @@ namespace Interfaces
         {
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelHerramientas = new System.Windows.Forms.Panel();
-            this.pbCerrar = new FontAwesome.Sharp.IconPictureBox();
-            this.pbMinimizar = new FontAwesome.Sharp.IconPictureBox();
             this.pbMaximizar = new FontAwesome.Sharp.IconPictureBox();
+            this.pbMinimizar = new FontAwesome.Sharp.IconPictureBox();
+            this.pbCerrar = new FontAwesome.Sharp.IconPictureBox();
             this.panelPrincipal.SuspendLayout();
             this.panelHerramientas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelPrincipal
@@ -63,23 +63,23 @@ namespace Interfaces
             this.panelHerramientas.Size = new System.Drawing.Size(1264, 25);
             this.panelHerramientas.TabIndex = 0;
             // 
-            // pbCerrar
+            // pbMaximizar
             // 
-            this.pbCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
-            this.pbCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(5)))), ((int)(((byte)(1)))));
-            this.pbCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
-            this.pbCerrar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(5)))), ((int)(((byte)(1)))));
-            this.pbCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pbCerrar.IconSize = 25;
-            this.pbCerrar.Location = new System.Drawing.Point(1227, 0);
-            this.pbCerrar.Name = "pbCerrar";
-            this.pbCerrar.Size = new System.Drawing.Size(25, 25);
-            this.pbCerrar.TabIndex = 1;
-            this.pbCerrar.TabStop = false;
-            this.pbCerrar.Click += new System.EventHandler(this.pbCerrar_Click);
-            this.pbCerrar.MouseLeave += new System.EventHandler(this.pbCerrar_MouseLeave);
-            this.pbCerrar.MouseHover += new System.EventHandler(this.pbCerrar_MouseHover);
+            this.pbMaximizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
+            this.pbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbMaximizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(6)))));
+            this.pbMaximizar.IconChar = FontAwesome.Sharp.IconChar.Clone;
+            this.pbMaximizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(6)))));
+            this.pbMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pbMaximizar.IconSize = 25;
+            this.pbMaximizar.Location = new System.Drawing.Point(1186, 0);
+            this.pbMaximizar.Name = "pbMaximizar";
+            this.pbMaximizar.Size = new System.Drawing.Size(25, 25);
+            this.pbMaximizar.TabIndex = 3;
+            this.pbMaximizar.TabStop = false;
+            this.pbMaximizar.Click += new System.EventHandler(this.pbMaximizar_Click);
+            this.pbMaximizar.MouseLeave += new System.EventHandler(this.pbMaximizar_MouseLeave);
+            this.pbMaximizar.MouseHover += new System.EventHandler(this.pbMaximizar_MouseHover);
             // 
             // pbMinimizar
             // 
@@ -99,39 +99,42 @@ namespace Interfaces
             this.pbMinimizar.MouseLeave += new System.EventHandler(this.pbMinimizar_MouseLeave);
             this.pbMinimizar.MouseHover += new System.EventHandler(this.pbMinimizar_MouseHover);
             // 
-            // pbMaximizar
+            // pbCerrar
             // 
-            this.pbMaximizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
-            this.pbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMaximizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(6)))));
-            this.pbMaximizar.IconChar = FontAwesome.Sharp.IconChar.Clone;
-            this.pbMaximizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(6)))));
-            this.pbMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pbMaximizar.IconSize = 25;
-            this.pbMaximizar.Location = new System.Drawing.Point(1186, 0);
-            this.pbMaximizar.Name = "pbMaximizar";
-            this.pbMaximizar.Size = new System.Drawing.Size(25, 25);
-            this.pbMaximizar.TabIndex = 3;
-            this.pbMaximizar.TabStop = false;
-            this.pbMaximizar.Click += new System.EventHandler(this.pbMaximizar_Click);
-            this.pbMaximizar.MouseLeave += new System.EventHandler(this.pbMaximizar_MouseLeave);
-            this.pbMaximizar.MouseHover += new System.EventHandler(this.pbMaximizar_MouseHover);
+            this.pbCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
+            this.pbCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(5)))), ((int)(((byte)(1)))));
+            this.pbCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
+            this.pbCerrar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(5)))), ((int)(((byte)(1)))));
+            this.pbCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pbCerrar.IconSize = 25;
+            this.pbCerrar.Location = new System.Drawing.Point(1227, 0);
+            this.pbCerrar.Name = "pbCerrar";
+            this.pbCerrar.Size = new System.Drawing.Size(25, 25);
+            this.pbCerrar.TabIndex = 1;
+            this.pbCerrar.TabStop = false;
+            this.pbCerrar.Click += new System.EventHandler(this.pbCerrar_Click);
+            this.pbCerrar.MouseLeave += new System.EventHandler(this.pbCerrar_MouseLeave);
+            this.pbCerrar.MouseHover += new System.EventHandler(this.pbCerrar_MouseHover);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ControlBox = false;
             this.Controls.Add(this.panelPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "Principal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.Load += new System.EventHandler(this.Principal_Load);
             this.panelPrincipal.ResumeLayout(false);
             this.panelHerramientas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }

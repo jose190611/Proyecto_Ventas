@@ -24,7 +24,7 @@ namespace Interfaces
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void pbCerrar_MouseHover(object sender, EventArgs e)

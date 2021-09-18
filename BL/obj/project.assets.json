@@ -907,24 +907,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ALONSO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\BL\\BL.csproj",
+      "projectUniqueName": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\BL\\BL.csproj",
       "projectName": "BL",
-      "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\BL\\BL.csproj",
-      "packagesPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\BL\\obj\\",
+      "projectPath": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\BL\\BL.csproj",
+      "packagesPath": "C:\\Users\\ALONSO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\BL\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\silvi.DESKTOP-J7MR0VK\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ALONSO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -938,11 +933,11 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "projectReferences": {
-            "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\Acceso.csproj": {
-              "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Acceso\\Acceso.csproj"
+            "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\Acceso\\Acceso.csproj": {
+              "projectPath": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\Acceso\\Acceso.csproj"
             },
-            "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Modelos\\Modelos.csproj": {
-              "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\source\\repos\\Sistema_Ventas\\Modelos\\Modelos.csproj"
+            "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\Modelos\\Modelos.csproj": {
+              "projectPath": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\Modelos\\Modelos.csproj"
             }
           }
         }
@@ -974,7 +969,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
