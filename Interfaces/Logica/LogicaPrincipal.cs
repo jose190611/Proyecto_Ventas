@@ -16,11 +16,11 @@ namespace Interfaces.Logica
         {
             TableroBL tab = new TableroBL();
 
-            var x = tab.ConsultaTablero(usuario.Text);
-            user.Text = x.ElementAt(0).ToString();
-            Tipo.Text = x.ElementAt(1).ToString();
-            Nombre.Text = x.ElementAt(2).ToString();
-            var i = Encoding.ASCII.GetBytes(x.ElementAt(3).ToString());
+            var x = tab.ConsultaTablero(usuario.Text);// Obtenemos la lista de la consulta
+            user.Text = x.ElementAt(0).ToString();// Obtenemos primer elemento de la lista
+            Tipo.Text = x.ElementAt(1).ToString(); // Segundo elemento
+            Nombre.Text = x.ElementAt(2).ToString(); // Tercer elemento 
+            var i = Encoding.ASCII.GetBytes(x.ElementAt(3).ToString()); // Cuarto elemento transformado a Bytes
             //----------Convertir arreglo de byte a imagen en picture box-----------------------
             byte[] imagen = i;
             Bitmap imagenes;

@@ -20,6 +20,7 @@ namespace Interfaces
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             #endregion
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void Principal_Load(object sender, EventArgs e)
