@@ -10,7 +10,8 @@ namespace AccesoBD.Acceso
 {
     public class Tablero
     {
-        public List <ModeloTablero> Consultar (ModeloTablero tablero)
+
+        public List<ModeloTablero> Consultar(ModeloTablero tablero)
         {
             string procedimiento = "SP_Tablero";
             List<ModeloTablero> tab = new List<ModeloTablero>();
@@ -38,7 +39,7 @@ namespace AccesoBD.Acceso
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -48,7 +49,7 @@ namespace AccesoBD.Acceso
         public ModeloTablero ObtenerUnaSolaFila(SqlDataReader lector)
         {
             ModeloTablero tablero = new ModeloTablero();
-
+            
             if (!Convert.IsDBNull(lector["Usuario"])) { tablero.Usuario = lector["Usuario"].ToString(); }
             else { tablero.Usuario = "Usuario no encontrado"; }
             if (!Convert.IsDBNull(lector["Tipo"])) { tablero.Tipo = lector["Tipo"].ToString(); }
@@ -61,7 +62,7 @@ namespace AccesoBD.Acceso
             return tablero;
         }
 
-        public List<ModeloTablero> ObtenerFilas (SqlDataReader lector)
+        public List<ModeloTablero> ObtenerFilas(SqlDataReader lector)
         {
             List<ModeloTablero> lista = new List<ModeloTablero>();
             if (lector != null)
@@ -76,4 +77,5 @@ namespace AccesoBD.Acceso
         }
         #endregion
     }
+        
 }

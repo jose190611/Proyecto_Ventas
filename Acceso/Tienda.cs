@@ -5,6 +5,8 @@ using System.Data;
 using System.Data.SqlClient;
 using AccesoBD.Modelos;
 using AccesoBD.Conexion;
+using System.Runtime.InteropServices;
+using System.IO;
 
 //---------------------------------------------------------------------------------------------------------------------
 // Autor: Jose Antonio Reyes A.           Descripción: Código CRUD Tienda para transacción de datos a la BD
@@ -210,6 +212,7 @@ namespace AccesoBD.Acceso
 
         private ModeloTiendas ObtenerUnaFila(SqlDataReader lector)
         {
+            
             ModeloTiendas tienda = new ModeloTiendas();
 
             if (!Convert.IsDBNull(lector["ClaTien"])) { tienda.ClaTien = lector["ClaTien"].ToString(); }

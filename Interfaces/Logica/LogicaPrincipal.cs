@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio.BL;
+using FontAwesome.Sharp;
 
 namespace Interfaces.Logica
 {
@@ -14,24 +15,49 @@ namespace Interfaces.Logica
     {
         public void ConsultaUsuarioTablero(TextBox usuario, Label user, Label Tipo, Label Nombre, PictureBox Img)
         {
+            var i = Encoding.ASCII.GetBytes("");
             TableroBL tab = new TableroBL();
-
-            var x = tab.ConsultaTablero(usuario.Text);// Obtenemos la lista de la consulta
-            user.Text = x.ElementAt(0).ToString();// Obtenemos primer elemento de la lista
-            Tipo.Text = x.ElementAt(1).ToString(); // Segundo elemento
-            Nombre.Text = x.ElementAt(2).ToString(); // Tercer elemento 
-            var i = Encoding.ASCII.GetBytes(x.ElementAt(3).ToString()); // Cuarto elemento transformado a Bytes
-            //----------Convertir arreglo de byte a imagen en picture box-----------------------
-            byte[] imagen = i;
-            Bitmap imagenes;
-            using (MemoryStream memoria = new MemoryStream(imagen))
+            var lista = tab.ConsultaTablero(usuario.Text);
+            foreach (var x in lista)
             {
-                imagenes = new Bitmap(memoria);
+                user.Text = x.Usuario;
+                Tipo.Text = x.Tipo;
+                Nombre.Text = x.Nombre;
+                //i = x.Imagen;
             }
-            //----------------------------------------------------------------------------------
-            //-----> Insertar imagen al picture box
-            Img.Image = imagenes;
-            Img.BackgroundImageLayout = ImageLayout.Stretch;//Establecer el layout para visualizar imagen completa
+            
+        }
+
+        public void ReducirMenu(IconButton b, Panel p, Timer t)
+        {
+            while (t.Enabled)//Ciclo iterativo que funcionará mientras el timer esté activo
+            {
+                p.Width -= 1;//Por cada tick del timer se reducirá en 1 el largo del panel
+                if (p.Width == 50)// cuando llegue a 50 hará lo siguiente
+                {
+                    p.Width = 50;
+                    b.IconChar = IconChar.AngleDoubleRight;//Cambiar ícono del botón
+                    b.IconColor = Color.DarkBlue;
+                    b.Location = new Point(60,31);//Nueva posicion del Botón menu
+                    t.Enabled = false;//Deshabilitar el timer
+                }                  
+            }
+        }
+
+        public void AmpliarMenu(IconButton b , Panel p, Timer t)
+        {
+            while(t.Enabled)//Ciclo iterativo que funcionará mientras el timer esté activo
+            {
+                p.Width += 1;//Por cada tick del timer el largo se sumara en 1
+                if (p.Width == 200)// Cuando llegue a 200 px hará lo siguiente
+                {
+                    p.Width = 200;
+                    b.IconChar = IconChar.AngleDoubleLeft;//Cambiar ícono del boton menu
+                    b.IconColor = Color.DarkBlue;
+                    b.Location = new Point(206, 31);//Nueva posición del botón
+                    t.Enabled = false;//Deshabilitar el timer
+                }
+            }
         }
     }
 }

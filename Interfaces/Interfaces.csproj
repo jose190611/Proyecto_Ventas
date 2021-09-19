@@ -64,6 +64,7 @@
     <Compile Include="Cargando.Designer.cs">
       <DependentUpon>Cargando.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logica\ConvertidorImagen.cs" />
     <Compile Include="Logica\LogicaSesion.cs" />
     <Compile Include="Logica\LogicaPrincipal.cs" />
     <Compile Include="Principal.cs">
