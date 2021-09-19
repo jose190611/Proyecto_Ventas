@@ -14,9 +14,6 @@ namespace Interfaces
 {
     public partial class Principal : Form
     {
-<<<<<<< HEAD
-
-=======
         #region MoverForm
         //--------------------Movimiento de formulario sin bordes-----------------------------------------
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -25,7 +22,6 @@ namespace Interfaces
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         //------------------------------------------------------------------------------------------------
         #endregion 
->>>>>>> master
         public Principal()
         {
             InitializeComponent();
@@ -120,9 +116,6 @@ namespace Interfaces
             pbMinimizar.IconColor = Color.FromArgb(51, 241, 5);
         }
 
-<<<<<<< HEAD
-    }
-=======
         private void btnmenu_Click(object sender, EventArgs e)
         {
             timermenu.Start();
@@ -165,5 +158,4 @@ namespace Interfaces
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }    
->>>>>>> master
 }

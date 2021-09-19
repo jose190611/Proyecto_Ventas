@@ -35,8 +35,6 @@ namespace Interfaces
             this.pbMaximizar = new FontAwesome.Sharp.IconPictureBox();
             this.pbMinimizar = new FontAwesome.Sharp.IconPictureBox();
             this.pbCerrar = new FontAwesome.Sharp.IconPictureBox();
-<<<<<<< HEAD
-=======
             this.panelmenu = new System.Windows.Forms.Panel();
             this.timermenu = new System.Windows.Forms.Timer(this.components);
             this.tiempoMenu = new System.Windows.Forms.Timer(this.components);
@@ -54,19 +52,15 @@ namespace Interfaces
             this.lbltipo = new System.Windows.Forms.Label();
             this.btnmenu = new FontAwesome.Sharp.IconButton();
             this.lblUsuario = new System.Windows.Forms.Label();
->>>>>>> master
             this.panelPrincipal.SuspendLayout();
             this.panelHerramientas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).BeginInit();
-<<<<<<< HEAD
-=======
             this.panelmenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFototienda)).BeginInit();
             this.paneltablero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoEmpleado)).BeginInit();
->>>>>>> master
             this.SuspendLayout();
             // 
             // panelPrincipal
@@ -99,24 +93,21 @@ namespace Interfaces
             // 
             // pbMaximizar
             // 
-<<<<<<< HEAD
+
 
             this.pbMaximizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
-=======
+
             this.pbMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbMaximizar.BackColor = System.Drawing.Color.Transparent;
->>>>>>> master
             this.pbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMaximizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(6)))));
             this.pbMaximizar.IconChar = FontAwesome.Sharp.IconChar.Clone;
             this.pbMaximizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(6)))));
             this.pbMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.pbMaximizar.IconSize = 25;
-<<<<<<< HEAD
+
             this.pbMaximizar.Location = new System.Drawing.Point(1186, 0);
-=======
             this.pbMaximizar.Location = new System.Drawing.Point(1182, 0);
->>>>>>> master
             this.pbMaximizar.Name = "pbMaximizar";
             this.pbMaximizar.Size = new System.Drawing.Size(25, 25);
             this.pbMaximizar.TabIndex = 3;
@@ -124,7 +115,6 @@ namespace Interfaces
             this.pbMaximizar.Click += new System.EventHandler(this.pbMaximizar_Click);
             this.pbMaximizar.MouseLeave += new System.EventHandler(this.pbMaximizar_MouseLeave);
             this.pbMaximizar.MouseHover += new System.EventHandler(this.pbMaximizar_MouseHover);
-<<<<<<< HEAD
 
             this.pbCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
@@ -143,8 +133,6 @@ namespace Interfaces
             this.pbCerrar.MouseLeave += new System.EventHandler(this.pbCerrar_MouseLeave);
             this.pbCerrar.MouseHover += new System.EventHandler(this.pbCerrar_MouseHover);
 
-=======
->>>>>>> master
             // 
             // pbMinimizar
             // 
@@ -167,24 +155,18 @@ namespace Interfaces
             // 
             // pbCerrar
             // 
-<<<<<<< HEAD
 
             this.pbCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
-=======
             this.pbCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbCerrar.BackColor = System.Drawing.Color.Transparent;
->>>>>>> master
             this.pbCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(5)))), ((int)(((byte)(1)))));
             this.pbCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
             this.pbCerrar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(5)))), ((int)(((byte)(1)))));
             this.pbCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.pbCerrar.IconSize = 25;
-<<<<<<< HEAD
             this.pbCerrar.Location = new System.Drawing.Point(1227, 0);
-=======
             this.pbCerrar.Location = new System.Drawing.Point(1223, 0);
->>>>>>> master
             this.pbCerrar.Name = "pbCerrar";
             this.pbCerrar.Size = new System.Drawing.Size(25, 25);
             this.pbCerrar.TabIndex = 1;
@@ -192,8 +174,6 @@ namespace Interfaces
             this.pbCerrar.Click += new System.EventHandler(this.pbCerrar_Click);
             this.pbCerrar.MouseLeave += new System.EventHandler(this.pbCerrar_MouseLeave);
             this.pbCerrar.MouseHover += new System.EventHandler(this.pbCerrar_MouseHover);
-<<<<<<< HEAD
-
             this.pbMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbMaximizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(46)))), ((int)(((byte)(225)))));
             this.pbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -211,7 +191,7 @@ namespace Interfaces
             this.pbMaximizar.MouseLeave += new System.EventHandler(this.pbMaximizar_MouseLeave);
             this.pbMaximizar.MouseHover += new System.EventHandler(this.pbMaximizar_MouseHover);
 
-=======
+
             // 
             // panelmenu
             // 
@@ -412,7 +392,6 @@ namespace Interfaces
             this.lblUsuario.Size = new System.Drawing.Size(47, 15);
             this.lblUsuario.TabIndex = 3;
             this.lblUsuario.Text = "Usuario";
->>>>>>> master
             // 
             // Principal
             // 
@@ -434,14 +413,11 @@ namespace Interfaces
             ((System.ComponentModel.ISupportInitialize)(this.pbMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).EndInit();
-<<<<<<< HEAD
-=======
             this.panelmenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFototienda)).EndInit();
             this.paneltablero.ResumeLayout(false);
             this.paneltablero.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoEmpleado)).EndInit();
->>>>>>> master
             this.ResumeLayout(false);
 
         }
