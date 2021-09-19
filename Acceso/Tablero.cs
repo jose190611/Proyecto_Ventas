@@ -5,12 +5,12 @@ using AccesoBD.Modelos;
 using System.Data.SqlClient;
 using System.Data;
 using AccesoBD.Conexion;
-using System.IO;
 
 namespace AccesoBD.Acceso
 {
     public class Tablero
     {
+
         public List<ModeloTablero> Consultar(ModeloTablero tablero)
         {
             string procedimiento = "SP_Tablero";
@@ -49,7 +49,7 @@ namespace AccesoBD.Acceso
         public ModeloTablero ObtenerUnaSolaFila(SqlDataReader lector)
         {
             ModeloTablero tablero = new ModeloTablero();
-
+            
             if (!Convert.IsDBNull(lector["Usuario"])) { tablero.Usuario = lector["Usuario"].ToString(); }
             else { tablero.Usuario = "Usuario no encontrado"; }
             if (!Convert.IsDBNull(lector["Tipo"])) { tablero.Tipo = lector["Tipo"].ToString(); }

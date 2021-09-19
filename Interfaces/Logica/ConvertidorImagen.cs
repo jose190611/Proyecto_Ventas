@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Drawing.Imaging;
+using System.Drawing;
 
 namespace AccesoBD.Modelos
 {
     public class ConvertidorImagen
     {
+        ConvertidorImagen i = new ConvertidorImagen();
         public byte[] imageToByteArray(System.Drawing.Image imageIn)
         {
             MemoryStream ms = new MemoryStream();

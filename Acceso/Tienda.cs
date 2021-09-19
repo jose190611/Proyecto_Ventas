@@ -212,6 +212,7 @@ namespace AccesoBD.Acceso
 
         private ModeloTiendas ObtenerUnaFila(SqlDataReader lector)
         {
+            
             ModeloTiendas tienda = new ModeloTiendas();
 
             if (!Convert.IsDBNull(lector["ClaTien"])) { tienda.ClaTien = lector["ClaTien"].ToString(); }
