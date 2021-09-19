@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,14 @@ namespace Interfaces
 {
     public partial class Principal : Form
     {
+        #region MoverForm
+        //--------------------Movimiento de formulario sin bordes-----------------------------------------
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        //------------------------------------------------------------------------------------------------
+        #endregion 
         public Principal()
         {
             InitializeComponent();
@@ -22,6 +31,7 @@ namespace Interfaces
             this.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width,Screen.PrimaryScreen.WorkingArea.Height);
             #endregion
             this.FormBorderStyle = FormBorderStyle.None;
+            this.Dock = DockStyle.Fill;
         }
 
         private void Principal_Load(object sender, EventArgs e)
@@ -51,9 +61,20 @@ namespace Interfaces
 
         private void pbMaximizar_Click(object sender, EventArgs e)
         {
-            var workingArea = Screen.FromHandle(Handle).WorkingArea;
-            MaximizedBounds = new Rectangle(0, 0, workingArea.Width, workingArea.Height);
-            this.WindowState = FormWindowState.Maximized;
+            if (WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                pbMaximizar.IconChar = FontAwesome.Sharp.IconChar.Clone;
+
+            }else if (WindowState != FormWindowState.Maximized)
+            {
+                var workingArea = Screen.FromHandle(Handle).WorkingArea;
+                MaximizedBounds = new Rectangle(0, 0, workingArea.Width, workingArea.Height);
+                this.WindowState = FormWindowState.Maximized;
+                pbMaximizar.IconChar = FontAwesome.Sharp.IconChar.CompressAlt;
+
+            }
+
         }
 
         private void pbMinimizar_Click(object sender, EventArgs e)
@@ -91,5 +112,47 @@ namespace Interfaces
             pbMinimizar.BackColor = Color.Transparent;
             pbMinimizar.IconColor = Color.FromArgb(51, 241, 5);
         }
-    }
+
+        private void btnmenu_Click(object sender, EventArgs e)
+        {
+            timermenu.Start();
+        }
+
+        private void timermenu_Tick(object sender, EventArgs e)
+        {
+
+            if (panelmenu.Width == 200)
+            {
+                LogicaPrincipal p = new LogicaPrincipal();
+                p.ReducirMenu(btnmenu, panelmenu, timermenu);
+
+            }
+            else if (panelmenu.Width == 50)
+            {
+                LogicaPrincipal p = new LogicaPrincipal();
+                p.AmpliarMenu(btnmenu, panelmenu,timermenu);
+            }
+        }
+
+        #region RevisarEsteCodigo
+        private void tiempoMenu_Tick(object sender, EventArgs e)
+        {
+            LogicaPrincipal p = new LogicaPrincipal();
+            p.ReducirMenu(btnmenu, panelmenu, timermenu);
+            tiempoMenu.Stop();
+        }
+
+        private void panelmenu_MouseLeave(object sender, EventArgs e)
+        {
+            if (panelmenu.Width == 200)
+                tiempoMenu.Enabled = true;
+        }
+        #endregion
+
+        private void panelHerramientas_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+    }    
 }

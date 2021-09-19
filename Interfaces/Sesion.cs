@@ -98,7 +98,9 @@ namespace Interfaces
             else
             {
                 this.Hide();
+                //LogicaPrincipal princ = new LogicaPrincipal();
                 Principal p = new Principal();
+                //princ.ConsultaUsuarioTablero(txtUsuario,p.lblUsuario,p.lbltipo,p.lblNombre,p.pbFotoEmpleado);
                 p.Show();                
             }
         }
