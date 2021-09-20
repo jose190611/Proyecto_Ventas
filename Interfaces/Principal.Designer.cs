@@ -53,6 +53,7 @@ namespace Interfaces
             this.timermenu = new System.Windows.Forms.Timer(this.components);
             this.tiempoMenu = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbAmpliarForm = new FontAwesome.Sharp.IconPictureBox();
             this.panelPrincipal.SuspendLayout();
             this.panelmenu.SuspendLayout();
             this.paneltablero.SuspendLayout();
@@ -63,6 +64,7 @@ namespace Interfaces
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAmpliarForm)).BeginInit();
             this.SuspendLayout();
             // 
             // panelPrincipal
@@ -352,12 +354,27 @@ namespace Interfaces
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pbAmpliarForm);
             this.panel1.Controls.Add(this.btnmenu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(200, 25);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1064, 656);
             this.panel1.TabIndex = 2;
+            // 
+            // pbAmpliarForm
+            // 
+            this.pbAmpliarForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            this.pbAmpliarForm.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pbAmpliarForm.IconChar = FontAwesome.Sharp.IconChar.Github;
+            this.pbAmpliarForm.IconColor = System.Drawing.SystemColors.ControlText;
+            this.pbAmpliarForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pbAmpliarForm.IconSize = 20;
+            this.pbAmpliarForm.Location = new System.Drawing.Point(1044, 636);
+            this.pbAmpliarForm.Name = "pbAmpliarForm";
+            this.pbAmpliarForm.Size = new System.Drawing.Size(20, 20);
+            this.pbAmpliarForm.TabIndex = 1;
+            this.pbAmpliarForm.TabStop = false;
             // 
             // Principal
             // 
@@ -382,6 +399,7 @@ namespace Interfaces
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAmpliarForm)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -411,5 +429,6 @@ namespace Interfaces
         public System.Windows.Forms.PictureBox pbFotoEmpleado;
         public System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconPictureBox pbAmpliarForm;
     }
 }
