@@ -32,13 +32,13 @@ namespace Interfaces.Logica
         {
             while (t.Enabled)//Ciclo iterativo que funcionará mientras el timer esté activo
             {
-                p.Width -= 1;//Por cada tick del timer se reducirá en 1 el largo del panel
+                p.Width -= 2;//Por cada tick del timer se reducirá en 1 el largo del panel
                 if (p.Width == 50)// cuando llegue a 50 hará lo siguiente
                 {
                     p.Width = 50;
                     b.IconChar = IconChar.AngleDoubleRight;//Cambiar ícono del botón
                     b.IconColor = Color.DarkBlue;
-                    b.Location = new Point(60,31);//Nueva posicion del Botón menu
+                    b.Location = new Point(10,6);//Nueva posicion del Botón menu
                     t.Enabled = false;//Deshabilitar el timer
                 }                  
             }
@@ -48,13 +48,13 @@ namespace Interfaces.Logica
         {
             while(t.Enabled)//Ciclo iterativo que funcionará mientras el timer esté activo
             {
-                p.Width += 1;//Por cada tick del timer el largo se sumara en 1
+                p.Width += 2;//Por cada tick del timer el largo se sumara en 1
                 if (p.Width == 200)// Cuando llegue a 200 px hará lo siguiente
                 {
                     p.Width = 200;
                     b.IconChar = IconChar.AngleDoubleLeft;//Cambiar ícono del boton menu
                     b.IconColor = Color.DarkBlue;
-                    b.Location = new Point(206, 31);//Nueva posición del botón
+                    b.Location = new Point(10, 6);//Nueva posición del botón
                     t.Enabled = false;//Deshabilitar el timer
                 }
             }

@@ -31,36 +31,38 @@ namespace Interfaces
         {
             this.components = new System.ComponentModel.Container();
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.btnmenu = new FontAwesome.Sharp.IconButton();
+            this.panelmenu = new System.Windows.Forms.Panel();
+            this.paneltablero = new System.Windows.Forms.Panel();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lbltipo = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.pbFotoEmpleado = new System.Windows.Forms.PictureBox();
+            this.iconButton7 = new FontAwesome.Sharp.IconButton();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.pbFototienda = new System.Windows.Forms.PictureBox();
             this.panelHerramientas = new System.Windows.Forms.Panel();
             this.pbMaximizar = new FontAwesome.Sharp.IconPictureBox();
             this.pbMinimizar = new FontAwesome.Sharp.IconPictureBox();
             this.pbCerrar = new FontAwesome.Sharp.IconPictureBox();
-            this.panelmenu = new System.Windows.Forms.Panel();
             this.timermenu = new System.Windows.Forms.Timer(this.components);
             this.tiempoMenu = new System.Windows.Forms.Timer(this.components);
-            this.pbFototienda = new System.Windows.Forms.PictureBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.iconButton7 = new FontAwesome.Sharp.IconButton();
-            this.paneltablero = new System.Windows.Forms.Panel();
-            this.pbFotoEmpleado = new System.Windows.Forms.PictureBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lbltipo = new System.Windows.Forms.Label();
-            this.btnmenu = new FontAwesome.Sharp.IconButton();
-            this.lblUsuario = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelPrincipal.SuspendLayout();
+            this.panelmenu.SuspendLayout();
+            this.paneltablero.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoEmpleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFototienda)).BeginInit();
             this.panelHerramientas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).BeginInit();
-            this.panelmenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFototienda)).BeginInit();
-            this.paneltablero.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoEmpleado)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelPrincipal
@@ -69,13 +71,203 @@ namespace Interfaces
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.panelPrincipal.Controls.Add(this.btnmenu);
+            this.panelPrincipal.Controls.Add(this.panel1);
             this.panelPrincipal.Controls.Add(this.panelmenu);
             this.panelPrincipal.Controls.Add(this.panelHerramientas);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(1264, 681);
             this.panelPrincipal.TabIndex = 0;
+            // 
+            // btnmenu
+            // 
+            this.btnmenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnmenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnmenu.FlatAppearance.BorderSize = 0;
+            this.btnmenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnmenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmenu.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft;
+            this.btnmenu.IconColor = System.Drawing.Color.DarkBlue;
+            this.btnmenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnmenu.IconSize = 27;
+            this.btnmenu.Location = new System.Drawing.Point(10, 6);
+            this.btnmenu.Name = "btnmenu";
+            this.btnmenu.Padding = new System.Windows.Forms.Padding(3);
+            this.btnmenu.Size = new System.Drawing.Size(30, 30);
+            this.btnmenu.TabIndex = 0;
+            this.btnmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnmenu.UseVisualStyleBackColor = false;
+            this.btnmenu.Click += new System.EventHandler(this.btnmenu_Click);
+            // 
+            // panelmenu
+            // 
+            this.panelmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(165)))), ((int)(((byte)(173)))));
+            this.panelmenu.Controls.Add(this.paneltablero);
+            this.panelmenu.Controls.Add(this.iconButton7);
+            this.panelmenu.Controls.Add(this.iconButton6);
+            this.panelmenu.Controls.Add(this.iconButton5);
+            this.panelmenu.Controls.Add(this.iconButton4);
+            this.panelmenu.Controls.Add(this.iconButton3);
+            this.panelmenu.Controls.Add(this.iconButton2);
+            this.panelmenu.Controls.Add(this.iconButton1);
+            this.panelmenu.Controls.Add(this.pbFototienda);
+            this.panelmenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelmenu.Location = new System.Drawing.Point(0, 25);
+            this.panelmenu.Name = "panelmenu";
+            this.panelmenu.Size = new System.Drawing.Size(200, 656);
+            this.panelmenu.TabIndex = 1;
+            this.panelmenu.MouseLeave += new System.EventHandler(this.panelmenu_MouseLeave);
+            // 
+            // paneltablero
+            // 
+            this.paneltablero.Controls.Add(this.lblUsuario);
+            this.paneltablero.Controls.Add(this.lbltipo);
+            this.paneltablero.Controls.Add(this.lblNombre);
+            this.paneltablero.Controls.Add(this.pbFotoEmpleado);
+            this.paneltablero.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.paneltablero.Location = new System.Drawing.Point(0, 556);
+            this.paneltablero.Name = "paneltablero";
+            this.paneltablero.Size = new System.Drawing.Size(200, 100);
+            this.paneltablero.TabIndex = 8;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(98, 8);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(47, 15);
+            this.lblUsuario.TabIndex = 3;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // lbltipo
+            // 
+            this.lbltipo.AutoSize = true;
+            this.lbltipo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltipo.Location = new System.Drawing.Point(98, 75);
+            this.lbltipo.Name = "lbltipo";
+            this.lbltipo.Size = new System.Drawing.Size(29, 15);
+            this.lbltipo.TabIndex = 2;
+            this.lbltipo.Text = "Tipo";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(98, 42);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(50, 15);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // pbFotoEmpleado
+            // 
+            this.pbFotoEmpleado.Location = new System.Drawing.Point(12, 8);
+            this.pbFotoEmpleado.Name = "pbFotoEmpleado";
+            this.pbFotoEmpleado.Size = new System.Drawing.Size(80, 80);
+            this.pbFotoEmpleado.TabIndex = 0;
+            this.pbFotoEmpleado.TabStop = false;
+            // 
+            // iconButton7
+            // 
+            this.iconButton7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton7.IconColor = System.Drawing.Color.Black;
+            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton7.Location = new System.Drawing.Point(0, 400);
+            this.iconButton7.Name = "iconButton7";
+            this.iconButton7.Size = new System.Drawing.Size(200, 50);
+            this.iconButton7.TabIndex = 7;
+            this.iconButton7.Text = "iconButton7";
+            this.iconButton7.UseVisualStyleBackColor = true;
+            // 
+            // iconButton6
+            // 
+            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton6.IconColor = System.Drawing.Color.Black;
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.Location = new System.Drawing.Point(0, 350);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(200, 50);
+            this.iconButton6.TabIndex = 6;
+            this.iconButton6.Text = "iconButton6";
+            this.iconButton6.UseVisualStyleBackColor = true;
+            // 
+            // iconButton5
+            // 
+            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton5.IconColor = System.Drawing.Color.Black;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.Location = new System.Drawing.Point(0, 300);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(200, 50);
+            this.iconButton5.TabIndex = 5;
+            this.iconButton5.Text = "iconButton5";
+            this.iconButton5.UseVisualStyleBackColor = true;
+            // 
+            // iconButton4
+            // 
+            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton4.IconColor = System.Drawing.Color.Black;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.Location = new System.Drawing.Point(0, 250);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(200, 50);
+            this.iconButton4.TabIndex = 4;
+            this.iconButton4.Text = "iconButton4";
+            this.iconButton4.UseVisualStyleBackColor = true;
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton3.IconColor = System.Drawing.Color.Black;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.Location = new System.Drawing.Point(0, 200);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(200, 50);
+            this.iconButton3.TabIndex = 3;
+            this.iconButton3.Text = "iconButton3";
+            this.iconButton3.UseVisualStyleBackColor = true;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(0, 150);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(200, 50);
+            this.iconButton2.TabIndex = 2;
+            this.iconButton2.Text = "iconButton2";
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(0, 100);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(200, 50);
+            this.iconButton1.TabIndex = 1;
+            this.iconButton1.Text = "iconButton1";
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // pbFototienda
+            // 
+            this.pbFototienda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbFototienda.Location = new System.Drawing.Point(0, 0);
+            this.pbFototienda.Name = "pbFototienda";
+            this.pbFototienda.Size = new System.Drawing.Size(200, 100);
+            this.pbFototienda.TabIndex = 0;
+            this.pbFototienda.TabStop = false;
             // 
             // panelHerramientas
             // 
@@ -148,25 +340,6 @@ namespace Interfaces
             this.pbCerrar.MouseLeave += new System.EventHandler(this.pbCerrar_MouseLeave);
             this.pbCerrar.MouseHover += new System.EventHandler(this.pbCerrar_MouseHover);
             // 
-            // panelmenu
-            // 
-            this.panelmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(165)))), ((int)(((byte)(173)))));
-            this.panelmenu.Controls.Add(this.paneltablero);
-            this.panelmenu.Controls.Add(this.iconButton7);
-            this.panelmenu.Controls.Add(this.iconButton6);
-            this.panelmenu.Controls.Add(this.iconButton5);
-            this.panelmenu.Controls.Add(this.iconButton4);
-            this.panelmenu.Controls.Add(this.iconButton3);
-            this.panelmenu.Controls.Add(this.iconButton2);
-            this.panelmenu.Controls.Add(this.iconButton1);
-            this.panelmenu.Controls.Add(this.pbFototienda);
-            this.panelmenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelmenu.Location = new System.Drawing.Point(0, 25);
-            this.panelmenu.Name = "panelmenu";
-            this.panelmenu.Size = new System.Drawing.Size(200, 656);
-            this.panelmenu.TabIndex = 1;
-            this.panelmenu.MouseLeave += new System.EventHandler(this.panelmenu_MouseLeave);
-            // 
             // timermenu
             // 
             this.timermenu.Interval = 80;
@@ -177,176 +350,14 @@ namespace Interfaces
             this.tiempoMenu.Interval = 3000;
             this.tiempoMenu.Tick += new System.EventHandler(this.tiempoMenu_Tick);
             // 
-            // pbFototienda
+            // panel1
             // 
-            this.pbFototienda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pbFototienda.Location = new System.Drawing.Point(0, 0);
-            this.pbFototienda.Name = "pbFototienda";
-            this.pbFototienda.Size = new System.Drawing.Size(200, 100);
-            this.pbFototienda.TabIndex = 0;
-            this.pbFototienda.TabStop = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(0, 100);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(200, 50);
-            this.iconButton1.TabIndex = 1;
-            this.iconButton1.Text = "iconButton1";
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(0, 150);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(200, 50);
-            this.iconButton2.TabIndex = 2;
-            this.iconButton2.Text = "iconButton2";
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.Location = new System.Drawing.Point(0, 200);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(200, 50);
-            this.iconButton3.TabIndex = 3;
-            this.iconButton3.Text = "iconButton3";
-            this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton4.IconColor = System.Drawing.Color.Black;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.Location = new System.Drawing.Point(0, 250);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(200, 50);
-            this.iconButton4.TabIndex = 4;
-            this.iconButton4.Text = "iconButton4";
-            this.iconButton4.UseVisualStyleBackColor = true;
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton5.IconColor = System.Drawing.Color.Black;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.Location = new System.Drawing.Point(0, 300);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(200, 50);
-            this.iconButton5.TabIndex = 5;
-            this.iconButton5.Text = "iconButton5";
-            this.iconButton5.UseVisualStyleBackColor = true;
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton6.IconColor = System.Drawing.Color.Black;
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.Location = new System.Drawing.Point(0, 350);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(200, 50);
-            this.iconButton6.TabIndex = 6;
-            this.iconButton6.Text = "iconButton6";
-            this.iconButton6.UseVisualStyleBackColor = true;
-            // 
-            // iconButton7
-            // 
-            this.iconButton7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton7.IconColor = System.Drawing.Color.Black;
-            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.Location = new System.Drawing.Point(0, 400);
-            this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Size = new System.Drawing.Size(200, 50);
-            this.iconButton7.TabIndex = 7;
-            this.iconButton7.Text = "iconButton7";
-            this.iconButton7.UseVisualStyleBackColor = true;
-            // 
-            // paneltablero
-            // 
-            this.paneltablero.Controls.Add(this.lblUsuario);
-            this.paneltablero.Controls.Add(this.lbltipo);
-            this.paneltablero.Controls.Add(this.lblNombre);
-            this.paneltablero.Controls.Add(this.pbFotoEmpleado);
-            this.paneltablero.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.paneltablero.Location = new System.Drawing.Point(0, 556);
-            this.paneltablero.Name = "paneltablero";
-            this.paneltablero.Size = new System.Drawing.Size(200, 100);
-            this.paneltablero.TabIndex = 8;
-            // 
-            // pbFotoEmpleado
-            // 
-            this.pbFotoEmpleado.Location = new System.Drawing.Point(12, 8);
-            this.pbFotoEmpleado.Name = "pbFotoEmpleado";
-            this.pbFotoEmpleado.Size = new System.Drawing.Size(80, 80);
-            this.pbFotoEmpleado.TabIndex = 0;
-            this.pbFotoEmpleado.TabStop = false;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(98, 42);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(50, 15);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre";
-            // 
-            // lbltipo
-            // 
-            this.lbltipo.AutoSize = true;
-            this.lbltipo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltipo.Location = new System.Drawing.Point(98, 75);
-            this.lbltipo.Name = "lbltipo";
-            this.lbltipo.Size = new System.Drawing.Size(29, 15);
-            this.lbltipo.TabIndex = 2;
-            this.lbltipo.Text = "Tipo";
-            // 
-            // btnmenu
-            // 
-            this.btnmenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnmenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnmenu.FlatAppearance.BorderSize = 0;
-            this.btnmenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnmenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmenu.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft;
-            this.btnmenu.IconColor = System.Drawing.Color.DarkBlue;
-            this.btnmenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnmenu.IconSize = 27;
-            this.btnmenu.Location = new System.Drawing.Point(210, 31);
-            this.btnmenu.Name = "btnmenu";
-            this.btnmenu.Padding = new System.Windows.Forms.Padding(3);
-            this.btnmenu.Size = new System.Drawing.Size(30, 30);
-            this.btnmenu.TabIndex = 0;
-            this.btnmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnmenu.UseVisualStyleBackColor = false;
-            this.btnmenu.Click += new System.EventHandler(this.btnmenu_Click);
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(98, 8);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(47, 15);
-            this.lblUsuario.TabIndex = 3;
-            this.lblUsuario.Text = "Usuario";
+            this.panel1.Controls.Add(this.btnmenu);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(200, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1064, 656);
+            this.panel1.TabIndex = 2;
             // 
             // Principal
             // 
@@ -361,15 +372,16 @@ namespace Interfaces
             this.Text = "Principal";
             this.Load += new System.EventHandler(this.Principal_Load);
             this.panelPrincipal.ResumeLayout(false);
+            this.panelmenu.ResumeLayout(false);
+            this.paneltablero.ResumeLayout(false);
+            this.paneltablero.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoEmpleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFototienda)).EndInit();
             this.panelHerramientas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).EndInit();
-            this.panelmenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbFototienda)).EndInit();
-            this.paneltablero.ResumeLayout(false);
-            this.paneltablero.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoEmpleado)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -398,5 +410,6 @@ namespace Interfaces
         public System.Windows.Forms.Label lblNombre;
         public System.Windows.Forms.PictureBox pbFotoEmpleado;
         public System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Panel panel1;
     }
 }
