@@ -8,8 +8,11 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_Insertar_Tiedas @Usuario VARCHAR(MAX),
+CREATE PROCEDURE SP_Insertar_Tiedas 
+@Usuario VARCHAR(MAX),
 @Nombre VARCHAR(Max),
+@Direccion VARCHAR(MAX),
+@Telefono VARCHAR(MAX),
 @Img IMAGE,
 @Salida VARCHAR(MAX) OUTPUT
 AS
@@ -17,12 +20,8 @@ BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
 DECLARE @Txt VARCHAR(MAX);
-
-	DECLARE @ClaTien VARCHAR(MAX);
-	DECLARE @Num VARCHAR(MAX);
-	SET @ClaTien = @Nombre;
-	SET @Num = ROUND(((99 - 1) * RAND() + 1), 0);
-	SET @ClaTien =  SUBSTRING(@ClaTien,1,4)+@Num;
+DECLARE @ClaTien VARCHAR(MAX);
+SET @ClaTien =  SUBSTRING(@Nombre,1,4)+SUBSTRING(@Telefono,7,4);
 
 	---Si el usuario existe permitimos---
 	DECLARE @Validacion VARCHAR(MAX);
@@ -31,14 +30,14 @@ DECLARE @Txt VARCHAR(MAX);
 		----Si la clave no exite en la BD quiere decir que podremos insertar----
 		IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @ClaTien)=0)
 		BEGIN
-			INSERT INTO Tiendas VALUES (@ClaTien, @Nombre, @Img);---Insertamos el registro---
-			SET @Salida = 'Se ha guardado la tienda '+@nombre;
+			INSERT INTO Tiendas VALUES (@ClaTien, @Nombre, @Direccion, @Telefono, @Img);---Insertamos el registro---
+			SET @Salida = 'Se ha guardado la tienda '+@nombre+'.';
 			SET @Txt = 'El usuario '+@Usuario+' inserto la tienda '+@Nombre+' con clave '+@ClaTien;
 			EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
 		END
 		ELSE
 		BEGIN---Si la clve si esxie mandamos error de existencia---
-			SET @Salida = 'Error, La clave de tienda '+@ClaTien+' ya existe';
+			SET @Salida = 'Error, la clave de tienda '+@ClaTien+' ya existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento insertar la tienda '+@Nombre+' con clave '+@ClaTien+' ya existente';
 			EXEC SP_Msg @Txt;--informamos al reporte----
 		END
@@ -52,9 +51,8 @@ DECLARE @Txt VARCHAR(MAX);
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Insertar_Tiedas';
 	EXEC SP_Msg 'Ha ocurrido un error en SP_Insertar_Tiedas';
-	SET @Salida  = 'Error al conectar al servidor';
+	SET @Salida = 'Ha ocurrido un error al insertar una tienda.';
 END CATCH
 END
 GO
@@ -73,8 +71,9 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_Eliminar_Tiedas @Usuario VARCHAR(MAX),
-@Clave VARCHAR(MAX),
+CREATE PROCEDURE SP_Eliminar_Tiedas 
+@Usuario VARCHAR(MAX),
+@ClaTien VARCHAR(MAX),
 @Nombre VARCHAR(MAX),
 @Salida VARCHAR(MAX) OUTPUT
 AS
@@ -87,32 +86,31 @@ DECLARE @Txt VARCHAR(MAX);
 	EXEC SP_Validacion @Usuario,@Validacion OUTPUT;
 	IF( @Validacion = '1' )
 		---Si la clave exise podremos eliminar----
-		IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @Clave AND Nombre = @Nombre)=1)
+		IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @ClaTien AND Nombre = @Nombre)=1)
 		BEGIN
-			DELETE Tiendas WHERE ClaTien = @Clave; ---Eliminamos la tienda ---
-			SET @Salida = 'Se ha eliminado la tienda '+@Nombre;
-			SET @Txt = 'El usuario '+@Usuario+' elimino la tienda '+@Nombre+' con clave '+@Clave;
+			DELETE Tiendas WHERE ClaTien = @ClaTien; ---Eliminamos la tienda ---
+			SET @Salida = 'Se ha eliminado la tienda '+@Nombre+'.';
+			SET @Txt = 'El usuario '+@Usuario+' elimino la tienda '+@Nombre+' con clave '+@ClaTien;
 			EXEC SP_Msg @Txt;---informaos al reporte---
 		END
 		ELSE
 		BEGIN---si la clave ya no existe manamos error de existencia---
-			SET @Salida = 'La tienda con clave '+@Clave+' y nombre'+@Nombre+' no existe';
-			SET @Txt = 'El usuario '+@Usuario+' intento eliminar la tienda '+@Nombre+' con clave '+@Clave+' no existente';
+			SET @Salida = 'Error, la tienda con clave '+@ClaTien+' no existe.';
+			SET @Txt = 'El usuario '+@Usuario+' intento eliminar la tienda '+@Nombre+' con clave '+@ClaTien+' no existente';
 			EXEC SP_Msg @Txt;---informamos al reporte---
 		END
 	ELSE
 	BEGIN---si el usuaro ya no existe ---
 		SET @Salida = @Validacion;
-		SET @Txt = 'El usuario '+@Usuario+' intento eliminar la tienda '+@Nombre+' con clave '+@Clave+'. '+@Validacion;
+		SET @Txt = 'El usuario '+@Usuario+' intento eliminar la tienda '+@Nombre+' con clave '+@ClaTien+'. '+@Validacion;
 		EXEC SP_Msg @Txt;--informe al reporte----
 	END
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Eliminar_Tiedas';
 	EXEC SP_Msg 'Ha ocurrido un error en SP_Eliminar_Tiedas';
-	SET @Salida  = 'Error al conectar al servidor';
+	SET @Salida = 'Ha ocurrido un error al eliminar una tienda.';
 END CATCH
 END
 GO
@@ -120,100 +118,102 @@ GO
 
 
 
-	-----PROCESO PARA EDITAR TIENDAS-----
-	IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Editar_Tiedas')
-	PRINT 'Creando proceso';
-	ELSE
-	BEGIN
-	DROP PROCEDURE SP_Editar_Tiedas;
-	END
-	GO
-
-	GO
-	CREATE PROCEDURE SP_Editar_Tiedas @Usuario VARCHAR(MAX),
-	@NewClave VARCHAR(MAX),
-	@Clave VARCHAR(MAX),
-	@Nombre VARCHAR(MAX),
-	@Img IMAGE,
-	@Salida VARCHAR(MAX) OUTPUT
-	AS
-	BEGIN
-	BEGIN TRANSACTION
-	BEGIN TRY
-	DECLARE @Txt VARCHAR(MAX);
-	DECLARE @Nom VARCHAR(MAX);
-		---Si el usuario ya existe----
-		DECLARE @Validacion VARCHAR(MAX);
-		EXEC SP_Validacion @Usuario,@Validacion OUTPUT;
-		IF( @Validacion = '1' )
-			---Si la clave existe editamos---
-			IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @Clave)=1)
-			BEGIN
-				---Si la nueva clave no existe insertamos o si la clave sigue siendo la misma a la nueva clave----
-				IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @NewClave)=0 OR @Clave = @NewClave)
-				BEGIN
-					SET @Nom = (SELECT Nombre FROM Tiendas WHERE ClaTien = @Clave);---almacenamso el nombre anerior anes de editat---
-					----Edidtamos---
-					UPDATE Tiendas SET ClaTien = @NewClave, Nombre =  @Nombre, Img = @Img WHERE ClaTien = @Clave;
-					SET @Salida = 'Tienda editada correctamente';
-					SET @Txt = 'El usuario '+@Usuario+' edito la tienda '+@Nombre+' por nombre nuevo '+@Nom+' y clave '+@NewClave;
-					EXEC SP_Msg @Txt;--.Informamos al reporte---
-				END
-				---si ya existe no insertamos---
-				ELSE
-				BEGIN
-					SET @Salida = 'La clave '+@NewClave+' ya existe';
-					SET @Txt = 'El usuario '+@Usuario+' intento editar una tienda con clave'+@NewClave+'ya existente';
-					EXEC SP_Msg @Txt;--.Informamos al reporte---
-				END
-			END
-			ELSE
-			BEGIN---si la clave a ediar no existe
-				SET @Salida = 'La tienda con clave '+@Clave+' no existe';
-				SET @Txt = 'El usuario '+@Usuario+' intento editar la tienda '+@Nombre+' con clave '+@Clave+' no existente';
-				EXEC SP_Msg @Txt; ---informe al reporte---
-			END
-		ELSE
-		BEGIN---si el usuario no existe---
-			SET @Salida = @Validacion;
-			SET @Txt = 'El usuario '+@Usuario+' intento editar la tienda '+@Nombre+' con clave '+@Clave+'. '+@Validacion;
-			EXEC SP_Msg @Txt;--informamos al repore---
-		END
-		COMMIT TRANSACTION
-	END TRY
-	BEGIN CATCH
-		ROLLBACK TRANSACTION
-		PRINT 'Ha ocurrido un error en SP_Editar_Tiedas';
-		EXEC SP_Msg 'Ha ocurrido un error en SP_Editar_Tiedas';
-		SET @Salida  = 'Error al conectar al servidor';
-	END CATCH
-	END
-	GO
-	-----FIN PROCESO PARA EDITAR TIENDAS-----
-
-
-
-	-----PROCESO PARA MOSTRAR TODAS TIENDAS-----
-IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Buscar_Tiedas')
+-----PROCESO PARA EDITAR TIENDAS-----
+IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Editar_Tiedas')
 PRINT 'Creando proceso';
 ELSE
 BEGIN
-DROP PROCEDURE SP_Buscar_Tiedas;
+DROP PROCEDURE SP_Editar_Tiedas;
 END
 GO
 
 GO
-CREATE PROCEDURE SP_Buscar_Tiedas AS
+CREATE PROCEDURE SP_Editar_Tiedas 
+@Usuario VARCHAR(MAX),
+@NewClave VARCHAR(MAX),
+@ClaTien VARCHAR(MAX),
+@Nombre VARCHAR(MAX),
+@Direccion VARCHAR(MAX),
+@Telefono VARCHAR(MAX),
+@Img IMAGE,
+@Salida VARCHAR(MAX) OUTPUT
+AS
 BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
-	SELECT ClaTien AS 'Clave', Nombre AS 'Tienda' FROM Tiendas ORDER BY ClaTien;
+DECLARE @Txt VARCHAR(MAX);
+	---Si el usuario ya existe----
+	DECLARE @Validacion VARCHAR(MAX);
+	EXEC SP_Validacion @Usuario,@Validacion OUTPUT;
+	IF( @Validacion = '1' )
+		---Si la clave existe editamos---
+		IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @ClaTien)=1)
+		BEGIN
+			---Si la nueva clave no existe insertamos o si la clave sigue siendo la misma a la nueva clave----
+			IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @NewClave)=0 OR @ClaTien = @NewClave)
+			BEGIN
+				----Edidtamos---
+				UPDATE Tiendas SET ClaTien = @NewClave, Nombre =  @Nombre,
+				Direccion = @Direccion, Telefono = @Telefono,
+				Img = @Img WHERE ClaTien = @ClaTien;
+				SET @Salida = 'Tienda editada correctamente.';
+				SET @Txt = 'El usuario '+@Usuario+' edito la tienda '+@ClaTien+' por clave nuevo '+@NewClave;
+				EXEC SP_Msg @Txt;--.Informamos al reporte---
+			END
+			---si ya existe no insertamos---
+			ELSE
+			BEGIN
+				SET @Salida = 'Error, la clave '+@NewClave+' ya existe.';
+				SET @Txt = 'El usuario '+@Usuario+' intento editar una tienda con clave'+@NewClave+'ya existente';
+				EXEC SP_Msg @Txt;--.Informamos al reporte---
+			END
+		END
+		ELSE
+		BEGIN---si la clave a ediar no existe
+			SET @Salida = 'Error, la tienda con clave '+@ClaTien+' no existe.';
+			SET @Txt = 'El usuario '+@Usuario+' intento editar la tienda '+@Nombre+' con clave '+@ClaTien+' no existente';
+			EXEC SP_Msg @Txt; ---informe al reporte---
+		END
+	ELSE
+	BEGIN---si el usuario no existe---
+		SET @Salida = @Validacion;
+		SET @Txt = 'El usuario '+@Usuario+' intento editar la tienda '+@Nombre+' con clave '+@ClaTien+'. '+@Validacion;
+		EXEC SP_Msg @Txt;--informamos al repore---
+	END
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Buscar_Tiedas';
-	EXEC SP_Msg 'Ha ocurrido un error en SP_Buscar_Tiedas';
+	EXEC SP_Msg 'Ha ocurrido un error en SP_Editar_Tiedas';
+	SET @Salida = 'Ha ocurrido un error al editar una tienda.';
+END CATCH
+END
+GO
+-----FIN PROCESO PARA EDITAR TIENDAS-----
+
+
+
+	-----PROCESO PARA MOSTRAR TODAS TIENDAS-----
+IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Buscar_Tiendas')
+PRINT 'Creando proceso SP_Buscar_Tiendas';
+ELSE
+BEGIN
+DROP PROCEDURE SP_Buscar_Tiendas;
+END
+GO
+
+GO
+CREATE PROCEDURE SP_Buscar_Tiendas AS
+BEGIN
+BEGIN TRANSACTION
+BEGIN TRY
+	SELECT ClaTien AS 'Clave', Nombre AS 'Tienda', Direccion, Telefono FROM Tiendas ORDER BY ClaTien;
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	ROLLBACK TRANSACTION
+	PRINT 'Ha ocurrido un error en SP_Buscar_Tiendas';
+	EXEC SP_Msg 'Ha ocurrido un error en SP_Buscar_Tiendas';
 END CATCH
 END
 GO
@@ -222,17 +222,17 @@ GO
 
 
 -----PROCESO PARA BUSCAR TIENDA-----
-IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Buscar_Tieda')
+IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Buscar_Tienda')
 PRINT 'Creando proceso';
 ELSE
 BEGIN
-DROP PROCEDURE SP_Buscar_Tieda;
+DROP PROCEDURE SP_Buscar_Tienda;
 END
 GO
 
 
 GO
-CREATE PROCEDURE SP_Buscar_Tieda
+CREATE PROCEDURE SP_Buscar_Tienda
 @Clave VARCHAR(MAX)
 AS
 BEGIN
@@ -241,15 +241,16 @@ BEGIN TRY
 DECLARE @Txt VARCHAR(MAX);
 		
 		--- LIKE % PARA HACER BUSQUEDAS QUE SEAN SEMEJANES---
-	SELECT ClaTien AS 'Clave', Nombre AS 'Tienda', Img FROM Tiendas 
-		WHERE ClaTien LIKE '%'+@Clave+'%' OR Nombre LIKE '%'+@Clave+'%';
+	SELECT ClaTien AS 'Clave', Nombre AS 'Tienda', Direccion, Telefono, Img FROM Tiendas 
+		WHERE ClaTien LIKE '%'+@Clave+'%' OR Nombre LIKE '%'+@Clave+'%'
+		OR Direccion LIKE '%'+@Clave+'%' OR Telefono LIKE '%'+@Clave+'%';
 
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Buscar_Tieda';
-	EXEC SP_Msg 'Ha ocurrido un error en SP_Buscar_Tieda';
+	PRINT 'Ha ocurrido un error en SP_Buscar_Tienda';
+	EXEC SP_Msg 'Ha ocurrido un error en SP_Buscar_Tienda';
 END CATCH
 END
 GO

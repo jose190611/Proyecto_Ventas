@@ -10,6 +10,7 @@ GO
 GO
 CREATE PROCEDURE SP_Insertar_Ubicaciones 
 @Usuario VARCHAR(MAX),---Clave de usuario que realiza el movimiento---
+@ClaTien VARCHAR(MAX),
 @Lugar VARCHAR(MAX), ---Nombre de lugar---
 @Salida VARCHAR(MAX) OUTPUT
 AS
@@ -29,14 +30,24 @@ SET @ClaUbic =  SUBSTRING(@Lugar,1,4)+@Num;---se genera clave unica para la unbi
 		----Si la clave no exite en la BD quiere decir que podremos insertar----
 		IF((SELECT COUNT(*) FROM Ubicaciones WHERE ClaUbic = @ClaUbic)=0)
 		BEGIN
-			INSERT INTO Ubicaciones VALUES (@ClaUbic, @Lugar);---Insertamos el registro---
-			SET @Salida = 'Se ha guardado la ubicacion '+@Lugar;
-			SET @Txt = 'El usuario '+@Usuario+' inserto el lugar '+@Lugar+' con clave '+@ClaUbic;
-			EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
+			---Si la tienda exite insetamos---
+			IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @ClaTien)=1)
+			BEGIN
+				INSERT INTO Ubicaciones VALUES (@ClaUbic, @ClaTien, @Lugar);---Insertamos el registro---
+				SET @Salida = 'Se ha guardado la ubicacion '+@Lugar+'.';
+				SET @Txt = 'El usuario '+@Usuario+' inserto el lugar '+@Lugar+' con clave '+@ClaUbic;
+				EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
+			END
+			ELSE
+			BEGIN
+				SET @Salida = 'Error, la clave de la tienda '+@ClaTien+' no existe.';
+				SET @Txt = 'El usuario '+@Usuario+' intento insertar la ubicacion '+@Lugar+' pero la tienda'+@ClaTien+' ya no existente';
+				EXEC SP_Msg @Txt;--informamos al reporte----
+			END
 		END
 		ELSE
 		BEGIN---Si la clvae si esxie mandamos error de existencia---
-			SET @Salida = 'Error, la clave de lugar '+@ClaUbic+' ya existe';
+			SET @Salida = 'Error, la clave de lugar '+@ClaUbic+' ya existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento insertar la ubicacion '+@Lugar+' con clave '+@ClaUbic+' ya existente';
 			EXEC SP_Msg @Txt;--informamos al reporte----
 		END
@@ -50,8 +61,8 @@ SET @ClaUbic =  SUBSTRING(@Lugar,1,4)+@Num;---se genera clave unica para la unbi
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Insertar_Ubicaciones';
-	SET @Salida  = 'Error al conectar al servidor';
+	EXEC SP_Msg 'Ha ocurrido un error en SP_Insertar_Ubicaciones';
+	SET @Salida = 'Ha ocurrido un error al insertar una ubicación.';
 END CATCH
 END
 GO
@@ -87,13 +98,13 @@ DECLARE @Txt VARCHAR(MAX);
 		IF((SELECT COUNT(*) FROM Ubicaciones WHERE ClaUbic = @ClaUbic)=1)
 		BEGIN
 			DELETE Ubicaciones WHERE ClaUbic = @ClaUbic; ---Eliminamos la tienda ---
-			SET @Salida = 'Se ha eliminado el lugar '+@Lugar;
+			SET @Salida = 'Se ha eliminado el lugar '+@Lugar+'.';
 			SET @Txt = 'El usuario '+@Usuario+' elimino el lugar '+@Lugar+' con clave '+@ClaUbic;
 			EXEC SP_Msg @Txt;---informaos al reporte---
 		END
 		ELSE
 		BEGIN---si la clave ya no existe manamos error de existencia---
-			SET @Salida = 'Error, el lugar con clave '+@ClaUbic+' ya no existe';
+			SET @Salida = 'Error, el lugar con clave '+@ClaUbic+' ya no existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento eliminar el lugar '+@Lugar+' con clave '+@ClaUbic+' no existente';
 			EXEC SP_Msg @Txt;---informamos al reporte---
 		END
@@ -107,8 +118,8 @@ DECLARE @Txt VARCHAR(MAX);
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Eliminar_Ubicaciones';
-	SET @Salida  = 'Error al conectar al servidor';
+	EXEC SP_Msg 'Ha ocurrido un error en SP_Eliminar_Ubicaciones';
+	SET @Salida = 'Ha ocurrido un error al eliminar una ubicación.';
 END CATCH
 END
 GO
@@ -148,21 +159,21 @@ DECLARE @Txt VARCHAR(MAX);
 			IF((SELECT COUNT(*) FROM Ubicaciones WHERE ClaUbic = @NewClave)=0 OR (@ClaUbic = @NewClave))
 			BEGIN
 				UPDATE Ubicaciones SET ClaUbic = @NewClave, Lugar=@Lugar WHERE ClaUbic = @ClaUbic;
-				SET @Salida = 'Registro editado correctamente';
+				SET @Salida = 'Registro editado correctamente.';
 				SET @Txt = 'El usuario '+@Usuario+' edito el lugar '+@ClaUbic;
 				EXEC SP_Msg @Txt;--.Informamos al reporte---
 			END
 			---Si la nueva clave ya existe no la insertamos
 			ELSE
 			BEGIN
-				SET @Salida = 'Error, a clave '+@NewClave+' ya existe';
+				SET @Salida = 'Error, la clave '+@NewClave+' ya existe, intenta otra.';
 				SET @Txt = 'El usuario '+@Usuario+' intento editar el lugar '+@ClaUbic+' con clave '+@NewClave+' ya existente';
 				EXEC SP_Msg @Txt;--.Informamos al reporte---
 			END
 		END
 		ELSE
 		BEGIN---si la clave a ediar no existe
-			SET @Salida = 'Error, el lugar con clave '+@ClaUbic+' no existe';
+			SET @Salida = 'Error, el lugar con clave '+@ClaUbic+' ya no existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento editar el lugar '+@ClaUbic+' con clave '+@NewClave+' no existente';
 			EXEC SP_Msg @Txt; ---informe al reporte---
 		END
@@ -176,8 +187,8 @@ DECLARE @Txt VARCHAR(MAX);
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Editar_Ubicaciones';
-	SET @Salida  = 'Error al conectar al servidor';
+	EXEC SP_Msg 'Ha ocurrido un error en SP_Editar_Ubicaciones';
+	SET @Salida = 'Ha ocurrido un error al editar una ubicación.';
 END CATCH
 END
 GO
@@ -195,11 +206,14 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_Mostrar_Ubicaciones AS
+CREATE PROCEDURE SP_Mostrar_Ubicaciones 
+@ClaTien VARCHAR(MAX)
+AS
 BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
-	SELECT ClaUbic as 'Clave', Lugar FROM Ubicaciones;
+	SELECT ClaUbic as 'Clave', Lugar FROM Ubicaciones
+		WHERE ClaTien = @ClaTien;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
@@ -222,13 +236,16 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_Buscar_Ubicacion @Valor VARCHAR(MAX)
+CREATE PROCEDURE SP_Buscar_Ubicacion 
+@Valor VARCHAR(MAX),
+@ClaTien VARCHAR(MAX)
 AS
 BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
 	SELECT ClaUbic AS 'Clave', Lugar FROM Ubicaciones 
-	WHERE ClaUbic LIKE '%'+@Valor+'%' OR Lugar LIKE '%'+@Valor+'%';
+		WHERE ClaUbic LIKE '%'+@Valor+'%' OR Lugar LIKE '%'+@Valor+'%'
+		AND ClaTien = @ClaTien;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH

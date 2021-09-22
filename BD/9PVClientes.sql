@@ -32,13 +32,13 @@ SET @ClaClie =  SUBSTRING(@Nombre,1,4)+SUBSTRING(@Telefono,7,4);---se genera cla
 		IF((SELECT COUNT(*) FROM Clientes WHERE ClaClie = @ClaClie)=0)
 		BEGIN
 			INSERT INTO Clientes VALUES (@ClaClie, @Nombre, @Telefono, @Direccion, @Correo);---Insertamos el registro---
-			SET @Salida = 'Se ha guardado el cliente '+@Nombre;
+			SET @Salida = 'Se ha guardado el cliente '+@Nombre+'.';
 			SET @Txt = 'El usuario '+@Usuario+' inserto al cliente '+@Nombre+' con clave '+@ClaClie;
 			EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
 		END
 		ELSE
 		BEGIN---Si la clve si esxie mandamos error de existencia---
-			SET @Salida = 'La clave del cliente '+@ClaClie+' ya existe';
+			SET @Salida = 'Error, la clave del cliente '+@ClaClie+' ya existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento insertar al cliente '+@Nombre+' con clave '+@ClaClie+' ya existente';
 			EXEC SP_Msg @Txt;--informamos al reporte----
 		END
@@ -160,7 +160,7 @@ DECLARE @Txt VARCHAR(MAX);
 			---Si la nueva clave ya existe no la insertamos
 			ELSE
 			BEGIN
-				SET @Salida = 'Error, la clave '+@NewClave+' ya existe';
+				SET @Salida = 'Error, la clave '+@NewClave+' ya existe, intente otra.';
 				SET @Txt = 'El usuario '+@Usuario+' intento editar al cliente '+@ClaClie+' con clave'+@NewClave+'ya existente';
 				EXEC SP_Msg @Txt;--.Informamos al reporte---
 			END

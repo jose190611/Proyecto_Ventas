@@ -10,6 +10,7 @@ GO
 GO
 CREATE PROCEDURE SP_Insertar_Proveedores 
 @Usuario VARCHAR(MAX),---Clave de usuario que realiza el movimiento---
+@ClaTien VARCHAR(MAX), --- Clave de la tienda del proveedor---
 @Nombre VARCHAR(MAX), ---Nombre de proveedor---
 @Telefono VARCHAR(MAX), ---Numero de telefono---
 @Correo VARCHAR(MAX), ---Correo del proveedor---
@@ -22,8 +23,7 @@ BEGIN TRY
 DECLARE @Txt VARCHAR(MAX);
 
 	DECLARE @ClaProv VARCHAR(MAX);
-	
-	SET @ClaProv =  SUBSTRING(@Nombre,1,4)+SUBSTRING(@Nombre,7,4);
+	SET @ClaProv =  SUBSTRING(@Nombre,1,4)+SUBSTRING(@Telefono,7,4);
 
 	DECLARE @Validacion VARCHAR(MAX);
 	EXEC SP_Validacion @Usuario,@Validacion OUTPUT;
@@ -32,14 +32,23 @@ DECLARE @Txt VARCHAR(MAX);
 		----Si la clave no exite en la BD quiere decir que podremos insertar----
 		IF((SELECT COUNT(*) FROM Proveedores WHERE ClaProv = @ClaProv)=0)
 		BEGIN
-			INSERT INTO Proveedores VALUES (@ClaProv, @Nombre, @Telefono, @Correo, @Direccion);---Insertamos el registro---
-			SET @Salida = 'Se ha guardado el proveedor '+@nombre;
-			SET @Txt = 'El usuario '+@Usuario+' inserto el proveedor '+@Nombre+' con clave '+@ClaProv;
-			EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
+			IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @ClaTien) = 1)
+			BEGIN
+				INSERT INTO Proveedores VALUES (@ClaProv, @ClaTien, @Nombre, @Telefono, @Correo, @Direccion);---Insertamos el registro---
+				SET @Salida = 'Se ha guardado el proveedor '+@nombre+'.';
+				SET @Txt = 'El usuario '+@Usuario+' inserto el proveedor '+@Nombre+' con clave '+@ClaProv;
+				EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
+			END
+			ELSE
+			BEGIN
+				SET @Salida = 'Error, la clave de la tienda '+@ClaTien+' no existe.';
+				SET @Txt = 'El usuario '+@Usuario+' intento insertar el proveedor '+@Nombre+' pero la tienda '+@ClaTien+' ya no existente';
+				EXEC SP_Msg @Txt;--informamos al reporte----
+			END
 		END
 		ELSE
 		BEGIN---Si la clve si esxie mandamos error de existencia---
-			SET @Salida = 'La clave de proveedore '+@ClaProv+' ya existe';
+			SET @Salida = 'Error, la clave de proveedore '+@ClaProv+' ya existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento insertar el proveedor '+@Nombre+' con clave '+@ClaProv+' ya existente';
 			EXEC SP_Msg @Txt;--informamos al reporte----
 		END
@@ -53,8 +62,8 @@ DECLARE @Txt VARCHAR(MAX);
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Insertar_Proveedores';
-	SET @Salida  = 'Error al conectar al servidor';
+	EXEC SP_Msg 'Ha ocurrido un error en SP_Insertar_Proveedores';
+	SET @Salida = 'Ha ocurrido un error al insertar una proveedor.';
 END CATCH
 END
 GO
@@ -90,13 +99,13 @@ DECLARE @Txt VARCHAR(MAX);
 		IF((SELECT COUNT(*) FROM Proveedores WHERE ClaProv = @ClaProv)=1)
 		BEGIN
 			DELETE Proveedores WHERE ClaProv = @ClaProv; ---Eliminamos la tienda ---
-			SET @Salida = 'Se ha eliminado el proveedor '+@Nombre;
+			SET @Salida = 'Se ha eliminado el proveedor '+@Nombre+'.';
 			SET @Txt = 'El usuario '+@Usuario+' elimino el proveedor '+@Nombre+' con clave '+@ClaProv;
 			EXEC SP_Msg @Txt;---informaos al reporte---
 		END
 		ELSE
 		BEGIN---si la clave ya no existe manamos error de existencia---
-			SET @Salida = 'El proveedor con clave '+@ClaProv+' ya no existe';
+			SET @Salida = 'Error, el proveedor con clave '+@ClaProv+' ya no existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento eliminar el proveedor '+@Nombre+' con clave '+@ClaProv+' no existente';
 			EXEC SP_Msg @Txt;---informamos al reporte---
 		END
@@ -110,8 +119,8 @@ DECLARE @Txt VARCHAR(MAX);
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Eliminar_Proveedores';
-	SET @Salida  = 'Error al conectar al servidor';
+	EXEC SP_Msg 'Ha ocurrido un error en SP_Eliminar_Proveedores';
+	SET @Salida = 'Ha ocurrido un error al eliminar una proveedor.';
 END CATCH
 END
 GO
@@ -119,7 +128,7 @@ GO
 
 
 
------PROCESO PARA EDITAR TIENDAS-----
+-----PROCESO PARA EDITAR PROVEEDORES-----
 IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Editar_Proveedores')
 PRINT 'Creando proceso SP_Editar_Proveedores';
 ELSE
@@ -162,14 +171,14 @@ DECLARE @Txt VARCHAR(MAX);
 			---Si la nueva clave ya existe no la insertamos
 			ELSE
 			BEGIN
-				SET @Salida = 'La clave '+@NewClave+' ya existe';
+				SET @Salida = 'Error, la clave '+@NewClave+' ya existe.';
 				SET @Txt = 'El usuario '+@Usuario+' intento editar un proveedor con clave'+@NewClave+'ya existente';
 				EXEC SP_Msg @Txt;--.Informamos al reporte---
 			END
 		END
 		ELSE
 		BEGIN---si la clave a ediar no existe
-			SET @Salida = 'El proveedor con clave '+@ClavProv+' no existe';
+			SET @Salida = 'Error, el proveedor con clave '+@ClavProv+' no existe';
 			SET @Txt = 'El usuario '+@Usuario+' intento editar el proveedor '+@Nombre+' con clave '+@ClavProv+' no existente';
 			EXEC SP_Msg @Txt; ---informe al reporte---
 		END
@@ -183,8 +192,8 @@ DECLARE @Txt VARCHAR(MAX);
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Editar_Proveedores';
-	SET @Salida  = 'Error al conectar al servidor';
+	EXEC SP_Msg 'Ha ocurrido un error en SP_Editar_Proveedores';
+	SET @Salida = 'Ha ocurrido un error al editar una proveedor.';
 END CATCH
 END
 GO
@@ -194,7 +203,7 @@ GO
 
 	-----PROCESO PARA MOSTRAR PROVEEDORES-----
 IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Mostrar_Proveedores')
-PRINT 'Creando proceso';
+PRINT 'Creando proceso SP_Mostrar_Proveedores';
 ELSE
 BEGIN
 DROP PROCEDURE SP_Mostrar_Proveedores;
@@ -202,11 +211,14 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_Mostrar_Proveedores AS
+CREATE PROCEDURE SP_Mostrar_Proveedores 
+@ClaProv VARCHAR(MAX)
+AS
 BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
-	SELECT ClaProv as 'Clave', Nombre, Telefono, Correo, Direccion FROM Proveedores;
+	SELECT ClaProv as 'Clave', Nombre, Telefono, Correo, Direccion FROM Proveedores
+	WHERE ClaTien = @ClaProv ORDER BY Nombre;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
@@ -221,7 +233,7 @@ GO
 
 -----PROCESO PARA BUSCAR PROVEEDORES-----
 IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Buscar_Proveedor')
-PRINT 'Creando proceso';
+PRINT 'Creando proceso SP_Buscar_Proveedor';
 ELSE
 BEGIN
 DROP PROCEDURE SP_Buscar_Proveedor;
@@ -230,14 +242,16 @@ GO
 
 GO
 CREATE PROCEDURE SP_Buscar_Proveedor 
-@Valor VARCHAR(MAX)
+@Valor VARCHAR(MAX),
+@ClaProv VARCHAR(MAX)
 AS
 BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
 	SELECT ClaProv AS 'Clave', Nombre, Telefono, Correo, Direccion FROM Proveedores 
 	WHERE ClaProv LIKE '%'+@Valor+'%' OR Nombre LIKE '%'+@Valor+'%' 
-	OR Telefono LIKE '%'+@Valor+'%' OR Correo LIKE '%'+@Valor+'%';
+	OR Telefono LIKE '%'+@Valor+'%' OR Correo LIKE '%'+@Valor+'%'
+	AND ClaTien = @ClaProv ORDER BY Nombre;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH

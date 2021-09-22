@@ -54,7 +54,6 @@ GO
 -----FIN PROCESO PARA INSERTAR MENSAJES-----
 
 
-
 -----CREAMOS TABLA REPORTE----
 ---LA TABLA ALMACENARA TODO MOVIMIENTO DE LA BD
 IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Reporte')
@@ -64,12 +63,12 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Repor
 	Mensaje VARCHAR(MAX) NOT NULL,
 	Fecha DATETIME NOT NULL
 	);
-	PRINT 'Se creo la tabla Reporte';
+	PRINT 'Se creo la tabla Reporte.';
 	EXEC SP_Msg 'Se creo la tabla Reporte';
 	END
 ELSE
 	BEGIN
-	PRINT 'La tabla Reporte ya existe';
+	PRINT 'La tabla Reporte ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Reporte ya existente';
 	END
 GO
@@ -88,14 +87,16 @@ BEGIN
 	CREATE TABLE Tiendas (
 	ClaTien VARCHAR(20) NOT NULL,
 	Nombre VARCHAR(50) NOT NULL,
+	Direccion VARCHAR(100) NOT NULL,
+	Telefono VARCHAR(15) NOT NULL,
 	Img IMAGE NOT NULL
 	);
-	PRINT 'Se creo la tabla Tiendas';
+	PRINT 'Se creo la tabla Tiendas.';
 	EXEC SP_Msg 'Se creo la tabla Tiendas';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla Tiendas ya existe';
+	PRINT 'La tabla Tiendas ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Tiendas ya existene';
 END
 GO
@@ -109,17 +110,18 @@ BEGIN
 	---MINIMOS OCUPAREMOS UN NOMBRE PARA LA IDENTIFICACION---
 	CREATE TABLE Proveedores (
 	ClaProv VARCHAR(20) NOT NULL,
+	ClaTien VARCHAR(20) NOT NULL,
 	Nombre VARCHAR(50) NOT NULL,
-	Telefono VARCHAR(15),
+	Telefono VARCHAR(15) NOT NULL,
 	Correo VARCHAR(100),
 	Direccion VARCHAR(100)
 	);
-	PRINT 'Se creo la tabla Proveedores';
+	PRINT 'Se creo la tabla Proveedores.';
 	EXEC SP_Msg 'Se creo la tabla Proveedores';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla Proveedores ya existe';
+	PRINT 'La tabla Proveedores ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Proveedores ya existene';
 END
 GO
@@ -133,14 +135,15 @@ BEGIN
 	---MINIMOS OCUPAREMOS UN NOMBRE PARA LA IDENTIFICACION---
 	CREATE TABLE Ubicaciones (
 	ClaUbic VARCHAR(20) NOT NULL,
+	ClaTien VARCHAR(20) NOT NULL,
 	Lugar VARCHAR(50) NOT NULL
 	);
-	PRINT 'Se creo la tabla Ubicaciones';
+	PRINT 'Se creo la tabla Ubicaciones.';
 	EXEC SP_Msg 'Se creo la tabla Ubicaciones';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla Ubicaciones ya existe';
+	PRINT 'La tabla Ubicaciones ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Ubicaciones ya existene';
 END
 GO
@@ -153,14 +156,14 @@ BEGIN
 	---MINIMOS OCUPAREMOS UN NOMBRE PARA LA IDENTIFICACION---
 	CREATE TABLE Productos (
 	ClaProd VARCHAR(20) NOT NULL,
-	Nombre VARCHAR(50) NOT NULL,
+	Nombre VARCHAR(100) NOT NULL,
 	);
-	PRINT 'Se creo la tabla Productos';
+	PRINT 'Se creo la tabla Productos.';
 	EXEC SP_Msg 'Se creo la tabla Productos';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla Productos ya existe';
+	PRINT 'La tabla Productos ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Productos ya existene';
 END
 GO
@@ -175,16 +178,16 @@ BEGIN
 	CREATE TABLE Clientes (
 	ClaClie VARCHAR(20) NOT NULL,
 	Nombre VARCHAR(50) NOT NULL,
-	Telefono VARCHAR(15),
+	Telefono VARCHAR(15) NOT NULL,
 	Direccion VARCHAR(100),
 	Correo VARCHAR(100)
 	);
-	PRINT 'Se creo la tabla Clientes';
+	PRINT 'Se creo la tabla Clientes.';
 	EXEC SP_Msg 'Se creo la tabla Clientes';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla Clientes ya existe';
+	PRINT 'La tabla Clientes ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Clientes ya existene';
 END
 GO
@@ -208,15 +211,15 @@ BEGIN
 	ClaEmpl VARCHAR(20) NOT NULL,
 	ClaTien VARCHAR(20) NOT NULL,
 	Nombre VARCHAR(50) NOT NULL,
-	Telefono VARCHAR(15),
+	Telefono VARCHAR(15) NOT NULL,
 	Puesto VARCHAR(50)
 	);
-	PRINT 'Se creo la tabla Empleados';
+	PRINT 'Se creo la tabla Empleados.';
 	EXEC SP_Msg 'Se creo la tabla Empleados';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla Empleados ya existe';
+	PRINT 'La tabla Empleados ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Empleados ya existene';
 END
 GO
@@ -240,12 +243,12 @@ BEGIN
 	Activo BIT NOT NULL,
 	Acceso BIT NOT NULL
 	);
-	PRINT 'Se creo la tabla Cuentas';
+	PRINT 'Se creo la tabla Cuentas.';
 	EXEC SP_Msg 'Se creo la tabla Cuentas';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla Cuentas ya existe';
+	PRINT 'La tabla Cuentas ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Cuentas ya existene';
 END
 GO
@@ -265,12 +268,12 @@ BEGIN
 	Fecha DATETIME NOT NULL,
 	Total MONEY NOT NULL
 	);
-	PRINT 'Se creo la tabla Ventas';
+	PRINT 'Se creo la tabla Ventas.';
 	EXEC SP_Msg 'Se creo la tabla Ventas';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla Ventas ya existe';
+	PRINT 'La tabla Ventas ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Ventas ya existene';
 END
 GO
@@ -297,12 +300,12 @@ BEGIN
 	Precio MONEY NOT NULL,
 	Importe MONEY NOT  NULL
 	);
-	PRINT 'Se creo la tabla Tickets';
+	PRINT 'Se creo la tabla Tickets.';
 	EXEC SP_Msg 'Se creo la tabla Tickets';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla Ticket ya existe';
+	PRINT 'La tabla Ticket ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla Ticket ya existene';
 END
 GO
@@ -317,15 +320,14 @@ BEGIN
 	---VARBINARY PARA LA ENCRYPTACION DE LAS CUENTAS---
 	ClaProd VARCHAR(20) NOT NULL,
 	ClaProv VARCHAR(20) NOT NULL,
-	ClaTien VARCHAR(20) NOT NULL,---PARA SABER A QUE TIENDA SE LE ASIGNA---
 	Marca VARCHAR(50) ---Para saber la marca del producto---
 	);
-	PRINT 'Se creo la tabla ProPro';
+	PRINT 'Se creo la tabla ProPro.';
 	EXEC SP_Msg 'Se creo la tabla ProPro';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla ProPro ya existe';
+	PRINT 'La tabla ProPro ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla ProPro ya existene';
 END
 GO
@@ -345,12 +347,12 @@ BEGIN
 	PreSug MONEY NOT NULL, ---PRECIO SUGERIDO DEL SISTEMA INCLUYE IVA + GANANCIA---
 	Precio MONEY NOT NULL  ---PRECIO FINAL QUE ESTABLECE LA TIENDA----
 	);
-	PRINT 'Se creo la tabla ProTie';
+	PRINT 'Se creo la tabla ProTie.';
 	EXEC SP_Msg 'Se creo la tabla ProTie';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla ProTie ya existe';
+	PRINT 'La tabla ProTie ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla ProTie ya existene';
 END
 GO
@@ -365,15 +367,14 @@ BEGIN
 	---VARBINARY PARA LA ENCRYPTACION DE LAS CUENTAS---
 	ClaProd VARCHAR(20) NOT NULL,
 	ClaUbic VARCHAR(20) NOT NULL,
-	ClaTien VARCHAR(20) NOT NULL,---PARA SABER A QUE TIENDA SE LE ASIGNA---
 	Existencia INT NOT NULL
 	);
-	PRINT 'Se creo la tabla ProUbi';
+	PRINT 'Se creo la tabla ProUbi.';
 	EXEC SP_Msg 'Se creo la tabla ProUbi';
 END
 ELSE
 BEGIN
-	PRINT 'La tabla ProUbi ya existe';
+	PRINT 'La tabla ProUbi ya existe.';
 	EXEC SP_Msg 'Se intento crear la tabla ProUbi ya existene';
 END
 GO

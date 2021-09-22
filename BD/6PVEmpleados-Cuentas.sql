@@ -11,7 +11,7 @@ GO
 
 
 GO
-CREATE PROCEDURE SP_Insertar_Empleados 
+CREATE PROCEDURE SP_Insertar_Empleados	 
 @Usuario VARCHAR(MAX), ---Para saber que usuario crea al nuevo empleado---
 @ClaTien VARCHAR(MAX), ---Clave de la tienda a la que pertenesera el nuevo empleado---
 @Nombre VARCHAR(MAX), ---Nombre de empleado---
@@ -49,8 +49,8 @@ DECLARE @Txt VARCHAR(MAX);
 				INSERT INTO Cuentas VALUES (ENCRYPTBYKEY(KEY_GUID('LlaveEcriptacion'),@ClaEmpl),ENCRYPTBYKEY(KEY_GUID('LlaveEcriptacion'),@ClaEmpl),@ClaEmpl,@Tipo,1,0);
 				CLOSE SYMMETRIC KEY LlaveEcriptacion;
 
-				SET @Salida = 'Se ha creado al usuario'+@nombre+'. Cuenta de usuario y contraseña: '+@ClaEmpl;
-				SET @Txt = 'El usuario '+@Usuario+' creo una nueva cuenta del usuario '+@Nombre+' con clave '+@ClaEmpl;
+				SET @Salida = 'Se ha creado al usuario'+@nombre+'. Cuenta de usuario y contraseña: '+@ClaEmpl+'.';
+				SET @Txt = 'El usuario '+@Usuario+' creo una nueva cuenta del usuario '+@Nombre;
 				EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
 			END
 			ELSE
@@ -69,16 +69,15 @@ DECLARE @Txt VARCHAR(MAX);
 	ELSE
 	BEGIN---Si el usuario ya no existe mandamos error de usuario---
 		SET @Salida = @Validacion;
-		SET @Txt = 'El usuario '+@Usuario+' intento crear un usuario'+@Nombre+' con clave '+@ClaEmpl+'. '+@Validacion;
+		SET @Txt = 'El usuario '+@Usuario+' intento crear al usuario '+@Nombre+' con clave '+@ClaEmpl+'. '+@Validacion;
 		EXEC SP_Msg @Txt;---informamos al reporte---
 	END
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Insertar_Empleado';
 	EXEC SP_Msg 'Ha ocurrido un error en SP_Insertar_Empleado';
-	SET @Salida  = 'Error al conectar al servidor';
+	SET @Salida = 'Ha ocurrido un error al insertar un empleado.';
 	CLOSE SYMMETRIC KEY LlaveEcriptacion;
 END CATCH
 END
@@ -125,7 +124,7 @@ DECLARE @Txt VARCHAR(MAX);
 		END
 		ELSE
 		BEGIN---si la clave ya no existe manamos error de existencia---
-			SET @Salida = 'Error, el usuario '+@Nombre+' no existe';
+			SET @Salida = 'Error, el usuario '+@Nombre+' no existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento eliminar al empleado '+@Nombre+' con clave '+@ClaEmpl+' no existente';
 			EXEC SP_Msg @Txt;---informamos al reporte---
 		END
@@ -139,9 +138,8 @@ DECLARE @Txt VARCHAR(MAX);
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Eliminar_Empleados';
 	EXEC SP_Msg 'Ha ocurrido un error en SP_Eliminar_Empleados';
-	SET @Salida  = 'Error al conectar al servidor';
+	SET @Salida = 'Ha ocurrido un error al eliminar un empleado.';
 END CATCH
 END
 GO
@@ -166,6 +164,7 @@ CREATE PROCEDURE SP_Editar_Empleados
 @Tipo VARCHAR(MAX), ---Tipo de usuario , ADMINISTRADOR, USUARIO---
 @ClaEmpl VARCHAR(MAX), --- Clave del usuario---
 @Nombre VARCHAR(MAX), --- Nombre del empleado---
+@Activo BIT, --- POR SI DECEAN DESACIVAR LA CUENTA---
 @Salida VARCHAR(MAX) OUTPUT
 AS
 BEGIN
@@ -185,38 +184,37 @@ DECLARE @Nom VARCHAR(MAX);
 			BEGIN
 				--Edidtamos---
 				UPDATE Empleados SET Puesto =  @Puesto WHERE ClaEmpl = @ClaEmpl;
-				UPDATE Cuentas SET Tipo = @Tipo WHERE ClaEmpl = ClaEmpl;
-				SET @Salida = 'Se edito correcctamente al usuario '+@Nombre;
-				SET @Txt = 'El usuario '+@Usuario+' edito al usuario'+@Nombre+' por puesto '+@Puesto+' y Tipo '+@Tipo;
+				UPDATE Cuentas SET Tipo = @Tipo, Activo = @Activo WHERE ClaEmpl = @ClaEmpl;
+				SET @Salida = 'Se edito correcctamente al usuario '+@Nombre+'.';
+				SET @Txt = 'El usuario '+@Usuario+' edito al usuario'+@ClaEmpl+' por puesto '+@Puesto+', Tipo '+@Tipo+' y Cuenta '+CAST(@Activo AS VARCHAR);
 				EXEC SP_Msg @Txt;--.Informamos al reporte---
 			END
 			---si ya existe no insertamos---
 			ELSE
 			BEGIN
-				SET @Salida = 'Error, La clave '+@ClaEmpl+' del usuario ya no existe';
+				SET @Salida = 'Error, La clave '+@ClaEmpl+' del usuario ya no existe.';
 				SET @Txt = 'El usuario '+@Usuario+' intento editar al empleado '+@Nombre+'y ya no existente';
 				EXEC SP_Msg @Txt;--.Informamos al reporte---
 			END
 		END
 		ELSE
 		BEGIN---si la clave a ediar no existe
-			SET @Salida = 'Error, La tienda con clave '+@ClaTien+' ya no existe';
+			SET @Salida = 'Error, La tienda con clave '+@ClaTien+' ya no existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento editar al usuario '+@Nombre+' pero la Tienda ya no existente';
 			EXEC SP_Msg @Txt; ---informe al reporte---
 		END
 	ELSE
 	BEGIN---si el usuario no existe---
 		SET @Salida = @Validacion;
-		SET @Txt = 'El usuario '+@Usuario+' intento editar al usuario '+@Nombre+' . '+@Validacion;
+		SET @Txt = 'El usuario '+@Usuario+' intento editar al usuario '+@Nombre+'. '+@Validacion;
 		EXEC SP_Msg @Txt;--informamos al repore---
 	END
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Editar_Empleados';
 	EXEC SP_Msg 'Ha ocurrido un error en SP_Editar_Empleados';
-	SET @Salida  = 'Error al conectar al servidor';
+	SET @Salida = 'Ha ocurrido un error al editar un empleado.';
 END CATCH
 END
 GO
@@ -236,7 +234,7 @@ GO
 
 GO
 CREATE PROCEDURE SP_Editar_Cuentas 
-@Usuario VARCHAR(MAX), ---Clave de usuario actual---
+@Usuario VARCHAR(MAX), ---Nombre de usuario actual---
 @ClaEmpl VARCHAR(MAX), ---Clave de empleado---
 @ClaTien VARCHAR(MAX), ---Clave de la tienda a la que pertenesera el nuevo empleado---
 @Nombre VARCHAR(MAX), ---Nombre de empleado---
@@ -264,23 +262,23 @@ DECLARE @Nom VARCHAR(MAX);
 				--Edidtamos---
 				UPDATE Empleados SET Nombre =  @Nombre, Telefono = @Telefono WHERE ClaEmpl = @ClaEmpl;
 				UPDATE Cuentas SET Usuario = ENCRYPTBYKEY(KEY_GUID('LlaveEcriptacion'),@Usr),
-				Clave = ENCRYPTBYKEY(KEY_GUID('LlaveEcriptacion'),@Clave) WHERE ClaEmpl = ClaEmpl;
+				Clave = ENCRYPTBYKEY(KEY_GUID('LlaveEcriptacion'),@Clave), Acceso = 0 WHERE ClaEmpl = @ClaEmpl;
 
-				SET @Salida = 'Se edito correcctamente tu cuenta';
+				SET @Salida = 'Se edito correctamente tu cuenta.';
 				SET @Txt = 'El usuario '+@Usuario+' edito su cuenta con nombre'+@Nombre+'telefo'+@Telefono+' y nueva cuenta';
 				EXEC SP_Msg @Txt;--.Informamos al reporte---
 			END
 			---si ya existe no insertamos---
 			ELSE
 			BEGIN
-				SET @Salida = 'Error, La clave '+@Usr+' ya existe, intenta otro.';
+				SET @Salida = 'Error, La clave '+@Usr+' ya existe, intenta otra.';
 				SET @Txt = 'El usuario '+@Usuario+' intento editar su cuenta con usuario '+@Usr+' pero ya existe';
 				EXEC SP_Msg @Txt;--.Informamos al reporte---
 			END
 		END
 		ELSE
 		BEGIN---si la clave a ediar no existe
-			SET @Salida = 'Error, La tienda con clave '+@ClaTien+' ya no existe';
+			SET @Salida = 'Error, La tienda con clave '+@ClaTien+' ya no existe.';
 			SET @Txt = 'El usuario '+@Usuario+' intento editar al usuario '+@Nombre+' pero la Tienda ya no existente';
 			EXEC SP_Msg @Txt; ---informe al reporte---
 		END
@@ -294,9 +292,8 @@ DECLARE @Nom VARCHAR(MAX);
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Editar_Empleados';
 	EXEC SP_Msg 'Ha ocurrido un error en SP_Editar_Empleados';
-	SET @Salida  = 'Error al conectar al servidor';
+	SET @Salida = 'Ha ocurrido un error al editar la cuenta.';
 END CATCH
 END
 GO
@@ -318,7 +315,7 @@ GO
 
 GO
 CREATE PROCEDURE SP_Buscar_Empleados 
-@ClaTien VARCHAR(MAX) 
+@ClaTien VARCHAR(MAX) ---recibo la clave de la tienda para mostar solo empleados de esa tienda---
 AS
 BEGIN
 BEGIN TRANSACTION
@@ -330,7 +327,6 @@ BEGIN TRY
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Buscar_Empleados';
 	EXEC SP_Msg 'Ha ocurrido un error en SP_Buscar_Empleados';
 END CATCH
 END
@@ -352,7 +348,7 @@ GO
 
 GO
 CREATE PROCEDURE SP_Buscar_Empleado
-@Clave VARCHAR(MAX),
+@Valor VARCHAR(MAX),
 @ClaTien VARCHAR(MAX) 
 AS
 BEGIN
@@ -362,14 +358,13 @@ DECLARE @Txt VARCHAR(MAX);
 		--- LIKE % PARA HACER BUSQUEDAS QUE SEAN SEMEJANES---
 	SELECT Cuentas.ClaEmpl, ClaTien, Nombre,Puesto, Tipo FROM Empleados
 	INNER JOIN Cuentas ON Empleados.ClaEmpl = Cuentas.ClaEmpl 
-	WHERE Cuentas.ClaEmpl LIKE '%'+@Clave+'%'
-	OR Nombre LIKE '%'+@Clave+'%'
+	WHERE Cuentas.ClaEmpl LIKE '%'+@Valor+'%'
+	OR Nombre LIKE '%'+@Valor+'%'
 	AND ClaTien = @ClaTien;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Ha ocurrido un error en SP_Buscar_Empleado';
 	EXEC SP_Msg 'Ha ocurrido un error en SP_Buscar_Empleado';
 END CATCH
 END
