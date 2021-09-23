@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "vYD80HChOdZtgYmbBVzbZsP2UAsqVaNIf7LAkYpjlJuPLyDRhANL6L4e+wctocOOPm3sIBe03UoJGG0zFz1dxg==",
+  "dgSpecHash": "5RNtGpuyoEutUOQRsewoOGXXmWRMFLDScUqyVVwzrG2iOvxIck8/WpBxPK/5qAFzHlI0Zpx3Neo04Js4krykDg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\Desktop\\Sistemas_Ventas\\Proyecto_Ventas\\Conexion\\Conexion.csproj",
+  "projectFilePath": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\Conexion\\Conexion.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\ALONSO\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ALONSO\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

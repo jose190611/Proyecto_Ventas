@@ -6583,19 +6583,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\": {}
+    "C:\\Users\\ALONSO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\Desktop\\Sistemas_Ventas\\Proyecto_Ventas\\AccesoTests1\\AccesoTests1.csproj",
+      "projectUniqueName": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\AccesoTests1\\AccesoTests1.csproj",
       "projectName": "AccesoTests1",
-      "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\Desktop\\Sistemas_Ventas\\Proyecto_Ventas\\AccesoTests1\\AccesoTests1.csproj",
-      "packagesPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\Desktop\\Sistemas_Ventas\\Proyecto_Ventas\\AccesoTests1\\obj\\",
+      "projectPath": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\AccesoTests1\\AccesoTests1.csproj",
+      "packagesPath": "C:\\Users\\ALONSO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\AccesoTests1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\silvi.DESKTOP-J7MR0VK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ALONSO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6609,8 +6609,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\silvi.DESKTOP-J7MR0VK\\Desktop\\Sistemas_Ventas\\Proyecto_Ventas\\Acceso\\Acceso.csproj": {
-              "projectPath": "C:\\Users\\silvi.DESKTOP-J7MR0VK\\Desktop\\Sistemas_Ventas\\Proyecto_Ventas\\Acceso\\Acceso.csproj"
+            "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\Acceso\\Acceso.csproj": {
+              "projectPath": "C:\\Users\\ALONSO\\Documents\\Proyecto_Ventas\\Acceso\\Acceso.csproj"
             }
           }
         }
@@ -6657,7 +6657,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
