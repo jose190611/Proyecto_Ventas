@@ -13,8 +13,8 @@ namespace AccesoBD.Conexion
         {
             get
             {
-                return @"DATA SOURCE =DESKTOP-J7MR0VK; PERSIST SECURITY INFO = True;
-                         Initial Catalog = PuntoVenta; USER ID = josereyes; PASSWORD = 990611;";
+                return @"DATA SOURCE =DESKTOP-GC9FD1T; PERSIST SECURITY INFO = True;
+                         Initial Catalog = PuntoVenta; USER ID = sa; PASSWORD = Batcontry07*;";
             }
         }
     }
