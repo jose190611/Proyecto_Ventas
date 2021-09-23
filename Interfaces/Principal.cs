@@ -32,6 +32,10 @@ namespace Interfaces
             #endregion
             this.FormBorderStyle = FormBorderStyle.None;
             this.Dock = DockStyle.Fill;
+            var workingArea = Screen.FromHandle(Handle).WorkingArea;
+            MaximizedBounds = new Rectangle(0, 0, workingArea.Width, workingArea.Height);
+            this.WindowState = FormWindowState.Maximized;
+            pbMaximizar.IconChar = FontAwesome.Sharp.IconChar.CompressAlt;
         }
 
         private void Principal_Load(object sender, EventArgs e)
@@ -125,20 +129,42 @@ namespace Interfaces
             {
                 LogicaPrincipal p = new LogicaPrincipal();
                 p.ReducirMenu(btnmenu, panelmenu, timermenu);
+                btnTienda.Text = "";
+                btnUbicacion.Text = "";
+                btnProveedores.Text = "";
+                btnEmpleados.Text = "";
+                btnClientes.Text = "";
+                btnProductos.Text = "";
+                btnVentas.Text = "";
 
             }
-            else if (panelmenu.Width == 50)
+            else if (panelmenu.Width == 80)
             {
                 LogicaPrincipal p = new LogicaPrincipal();
                 p.AmpliarMenu(btnmenu, panelmenu,timermenu);
+                btnTienda.Text = "            Tienda";
+                btnUbicacion.Text = "                 Ubicación";
+                btnProveedores.Text = "                    Proveedores";
+                btnEmpleados.Text = "                   Empleados";
+                btnClientes.Text = "             Clientes";
+                btnProductos.Text = "                Productos";
+                btnVentas.Text = "            Ventas";
             }
         }
 
         #region RevisarEsteCodigo
         private void tiempoMenu_Tick(object sender, EventArgs e)
         {
+            timermenu.Enabled = true;
             LogicaPrincipal p = new LogicaPrincipal();
             p.ReducirMenu(btnmenu, panelmenu, timermenu);
+            btnTienda.Text = "";
+            btnUbicacion.Text = "";
+            btnProveedores.Text = "";
+            btnEmpleados.Text = "";
+            btnClientes.Text = "";
+            btnProductos.Text = "";
+            btnVentas.Text = "";
             tiempoMenu.Stop();
         }
 
