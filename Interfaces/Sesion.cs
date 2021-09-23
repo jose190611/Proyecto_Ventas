@@ -86,13 +86,28 @@ namespace Interfaces
         private void btnContinuar_Click(object sender, EventArgs e)
         {
             LogicaSesion lg = new LogicaSesion();
+            DividirCadenas cad = new DividirCadenas();
             string y = lg.IniciarNuevaSesion(txtUsuario, txtContra);
             if (y.Contains("invalida"))
             {
-                MessageBox.Show(y,"¡ E r r o r !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Avisos fa = new Avisos();
+                fa.panelBarra.BackColor = Color.FromArgb(247, 0, 37);
+                fa.lblBarra.Text = "¡E r r o r!";
+                fa.lblMensaje.Text = cad.Dividir(y);
+                var img = new Bitmap(Interfaces.Properties.Resources.error);
+                fa.pbIcono.Image = img;
+                fa.panelContenedor.BackColor = Color.FromArgb(245, 152, 131);
+                fa.ShowDialog();
             }else if (y.Contains("iniciada"))
             {
-                MessageBox.Show(y, "¡ M e n s a j e !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Avisos fa = new Avisos();
+                fa.panelBarra.BackColor = Color.FromArgb(249, 172, 3);
+                fa.lblBarra.Text = "¡A d v e r t e n c i a!";
+                fa.lblMensaje.Text =cad.Dividir(y);
+                var img = new Bitmap(Interfaces.Properties.Resources.advertencia);
+                fa.pbIcono.Image = img;
+                fa.panelContenedor.BackColor = Color.FromArgb(245, 231, 131);
+                fa.ShowDialog();
                 lg.CerrarSesiones(txtUsuario.Text);
             }
             else

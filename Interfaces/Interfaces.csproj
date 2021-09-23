@@ -58,6 +58,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Avisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avisos.Designer.cs">
+      <DependentUpon>Avisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cargando.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,7 @@
       <DependentUpon>Cargando.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica\ConvertidorImagen.cs" />
+    <Compile Include="Logica\DividirCadenas.cs" />
     <Compile Include="Logica\LogicaSesion.cs" />
     <Compile Include="Logica\LogicaPrincipal.cs" />
     <Compile Include="Principal.cs">
@@ -81,6 +88,9 @@
     <Compile Include="Sesion.Designer.cs">
       <DependentUpon>Sesion.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Avisos.resx">
+      <DependentUpon>Avisos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cargando.resx">
       <DependentUpon>Cargando.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +166,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\advertencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\informacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signo-de-interrogacion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
