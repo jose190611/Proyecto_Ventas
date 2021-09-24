@@ -55,6 +55,10 @@ namespace Interfaces
             this.pbCerrar = new FontAwesome.Sharp.IconPictureBox();
             this.timermenu = new System.Windows.Forms.Timer(this.components);
             this.tiempoMenu = new System.Windows.Forms.Timer(this.components);
+            this.timerHora = new System.Windows.Forms.Timer(this.components);
+            this.timerFecha = new System.Windows.Forms.Timer(this.components);
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.panelPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelContenedor.SuspendLayout();
@@ -94,7 +98,9 @@ namespace Interfaces
             // panelContenedor
             // 
             this.panelContenedor.AutoSize = true;
-            this.panelContenedor.BackColor = System.Drawing.Color.Lime;
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            this.panelContenedor.Controls.Add(this.lblFecha);
+            this.panelContenedor.Controls.Add(this.lblHora);
             this.panelContenedor.Controls.Add(this.btnmenu);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
@@ -272,6 +278,7 @@ namespace Interfaces
             this.btnTienda.TabIndex = 9;
             this.btnTienda.Text = "            Tienda";
             this.btnTienda.UseVisualStyleBackColor = true;
+            this.btnTienda.Click += new System.EventHandler(this.btnTienda_Click);
             // 
             // paneltablero
             // 
@@ -339,7 +346,6 @@ namespace Interfaces
             // panelHerramientas
             // 
             this.panelHerramientas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(59)))), ((int)(((byte)(70)))));
-            this.panelHerramientas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelHerramientas.Controls.Add(this.pbMaximizar);
             this.panelHerramientas.Controls.Add(this.pbMinimizar);
             this.panelHerramientas.Controls.Add(this.pbCerrar);
@@ -360,7 +366,7 @@ namespace Interfaces
             this.pbMaximizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(6)))));
             this.pbMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.pbMaximizar.IconSize = 25;
-            this.pbMaximizar.Location = new System.Drawing.Point(1186, 0);
+            this.pbMaximizar.Location = new System.Drawing.Point(1190, 0);
             this.pbMaximizar.Name = "pbMaximizar";
             this.pbMaximizar.Size = new System.Drawing.Size(25, 25);
             this.pbMaximizar.TabIndex = 3;
@@ -379,7 +385,7 @@ namespace Interfaces
             this.pbMinimizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(241)))), ((int)(((byte)(5)))));
             this.pbMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.pbMinimizar.IconSize = 25;
-            this.pbMinimizar.Location = new System.Drawing.Point(1142, 0);
+            this.pbMinimizar.Location = new System.Drawing.Point(1146, 0);
             this.pbMinimizar.Name = "pbMinimizar";
             this.pbMinimizar.Size = new System.Drawing.Size(25, 25);
             this.pbMinimizar.TabIndex = 2;
@@ -398,7 +404,7 @@ namespace Interfaces
             this.pbCerrar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(5)))), ((int)(((byte)(1)))));
             this.pbCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.pbCerrar.IconSize = 25;
-            this.pbCerrar.Location = new System.Drawing.Point(1223, 0);
+            this.pbCerrar.Location = new System.Drawing.Point(1227, 0);
             this.pbCerrar.Name = "pbCerrar";
             this.pbCerrar.Size = new System.Drawing.Size(25, 25);
             this.pbCerrar.TabIndex = 1;
@@ -416,6 +422,39 @@ namespace Interfaces
             // 
             this.tiempoMenu.Interval = 3000;
             this.tiempoMenu.Tick += new System.EventHandler(this.tiempoMenu_Tick);
+            // 
+            // timerHora
+            // 
+            this.timerHora.Enabled = true;
+            this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
+            // 
+            // timerFecha
+            // 
+            this.timerFecha.Enabled = true;
+            this.timerFecha.Tick += new System.EventHandler(this.timerFecha_Tick);
+            // 
+            // lblHora
+            // 
+            this.lblHora.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.Teal;
+            this.lblHora.Location = new System.Drawing.Point(418, 257);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(0, 77);
+            this.lblHora.TabIndex = 1;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.Navy;
+            this.lblFecha.Location = new System.Drawing.Point(275, 353);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(0, 42);
+            this.lblFecha.TabIndex = 2;
+            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // Principal
             // 
@@ -436,6 +475,7 @@ namespace Interfaces
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelContenedor.ResumeLayout(false);
+            this.panelContenedor.PerformLayout();
             this.panelmenu.ResumeLayout(false);
             this.panelmenu.PerformLayout();
             this.paneltablero.ResumeLayout(false);
@@ -476,5 +516,9 @@ namespace Interfaces
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnUbicacion;
         private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Timer timerHora;
+        private System.Windows.Forms.Timer timerFecha;
     }
 }

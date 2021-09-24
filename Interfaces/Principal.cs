@@ -40,7 +40,7 @@ namespace Interfaces
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
+            btnmenu.BackColor = Color.Transparent;
         }
 
         private void pbCerrar_MouseHover(object sender, EventArgs e)
@@ -182,6 +182,27 @@ namespace Interfaces
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void timerHora_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void timerFecha_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTienda_Click(object sender, EventArgs e)
+        {
+            Formularios f = new Formularios();
+            f.AbrirFormularioHijo(new Tiendas(), panelContenedor);
         }
     }    
 }

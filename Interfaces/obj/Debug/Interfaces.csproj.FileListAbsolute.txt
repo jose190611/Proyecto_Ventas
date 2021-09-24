@@ -27,3 +27,4 @@ C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interface
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.csproj.CopyComplete
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.exe
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.pdb
+C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Tiendas.resources
