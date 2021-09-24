@@ -27,6 +27,7 @@ C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interface
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.csproj.CopyComplete
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.exe
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.pdb
+<<<<<<< HEAD
 C:\Users\ALONSO\Documents\Proyecto_Ventas\Interfaces\bin\Debug\Interfaces.exe.config
 C:\Users\ALONSO\Documents\Proyecto_Ventas\Interfaces\bin\Debug\Interfaces.exe
 C:\Users\ALONSO\Documents\Proyecto_Ventas\Interfaces\bin\Debug\Interfaces.pdb
@@ -56,3 +57,6 @@ C:\Users\ALONSO\Documents\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.csproj
 C:\Users\ALONSO\Documents\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.csproj.CopyComplete
 C:\Users\ALONSO\Documents\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.exe
 C:\Users\ALONSO\Documents\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.pdb
+=======
+C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Tiendas.resources
+>>>>>>> Jose
