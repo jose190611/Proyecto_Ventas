@@ -34,6 +34,8 @@ namespace Interfaces
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
             this.btnmenu = new FontAwesome.Sharp.IconButton();
             this.panelmenu = new System.Windows.Forms.Panel();
             this.btnVentas = new System.Windows.Forms.Button();
@@ -57,8 +59,6 @@ namespace Interfaces
             this.tiempoMenu = new System.Windows.Forms.Timer(this.components);
             this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.timerFecha = new System.Windows.Forms.Timer(this.components);
-            this.lblHora = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
             this.panelPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelContenedor.SuspendLayout();
@@ -107,6 +107,29 @@ namespace Interfaces
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1064, 656);
             this.panelContenedor.TabIndex = 0;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.Navy;
+            this.lblFecha.Location = new System.Drawing.Point(275, 353);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(0, 42);
+            this.lblFecha.TabIndex = 2;
+            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
+            // 
+            // lblHora
+            // 
+            this.lblHora.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.Teal;
+            this.lblHora.Location = new System.Drawing.Point(418, 257);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(0, 77);
+            this.lblHora.TabIndex = 1;
             // 
             // btnmenu
             // 
@@ -415,7 +438,7 @@ namespace Interfaces
             // 
             // timermenu
             // 
-            this.timermenu.Interval = 80;
+            this.timermenu.Interval = 30;
             this.timermenu.Tick += new System.EventHandler(this.timermenu_Tick);
             // 
             // tiempoMenu
@@ -432,29 +455,6 @@ namespace Interfaces
             // 
             this.timerFecha.Enabled = true;
             this.timerFecha.Tick += new System.EventHandler(this.timerFecha_Tick);
-            // 
-            // lblHora
-            // 
-            this.lblHora.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.ForeColor = System.Drawing.Color.Teal;
-            this.lblHora.Location = new System.Drawing.Point(418, 257);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(0, 77);
-            this.lblHora.TabIndex = 1;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.Navy;
-            this.lblFecha.Location = new System.Drawing.Point(275, 353);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(0, 42);
-            this.lblFecha.TabIndex = 2;
-            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // Principal
             // 
@@ -502,7 +502,6 @@ namespace Interfaces
         private System.Windows.Forms.Timer tiempoMenu;
         private System.Windows.Forms.Panel paneltablero;
         private System.Windows.Forms.PictureBox pbFototienda;
-        private FontAwesome.Sharp.IconButton btnmenu;
         public System.Windows.Forms.Label lbltipo;
         public System.Windows.Forms.Label lblNombre;
         public System.Windows.Forms.PictureBox pbFotoEmpleado;
@@ -520,5 +519,6 @@ namespace Interfaces
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer timerHora;
         private System.Windows.Forms.Timer timerFecha;
+        public FontAwesome.Sharp.IconButton btnmenu;
     }
 }

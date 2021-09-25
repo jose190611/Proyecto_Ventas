@@ -32,7 +32,7 @@ namespace Interfaces.Logica
         {
             while (t.Enabled)//Ciclo iterativo que funcionará mientras el timer esté activo
             {
-                p.Width -= 2;//Por cada tick del timer se reducirá en 1 el largo del panel
+                p.Width -= 6;//Por cada tick del timer se reducirá en 1 el largo del panel
                 if (p.Width == 80)// cuando llegue a 50 hará lo siguiente
                 {
                     p.Width = 80;
@@ -49,7 +49,7 @@ namespace Interfaces.Logica
         {
             while(t.Enabled)//Ciclo iterativo que funcionará mientras el timer esté activo
             {
-                p.Width += 2;//Por cada tick del timer el largo se sumara en 1
+                p.Width += 6;//Por cada tick del timer el largo se sumara en 1
                 if (p.Width == 200)// Cuando llegue a 200 px hará lo siguiente
                 {
                     p.Width = 200;
