@@ -210,7 +210,14 @@ namespace Interfaces
         private void btnTienda_Click(object sender, EventArgs e)
         {
             Formularios f = new Formularios();
-            f.AbrirFormularioHijo(new Tiendas(), panelContenedor);
+            if (f.EstaAbiertoElFormulario("Tiendas"))
+            {
+                MessageBox.Show("No se puede abrir el mismo formulario");
+            }
+            else
+            {
+                f.AbrirFormularioHijo(new Tiendas(), panelContenedor);
+            }       
         }
     }    
 }

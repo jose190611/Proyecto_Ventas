@@ -25,6 +25,20 @@ namespace Interfaces.Logica
             formHijo.Show();
             
         }
+
+        public bool EstaAbiertoElFormulario(string nombreForm)
+        {
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == nombreForm).SingleOrDefault<Form>();
+
+            if (existe != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
             
     }
 }
