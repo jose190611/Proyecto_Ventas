@@ -60,3 +60,4 @@ C:\Users\ALONSO\Documents\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.pdb
 =======
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Tiendas.resources
 >>>>>>> Jose
+C:\Users\ALONSO\Documents\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Tiendas.resources
