@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 //---------------------------------------------------------------------------------------------------------------------
 // Autor: Jose Antonio Reyes A.           Descripción: Código modelo de la tabla Tiendas
@@ -13,12 +14,17 @@ namespace AccesoBD.Modelos
         public string NuevaClave { get; set; }
         public string Usuario { get; set; }
         public string Nombre { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
         public byte[] Imagen { get; set; }
     }
+
 
     public class ModeloBusquedaTienda
     {
         public string ClaTien { get; set; }
         public string Nombre { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
     }
 }

@@ -110,7 +110,6 @@ BEGIN
 	---MINIMOS OCUPAREMOS UN NOMBRE PARA LA IDENTIFICACION---
 	CREATE TABLE Proveedores (
 	ClaProv VARCHAR(20) NOT NULL,
-	ClaTien VARCHAR(20) NOT NULL,
 	Nombre VARCHAR(50) NOT NULL,
 	Telefono VARCHAR(15) NOT NULL,
 	Correo VARCHAR(100),
@@ -135,7 +134,6 @@ BEGIN
 	---MINIMOS OCUPAREMOS UN NOMBRE PARA LA IDENTIFICACION---
 	CREATE TABLE Ubicaciones (
 	ClaUbic VARCHAR(20) NOT NULL,
-	ClaTien VARCHAR(20) NOT NULL,
 	Lugar VARCHAR(50) NOT NULL
 	);
 	PRINT 'Se creo la tabla Ubicaciones.';
@@ -288,6 +286,7 @@ GO
 -----------Tablas para la normalizacion-------------
 
 
+
 -----tabla Ticket------
 IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME='Tickets')
 BEGIN
@@ -320,6 +319,7 @@ BEGIN
 	---VARBINARY PARA LA ENCRYPTACION DE LAS CUENTAS---
 	ClaProd VARCHAR(20) NOT NULL,
 	ClaProv VARCHAR(20) NOT NULL,
+	ClaTien VARCHAR(20) NOT NULL,
 	Marca VARCHAR(50) ---Para saber la marca del producto---
 	);
 	PRINT 'Se creo la tabla ProPro.';
@@ -367,6 +367,7 @@ BEGIN
 	---VARBINARY PARA LA ENCRYPTACION DE LAS CUENTAS---
 	ClaProd VARCHAR(20) NOT NULL,
 	ClaUbic VARCHAR(20) NOT NULL,
+	ClaTien VARCHAR(20) NOT NULL,
 	Existencia INT NOT NULL
 	);
 	PRINT 'Se creo la tabla ProUbi.';
@@ -378,9 +379,47 @@ BEGIN
 	EXEC SP_Msg 'Se intento crear la tabla ProUbi ya existene';
 END
 GO
------FIN tabla ProTie------
+-----FIN tabla ProUbi-----
 
 
+
+---Tabla TiePro--- Tabla de tiendas con proveedores
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME='TiePro')
+BEGIN
+	CREATE TABLE TiePro (
+		ClaTien VARCHAR(20) NOT NULL,
+		ClaProv VARCHAR(20) NOT NULL
+	);
+	PRINT 'SE CREO LA TABLA TiePro.';
+	EXEC SP_Msg 'SE creola tabla TiePro';
+END
+ELSE
+BEGIN
+	PRINT 'La tabla TiePro ya existe.';
+	EXEC SP_Msg 'Se intento crear la tabla TiePro ya existente';
+END
+GO
+---FIN Tabla TiePro--- Tabla de tiendas con proveedores
+
+
+
+---Tabla TiePro--- Tabla de tiendas con proveedores
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME='TieUbi')
+BEGIN
+	CREATE TABLE TieUbi (
+		ClaTien VARCHAR(20) NOT NULL,
+		ClaUbic VARCHAR(20) NOT NULL
+	);
+	PRINT 'SE CREO LA TABLA TieUbi.';
+	EXEC SP_Msg 'SE creola tabla TieUbi';
+END
+ELSE
+BEGIN
+	PRINT 'La tabla TieUbi ya existe.';
+	EXEC SP_Msg 'Se intento crear la tabla TieUbi ya existente';
+END
+GO
+---FIN Tabla TiePro--- Tabla de tiendas con proveedores
 
 
 -----------FIN Tablas para la normalizacion-------------

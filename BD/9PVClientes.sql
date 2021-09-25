@@ -1,3 +1,4 @@
+USE PuntoVenta;
 -----PROCESO PARA INSERTAT Clientes-----
 IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Insertar_Clientes')
 PRINT 'Creando proceso SP_Insertar_Clientes';

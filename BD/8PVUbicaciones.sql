@@ -1,3 +1,4 @@
+USE PuntoVenta;
 -----PROCESO PARA INSERTAT UBICACIONES-----
 IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Insertar_Ubicaciones')
 PRINT 'Creando proceso SP_Insertar_Ubicaciones';
@@ -27,28 +28,41 @@ SET @ClaUbic =  SUBSTRING(@Lugar,1,4)+@Num;---se genera clave unica para la unbi
 	EXEC SP_Validacion @Usuario,@Validacion OUTPUT;
 	---Si el usuario existe permitimos---
 	IF( @Validacion = '1' )
-		----Si la clave no exite en la BD quiere decir que podremos insertar----
-		IF((SELECT COUNT(*) FROM Ubicaciones WHERE ClaUbic = @ClaUbic)=0)
+		----Si el nombre del lugar existe----
+		IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @ClaTien)=1)
 		BEGIN
 			---Si la tienda exite insetamos---
-			IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @ClaTien)=1)
+			IF((SELECT COUNT(*) FROM Ubicaciones WHERE Lugar = @Lugar)=1)
 			BEGIN
-				INSERT INTO Ubicaciones VALUES (@ClaUbic, @ClaTien, @Lugar);---Insertamos el registro---
+				---Si exxiste relacion mandamos error de existencia
+				SET @ClaUbic = (SELECT ClaUbic FROM Ubicaciones WHERE Lugar =  @Lugar);--Jalamos la clave---
+				IF((SELECT COUNT(*) FROM TieUbi WHERE ClaTien = @ClaTien AND ClaUbic = @ClaUbic)=1)
+				BEGIN
+					SET @Salida = 'Error, el lugar '+@Lugar+' ya existe.';
+					SET @Txt = 'El usuario '+@Usuario+' intento insertar la ubicacion '+@Lugar+' con clave '+@ClaUbic+' ya existente';
+					EXEC SP_Msg @Txt;--informamos al reporte----
+				END
+				ELSE---Si no existe una relacion con la tiena
+				BEGIN 
+					INSERT INTO TieUbi VALUES (@ClaTien, @ClaUbic);
+					SET @Salida = 'Se ha guardado la ubicacion '+@Lugar+'.';
+					SET @Txt = 'El usuario '+@Usuario+' relaciono el lugar '+@Lugar+' con clave '+@ClaUbic;
+					EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
+				END
+			END
+			ELSE
+			BEGIN
+				INSERT INTO Ubicaciones VALUES (@ClaUbic, @Lugar);---Insertamos el registro---
+				INSERT INTO TieUbi VALUES (@ClaTien, @ClaUbic);
 				SET @Salida = 'Se ha guardado la ubicacion '+@Lugar+'.';
 				SET @Txt = 'El usuario '+@Usuario+' inserto el lugar '+@Lugar+' con clave '+@ClaUbic;
 				EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
 			END
-			ELSE
-			BEGIN
-				SET @Salida = 'Error, la clave de la tienda '+@ClaTien+' no existe.';
-				SET @Txt = 'El usuario '+@Usuario+' intento insertar la ubicacion '+@Lugar+' pero la tienda'+@ClaTien+' ya no existente';
-				EXEC SP_Msg @Txt;--informamos al reporte----
-			END
 		END
 		ELSE
 		BEGIN---Si la clvae si esxie mandamos error de existencia---
-			SET @Salida = 'Error, la clave de lugar '+@ClaUbic+' ya existe.';
-			SET @Txt = 'El usuario '+@Usuario+' intento insertar la ubicacion '+@Lugar+' con clave '+@ClaUbic+' ya existente';
+			SET @Salida = 'Error, la clave de la tienda '+@ClaTien+' no existe.';
+			SET @Txt = 'El usuario '+@Usuario+' intento insertar la ubicacion '+@Lugar+' pero la tienda'+@ClaTien+' ya no existente';
 			EXEC SP_Msg @Txt;--informamos al reporte----
 		END
 	ELSE
@@ -83,6 +97,7 @@ GO
 CREATE PROCEDURE SP_Eliminar_Ubicaciones 
 @Usuario VARCHAR(MAX), ---Clave del usuario que realiza el movimientoo---
 @ClaUbic VARCHAR(MAX), ---Clave de la ubicacion---
+@ClaTien VARCHAR(MAX), --Clave de la tienda---
 @Lugar VARCHAR(MAX),  ---Nombre de la ubicacion---
 @Salida VARCHAR(MAX) OUTPUT
 AS
@@ -94,12 +109,12 @@ DECLARE @Txt VARCHAR(MAX);
 	EXEC SP_Validacion @Usuario,@Validacion OUTPUT;
 	---Si el usuario existe permitimos---
 	IF( @Validacion = '1' )
-		---Si la clave exise podremos eliminar----
-		IF((SELECT COUNT(*) FROM Ubicaciones WHERE ClaUbic = @ClaUbic)=1)
+		---Si hay relacion solo eliminamos la relacion----
+		IF((SELECT COUNT(*) FROM TieUbi WHERE  ClaTien = @ClaTien AND ClaUbic = @ClaUbic)=1)
 		BEGIN
-			DELETE Ubicaciones WHERE ClaUbic = @ClaUbic; ---Eliminamos la tienda ---
+			DELETE TieUbi WHERE ClaTien = @ClaTien AND ClaUbic = @ClaUbic; ---Eliminamos la relacion con la tienda ---
 			SET @Salida = 'Se ha eliminado el lugar '+@Lugar+'.';
-			SET @Txt = 'El usuario '+@Usuario+' elimino el lugar '+@Lugar+' con clave '+@ClaUbic;
+			SET @Txt = 'El usuario '+@Usuario+' elimino su relacion con el lugar '+@Lugar+' con clave '+@ClaUbic;
 			EXEC SP_Msg @Txt;---informaos al reporte---
 		END
 		ELSE
@@ -205,6 +220,7 @@ DROP PROCEDURE SP_Mostrar_Ubicaciones;
 END
 GO
 
+
 GO
 CREATE PROCEDURE SP_Mostrar_Ubicaciones 
 @ClaTien VARCHAR(MAX)
@@ -212,8 +228,10 @@ AS
 BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
-	SELECT ClaUbic as 'Clave', Lugar FROM Ubicaciones
-		WHERE ClaTien = @ClaTien;
+	SELECT Ubicaciones.ClaUbic as 'Clave', Ubicaciones.Lugar FROM Ubicaciones
+		INNER JOIN TieUbi ON Ubicaciones.ClaUbic = TieUbi.ClaUbic
+		INNER JOIN Tiendas ON Tiendas.ClaTien = TieUbi.ClaTien
+		WHERE Tiendas.ClaTien = @ClaTien;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
@@ -243,9 +261,11 @@ AS
 BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
-	SELECT ClaUbic AS 'Clave', Lugar FROM Ubicaciones 
-		WHERE ClaUbic LIKE '%'+@Valor+'%' OR Lugar LIKE '%'+@Valor+'%'
-		AND ClaTien = @ClaTien;
+	SELECT Ubicaciones.ClaUbic as 'Clave', Ubicaciones.Lugar FROM Ubicaciones
+		INNER JOIN TieUbi ON Ubicaciones.ClaUbic = TieUbi.ClaUbic
+		INNER JOIN Tiendas ON Tiendas.ClaTien = TieUbi.ClaTien
+		WHERE (Ubicaciones.ClaUbic LIKE '%'+@Valor+'%' OR Ubicaciones.Lugar LIKE '%'+@Valor+'%')
+		AND (Tiendas.ClaTien = @ClaTien);
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
+using System.Windows.Forms;
 using AccesoBD.Acceso;
 using AccesoBD.Modelos;
 
@@ -8,14 +10,16 @@ namespace Neogcio.BL
 {
     public class TiendaBL
     {
-        public string NuevaTienda (string usuario, string nombre, string img)
+        public string NuevaTienda (string usuario, string nombre, string direccion, string telefono, byte[] img)
         {
             ModeloTiendas tienda = new ModeloTiendas();
             Tienda t = new Tienda();
 
             tienda.Usuario = usuario;
             tienda.Nombre = nombre;
-            tienda.Imagen = Encoding.ASCII.GetBytes(img);
+            tienda.Direccion = direccion;
+            tienda.Telefono = telefono;
+            tienda.Imagen = img;
 
             var msj = t.RegistrarTienda(tienda);
             return msj;
@@ -49,6 +53,14 @@ namespace Neogcio.BL
             return msj;
         }
 
+
+        public DataTable CargarTiendas()
+        {
+            Tienda obj = new Tienda();
+            return obj.ConsultaGeneral();
+        }
+
+        /*
         public List<ModeloBusquedaTienda> Consultar()
         {
             Tienda t = new Tienda();
@@ -56,6 +68,7 @@ namespace Neogcio.BL
             var lista = t.ConsultaGeneral();
             return lista;
         }
+        */
 
         public List<ModeloTiendas> PersonalizarConsulta(string clave)
         {

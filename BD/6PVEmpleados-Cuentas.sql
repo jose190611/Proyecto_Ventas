@@ -1,3 +1,4 @@
+USE PuntoVenta;
 -----PROCESO PARA INSERTAT EMPLEADOS-----
 ---El proceso para realizar un nuevo registro de empleado---
 ---se forzara a que cuando se cree un empleado este se cree una cuenta para el empleado---

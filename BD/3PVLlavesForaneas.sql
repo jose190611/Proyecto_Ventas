@@ -1,3 +1,4 @@
+USE Puntoventa;
 
 -----------CREACION LLAVES FORANEAS TENIENDO COMO REFERENCIA-----------
 -----------FK_TABLA-ORIGEN_TABLA-DESTINO_CLAVEARELACIONAR----------- 
@@ -35,7 +36,7 @@ ELSE
 	  PRINT 'Ya existe un cosntraint con el nombre FK_Proveedores_ProPro_ClaProv';
 	 END
 GO
----FIN DE LA LLAVE FORANEA CON LA TABLA PROVEEDORES Y ProPro---
+---FIN DE LA LLAVE FORANEA CON LA TABLA PROVEEDORES Y PROPRO---
 
 
 
@@ -70,7 +71,7 @@ ELSE
 	  PRINT 'Ya existe un cosntraint con el nombre FK_Productos_ProPro_ClaProd';
 	 END
 GO
----FIN DE LA LLAVE FORANEA CON LA TABLA PROVEEDORES Y ProPro---
+---FIN DE LA LLAVE FORANEA CON LA TABLA PROVEEDORES Y PROPRO---
 
 
 
@@ -107,7 +108,7 @@ ELSE
 	  PRINT 'Ya existe un cosntraint con el nombre FK_Ubicaciones_ProUbi_ClaUbic';
 	 END
 GO
----FIN DE LA LLAVE FORANEA CON LA TABLA UBICACIONES Y PRODUCTOS---
+---FIN DE LA LLAVE FORANEA CON LA TABLA UBICACIONES Y PROUBIC---
 
 
 
@@ -221,8 +222,8 @@ GO
 
 
 
----LLAVE FORANEA CON LA TABLA TIENDA Y PROVEEDORES---
-IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'FK_Tiendas_Proveedores_ClaTien')
+---LLAVE FORANEA CON LA TABLA TIENDA Y TiePro---
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'FK_Tiendas_TiePro_ClaTien')
   BEGIN
     IF NOT EXISTS(SELECT  a.CONSTRAINT_NAME AS FKConstraintName, b.TABLE_NAME AS FKTable, 
 	                 c.COLUMN_NAME AS FKColumn, d.TABLE_NAME AS PKTable, e.COLUMN_NAME AS PKColumn
@@ -233,32 +234,172 @@ IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAIN
 	INNER JOIN (SELECT f.TABLE_NAME, g.COLUMN_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS f
 	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE g ON f.CONSTRAINT_NAME = g.CONSTRAINT_NAME
 	WHERE f.CONSTRAINT_TYPE = 'PRIMARY KEY') e ON e.TABLE_NAME = d.TABLE_NAME
-	AND (b.TABLE_NAME = 'Tiendas' AND c.COLUMN_NAME = 'ClaTien' AND d.TABLE_NAME = 'Proveedores' AND e.COLUMN_NAME = 'ClaTien'))
+	AND (b.TABLE_NAME = 'Tiendas' AND c.COLUMN_NAME = 'ClaTien' AND d.TABLE_NAME = 'TiePro' AND e.COLUMN_NAME = 'ClaTien'))
 	BEGIN
-	ALTER TABLE Proveedores ADD CONSTRAINT FK_Tiendas_Proveedores_ClaTien FOREIGN KEY (ClaTien) 
+	ALTER TABLE TiePro ADD CONSTRAINT FK_Tiendas_TiePro_ClaTien FOREIGN KEY (ClaTien) 
 	REFERENCES Tiendas (ClaTien) ON UPDATE CASCADE ON DELETE CASCADE;
-	PRINT 'Se creo contraint FK_Tiendas_Proveedores_ClaTien';
-	EXEC SP_Msg 'Se creo un constraint FK_Tiendas_Proveedores_ClaTien con las tablas Tiendas y Proveedores';
+	PRINT 'Se creo contraint FK_Tiendas_TiePro_ClaTien';
+	EXEC SP_Msg 'Se creo un constraint FK_Tiendas_TiePro_ClaTien con las tablas Tiendas y TiePro';
 	END
     ELSE
 	 BEGIN
-	  EXEC SP_Msg 'Se intento crear una llave foranea con las tablas Tiendas y Proveedores';
+	  EXEC SP_Msg 'Se intento crear una llave foranea con las tablas Tiendas y ProTie';
+	  PRINT 'La tabla Tiendas ya tiene una llave foranea con la tabla ProTie';
+	 END
+   END
+ELSE
+	BEGIN
+	  EXEC SP_Msg 'Se intento crear un cosntraint con el nombre FK_Tiendas_TiePro_ClaTien';
+	  PRINT 'Ya existe un cosntraint con el nombre FK_Tiendas_TiePro_ClaTien';
+	 END
+GO
+---FIN DE LA LLAVE FORANEA CON LA TABLA TIENDA Y TiePro---
+
+
+
+
+---LLAVE FORANEA CON LA TABLA TIENDA Y ProPro---
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'FK_Tiendas_ProPro_ClaTien')
+  BEGIN
+    IF NOT EXISTS(SELECT  a.CONSTRAINT_NAME AS FKConstraintName, b.TABLE_NAME AS FKTable, 
+	                 c.COLUMN_NAME AS FKColumn, d.TABLE_NAME AS PKTable, e.COLUMN_NAME AS PKColumn
+       FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS a
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS b ON a.CONSTRAINT_NAME = b.CONSTRAINT_NAME
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS d ON a.UNIQUE_CONSTRAINT_NAME = d.CONSTRAINT_NAME
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE c ON a.CONSTRAINT_NAME = c.CONSTRAINT_NAME
+	INNER JOIN (SELECT f.TABLE_NAME, g.COLUMN_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS f
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE g ON f.CONSTRAINT_NAME = g.CONSTRAINT_NAME
+	WHERE f.CONSTRAINT_TYPE = 'PRIMARY KEY') e ON e.TABLE_NAME = d.TABLE_NAME
+	AND (b.TABLE_NAME = 'Tiendas' AND c.COLUMN_NAME = 'ClaTien' AND d.TABLE_NAME = 'ProPro' AND e.COLUMN_NAME = 'ClaTien'))
+	BEGIN
+	ALTER TABLE ProPro ADD CONSTRAINT FK_Tiendas_ProPro_ClaTien FOREIGN KEY (ClaTien) 
+	REFERENCES Tiendas (ClaTien) ON UPDATE CASCADE ON DELETE CASCADE;
+	PRINT 'Se creo contraint FK_Tiendas_ProPro_ClaTien';
+	EXEC SP_Msg 'Se creo un constraint FK_Tiendas_ProPro_ClaTien con las tablas Tiendas y ProPro';
+	END
+    ELSE
+	 BEGIN
+	  EXEC SP_Msg 'Se intento crear una llave foranea con las tablas Tiendas y ProPro';
+	  PRINT 'La tabla Tiendas ya tiene una llave foranea con la tabla ProPro';
+	 END
+   END
+ELSE
+	BEGIN
+	  EXEC SP_Msg 'Se intento crear un cosntraint con el nombre FK_Tiendas_ProPro_ClaTien';
+	  PRINT 'Ya existe un cosntraint con el nombre FK_Tiendas_ProPro_ClaTien';
+	 END
+GO
+---FIN DE LA LLAVE FORANEA CON LA TABLA TIENDA Y ProPro---
+
+
+
+---LLAVE FORANEA CON LA TABLA TIENDA Y ProUbi---
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'FK_Tiendas_ProUbi_ClaTien')
+  BEGIN
+    IF NOT EXISTS(SELECT  a.CONSTRAINT_NAME AS FKConstraintName, b.TABLE_NAME AS FKTable, 
+	                 c.COLUMN_NAME AS FKColumn, d.TABLE_NAME AS PKTable, e.COLUMN_NAME AS PKColumn
+       FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS a
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS b ON a.CONSTRAINT_NAME = b.CONSTRAINT_NAME
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS d ON a.UNIQUE_CONSTRAINT_NAME = d.CONSTRAINT_NAME
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE c ON a.CONSTRAINT_NAME = c.CONSTRAINT_NAME
+	INNER JOIN (SELECT f.TABLE_NAME, g.COLUMN_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS f
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE g ON f.CONSTRAINT_NAME = g.CONSTRAINT_NAME
+	WHERE f.CONSTRAINT_TYPE = 'PRIMARY KEY') e ON e.TABLE_NAME = d.TABLE_NAME
+	AND (b.TABLE_NAME = 'Tiendas' AND c.COLUMN_NAME = 'ClaTien' AND d.TABLE_NAME = 'ProUbi' AND e.COLUMN_NAME = 'ClaTien'))
+	BEGIN
+	ALTER TABLE ProUbi ADD CONSTRAINT FK_Tiendas_ProUbi_ClaTien FOREIGN KEY (ClaTien) 
+	REFERENCES Tiendas (ClaTien) ON UPDATE CASCADE ON DELETE CASCADE;
+	PRINT 'Se creo contraint FK_Tiendas_ProUbi_ClaTien';
+	EXEC SP_Msg 'Se creo un constraint FK_Tiendas_ProUbi_ClaTien con las tablas Tiendas y ProUbi';
+	END
+    ELSE
+	 BEGIN
+	  EXEC SP_Msg 'Se intento crear una llave foranea con las tablas Tiendas y ProUbi';
+	  PRINT 'La tabla Tiendas ya tiene una llave foranea con la tabla ProUbi';
+	 END
+   END
+ELSE
+	BEGIN
+	  EXEC SP_Msg 'Se intento crear un cosntraint con el nombre FK_Tiendas_ProUbi_ClaTien';
+	  PRINT 'Ya existe un cosntraint con el nombre FK_Tiendas_ProUbi_ClaTien';
+	 END
+GO
+---FIN DE LA LLAVE FORANEA CON LA TABLA TIENDA Y ProUbi---
+
+
+
+---LLAVE FORANEA CON LA TABLA TIENDA Y TieUbi---
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'FK_Tiendas_TieUbi_ClaTien')
+  BEGIN
+    IF NOT EXISTS(SELECT  a.CONSTRAINT_NAME AS FKConstraintName, b.TABLE_NAME AS FKTable, 
+	                 c.COLUMN_NAME AS FKColumn, d.TABLE_NAME AS PKTable, e.COLUMN_NAME AS PKColumn
+       FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS a
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS b ON a.CONSTRAINT_NAME = b.CONSTRAINT_NAME
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS d ON a.UNIQUE_CONSTRAINT_NAME = d.CONSTRAINT_NAME
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE c ON a.CONSTRAINT_NAME = c.CONSTRAINT_NAME
+	INNER JOIN (SELECT f.TABLE_NAME, g.COLUMN_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS f
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE g ON f.CONSTRAINT_NAME = g.CONSTRAINT_NAME
+	WHERE f.CONSTRAINT_TYPE = 'PRIMARY KEY') e ON e.TABLE_NAME = d.TABLE_NAME
+	AND (b.TABLE_NAME = 'Tiendas' AND c.COLUMN_NAME = 'ClaTien' AND d.TABLE_NAME = 'TieUbi' AND e.COLUMN_NAME = 'ClaTien'))
+	BEGIN
+	ALTER TABLE TieUbi ADD CONSTRAINT FK_Tiendas_TieUbi_ClaTien FOREIGN KEY (ClaTien) 
+	REFERENCES Tiendas (ClaTien) ON UPDATE CASCADE ON DELETE CASCADE;
+	PRINT 'Se creo contraint FK_Tiendas_TiePro_ClaTien';
+	EXEC SP_Msg 'Se creo un constraint FK_Tiendas_TiePro_ClaTien con las tablas Tiendas y TiePro';
+	END
+    ELSE
+	 BEGIN
+	  EXEC SP_Msg 'Se intento crear una llave foranea con las tablas Tiendas y ProTie';
+	  PRINT 'La tabla Tiendas ya tiene una llave foranea con la tabla ProTie';
+	 END
+   END
+ELSE
+	BEGIN
+	  EXEC SP_Msg 'Se intento crear un cosntraint con el nombre FK_Tiendas_TiePro_ClaTien';
+	  PRINT 'Ya existe un cosntraint con el nombre FK_Tiendas_TiePro_ClaTien';
+	 END
+GO
+---FIN DE LA LLAVE FORANEA CON LA TABLA TIENDA Y TiePro---
+
+
+
+---LLAVE FORANEA CON LA TABLA Proveedores Y TiePro---
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'FK_Proveedores_TiePro_ClaProv')
+  BEGIN
+    IF NOT EXISTS(SELECT  a.CONSTRAINT_NAME AS FKConstraintName, b.TABLE_NAME AS FKTable, 
+	                 c.COLUMN_NAME AS FKColumn, d.TABLE_NAME AS PKTable, e.COLUMN_NAME AS PKColumn
+       FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS a
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS b ON a.CONSTRAINT_NAME = b.CONSTRAINT_NAME
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS d ON a.UNIQUE_CONSTRAINT_NAME = d.CONSTRAINT_NAME
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE c ON a.CONSTRAINT_NAME = c.CONSTRAINT_NAME
+	INNER JOIN (SELECT f.TABLE_NAME, g.COLUMN_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS f
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE g ON f.CONSTRAINT_NAME = g.CONSTRAINT_NAME
+	WHERE f.CONSTRAINT_TYPE = 'PRIMARY KEY') e ON e.TABLE_NAME = d.TABLE_NAME
+	AND (b.TABLE_NAME = 'Proveedores' AND c.COLUMN_NAME = 'ClaProv' AND d.TABLE_NAME = 'TiePro' AND e.COLUMN_NAME = 'ClaProv'))
+	BEGIN
+	ALTER TABLE TiePro ADD CONSTRAINT FK_Proveedores_TiePro_ClaProv FOREIGN KEY (ClaProv) 
+	REFERENCES Proveedores (ClaProv) ON UPDATE CASCADE ON DELETE CASCADE;
+	PRINT 'Se creo contraint FK_Proveedores_TiePro_ClaProv';
+	EXEC SP_Msg 'Se creo un constraint FK_Proveedores_TiePro_ClaProv con las tablas Tiendas y TiePro';
+	END
+    ELSE
+	 BEGIN
+	  EXEC SP_Msg 'Se intento crear una llave foranea con las tablas TiePro y Proveedores';
 	  PRINT 'La tabla Tiendas ya tiene una llave foranea con la tabla Proveedores';
 	 END
    END
 ELSE
 	BEGIN
-	  EXEC SP_Msg 'Se intento crear un cosntraint con el nombre FK_Tiendas_Proveedores_ClaTien';
-	  PRINT 'Ya existe un cosntraint con el nombre FK_Tiendas_Proveedores_ClaTien';
+	  EXEC SP_Msg 'Se intento crear un cosntraint con el nombre FK_Proveedores_TiePro_ClaProv';
+	  PRINT 'Ya existe un cosntraint con el nombre FK_Proveedores_TiePro_ClaProv';
 	 END
 GO
----FIN DE LA LLAVE FORANEA CON LA TABLA TIENDA Y PROPRO---
+---FIN DE LA LLAVE FORANEA CON LA TABLA TIENDA Y TiePro---
 
 
 
-
----LLAVE FORANEA CON LA TABLA TIENDA Y UBICACIONES---
-IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'FK_Tiendas_Ubicaciones_ClaTien')
+---LLAVE FORANEA CON LA TABLA TIENDA Y TieUbi---
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'FK_Tiendas_TieUbi_ClaTien')
   BEGIN
     IF NOT EXISTS(SELECT  a.CONSTRAINT_NAME AS FKConstraintName, b.TABLE_NAME AS FKTable, 
 	                 c.COLUMN_NAME AS FKColumn, d.TABLE_NAME AS PKTable, e.COLUMN_NAME AS PKColumn
@@ -269,9 +410,9 @@ IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAIN
 	INNER JOIN (SELECT f.TABLE_NAME, g.COLUMN_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS f
 	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE g ON f.CONSTRAINT_NAME = g.CONSTRAINT_NAME
 	WHERE f.CONSTRAINT_TYPE = 'PRIMARY KEY') e ON e.TABLE_NAME = d.TABLE_NAME
-	AND (b.TABLE_NAME = 'Tiendas' AND c.COLUMN_NAME = 'ClaTien' AND d.TABLE_NAME = 'Ubicaciones' AND e.COLUMN_NAME = 'ClaTien'))
+	AND (b.TABLE_NAME = 'Tiendas' AND c.COLUMN_NAME = 'ClaTien' AND d.TABLE_NAME = 'TieUbi' AND e.COLUMN_NAME = 'ClaTien'))
 	BEGIN
-	ALTER TABLE Ubicaciones ADD CONSTRAINT FK_Tiendas_Ubicaciones_ClaTien FOREIGN KEY (ClaTien) 
+	ALTER TABLE TieUbi ADD CONSTRAINT FK_Tiendas_TieUbi_ClaTien FOREIGN KEY (ClaTien) 
 	REFERENCES Tiendas (ClaTien) ON UPDATE CASCADE ON DELETE CASCADE;
 	PRINT 'Se creo contraint FK_Tiendas_Ubicaciones_ClaTien';
 	EXEC SP_Msg 'Se creo un constraint FK_Tiendas_Ubicaciones_ClaTien con las tablas Tiendas y Ubicaciones';
@@ -288,7 +429,42 @@ ELSE
 	  PRINT 'Ya existe un cosntraint con el nombre FK_Tiendas_Ubicaciones_ClaTien';
 	 END
 GO
----FIN DE LA LLAVE FORANEA CON LA TABLA TIENDA Y PROPRO---
+---FIN DE LA LLAVE FORANEA CON LA TABLA TIENDA Y UBICACIONES---
+
+
+
+---LLAVE FORANEA CON LA TABLA UBICACIONES Y TieUbi---
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'FK_Ubicaciones_TieUbi_ClaUbic')
+  BEGIN
+    IF NOT EXISTS(SELECT  a.CONSTRAINT_NAME AS FKConstraintName, b.TABLE_NAME AS FKTable, 
+	                 c.COLUMN_NAME AS FKColumn, d.TABLE_NAME AS PKTable, e.COLUMN_NAME AS PKColumn
+       FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS a
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS b ON a.CONSTRAINT_NAME = b.CONSTRAINT_NAME
+       INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS d ON a.UNIQUE_CONSTRAINT_NAME = d.CONSTRAINT_NAME
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE c ON a.CONSTRAINT_NAME = c.CONSTRAINT_NAME
+	INNER JOIN (SELECT f.TABLE_NAME, g.COLUMN_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS f
+	INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE g ON f.CONSTRAINT_NAME = g.CONSTRAINT_NAME
+	WHERE f.CONSTRAINT_TYPE = 'PRIMARY KEY') e ON e.TABLE_NAME = d.TABLE_NAME
+	AND (b.TABLE_NAME = 'Ubicaciones' AND c.COLUMN_NAME = 'ClaUbic' AND d.TABLE_NAME = 'TieUbi' AND e.COLUMN_NAME = 'ClaUbic'))
+	BEGIN
+	ALTER TABLE TieUbi ADD CONSTRAINT FK_Ubicaciones_TieUbi_ClaUbic FOREIGN KEY (ClaUbic) 
+	REFERENCES Ubicaciones (ClaUbic) ON UPDATE CASCADE ON DELETE CASCADE;
+	PRINT 'Se creo contraint FK_Ubicaciones_TieUbi_ClaUbic';
+	EXEC SP_Msg 'Se creo un constraint FK_Ubicaciones_TieUbi_ClaUbic con las tablas TieUbi y Ubicaciones';
+	END
+    ELSE
+	 BEGIN
+	  EXEC SP_Msg 'Se intento crear una llave foranea con las tablas TieUbi y Ubicaciones';
+	  PRINT 'La tabla Tiendas ya tiene una llave foranea con la abla Ubicaciones';
+	 END
+   END
+ELSE
+	BEGIN
+	  EXEC SP_Msg 'Se intento crear un cosntraint con el nombre FK_Ubicaciones_TieUbi_ClaUbic';
+	  PRINT 'Ya existe un cosntraint con el nombre FK_Ubicaciones_TieUbi_ClaUbic';
+	 END
+GO
+---FIN DE LA LLAVE FORANEA CON LA TABLA TIENDA Y UBICACIONES---
 
 
 

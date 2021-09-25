@@ -1,3 +1,4 @@
+USE PuntoVenta;
 -----PROCESO PARA INSERTAT PROVEEDORES-----
 IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Insertar_Proveedores')
 PRINT 'Creando proceso SP_Insertar_Proveedores';
@@ -29,27 +30,40 @@ DECLARE @Txt VARCHAR(MAX);
 	EXEC SP_Validacion @Usuario,@Validacion OUTPUT;
 	---Si el usuario existe permitimos---
 	IF( @Validacion = '1' )
-		----Si la clave no exite en la BD quiere decir que podremos insertar----
-		IF((SELECT COUNT(*) FROM Proveedores WHERE ClaProv = @ClaProv)=0)
+		----Si la clave existe solo relacionamos----
+		IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @ClaTien) = 1)
 		BEGIN
-			IF((SELECT COUNT(*) FROM Tiendas WHERE ClaTien = @ClaTien) = 1)
+			---Si el proveedore existe
+			IF((SELECT COUNT(*) FROM Proveedores WHERE ClaProv = @ClaProv)=1)
 			BEGIN
-				INSERT INTO Proveedores VALUES (@ClaProv, @ClaTien, @Nombre, @Telefono, @Correo, @Direccion);---Insertamos el registro---
-				SET @Salida = 'Se ha guardado el proveedor '+@nombre+'.';
-				SET @Txt = 'El usuario '+@Usuario+' inserto el proveedor '+@Nombre+' con clave '+@ClaProv;
-				EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
+				IF((SELECT COUNT(*) FROM TiePro WHERE ClaProv = @ClaProv AND ClaTien = @ClaTien)=1)
+				BEGIN
+					SET @Salida = 'Error, el proveedor '+@nombre+' ya existe.';
+					SET @Txt = 'El usuario '+@Usuario+' intento relacionar con el proveedor '+@Nombre+' existente';
+					EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
+				END
+				ELSE
+				BEGIN
+				---Hacemos solo relacions---
+					INSERT INTO TiePro VALUES (@ClaTien, @ClaProv);
+					SET @Salida = 'Se ha guardado el proveedor '+@nombre+'.';
+					SET @Txt = 'El usuario '+@Usuario+' se relaciono con el proveedor '+@Nombre+' con clave '+@ClaProv;
+					EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
+				END
 			END
-			ELSE
+			ELSE--Si el porveedor no existe
 			BEGIN
-				SET @Salida = 'Error, la clave de la tienda '+@ClaTien+' no existe.';
-				SET @Txt = 'El usuario '+@Usuario+' intento insertar el proveedor '+@Nombre+' pero la tienda '+@ClaTien+' ya no existente';
-				EXEC SP_Msg @Txt;--informamos al reporte----
+				INSERT INTO Proveedores VALUES (@ClaProv, @Nombre, @Telefono, @Correo, @Direccion);---Insertamos el registro---
+				INSERT INTO TiePro VALUES (@ClaTien, @ClaProv);---Relacionamos
+				SET @Salida = 'Se ha guardado el proveedor '+@nombre+'.';
+				SET @Txt = 'El usuario '+@Usuario+' se inserto el proveedor '+@Nombre+' con clave '+@ClaProv;
+				EXEC SP_Msg @Txt;---Mandamos a nuestro reporte---
 			END
 		END
 		ELSE
-		BEGIN---Si la clve si esxie mandamos error de existencia---
-			SET @Salida = 'Error, la clave de proveedore '+@ClaProv+' ya existe.';
-			SET @Txt = 'El usuario '+@Usuario+' intento insertar el proveedor '+@Nombre+' con clave '+@ClaProv+' ya existente';
+		BEGIN---si la clv de la tienda no existe---
+			SET @Salida = 'Error, la clave de la tienda '+@ClaTien+' no existe.';
+			SET @Txt = 'El usuario '+@Usuario+' intento insertar el proveedor '+@Nombre+' pero la tienda '+@ClaTien+' ya no existente';
 			EXEC SP_Msg @Txt;--informamos al reporte----
 		END
 	ELSE
@@ -84,6 +98,7 @@ GO
 CREATE PROCEDURE SP_Eliminar_Proveedores 
 @Usuario VARCHAR(MAX), ---Clave del usuario que realiza el movimientoo---
 @ClaProv VARCHAR(MAX), ---Clave del proveedor---
+@ClaTien VARCHAR(MAX), ---Clave de la tienda---
 @Nombre VARCHAR(MAX),  ---Nombre del proveedor---
 @Salida VARCHAR(MAX) OUTPUT
 AS
@@ -95,12 +110,12 @@ DECLARE @Txt VARCHAR(MAX);
 	EXEC SP_Validacion @Usuario,@Validacion OUTPUT;
 	---Si el usuario existe permitimos---
 	IF( @Validacion = '1' )
-		---Si la clave exise podremos eliminar----
-		IF((SELECT COUNT(*) FROM Proveedores WHERE ClaProv = @ClaProv)=1)
+		---Si Existe una realcion con ese proveedore la eliminamms----
+		IF((SELECT COUNT(*) FROM TiePro WHERE ClaTien = @ClaTien AND ClaProv = @ClaProv)=1)
 		BEGIN
-			DELETE Proveedores WHERE ClaProv = @ClaProv; ---Eliminamos la tienda ---
+			DELETE TiePro WHERE ClaTien = @ClaTien AND ClaProv = @ClaProv; ---Eliminamos la tienda ---
 			SET @Salida = 'Se ha eliminado el proveedor '+@Nombre+'.';
-			SET @Txt = 'El usuario '+@Usuario+' elimino el proveedor '+@Nombre+' con clave '+@ClaProv;
+			SET @Txt = 'El usuario '+@Usuario+' elimino la relacion con el proveedor '+@Nombre+' con clave '+@ClaProv;
 			EXEC SP_Msg @Txt;---informaos al reporte---
 		END
 		ELSE
@@ -201,6 +216,7 @@ GO
 
 
 
+
 	-----PROCESO PARA MOSTRAR PROVEEDORES-----
 IF NOT EXISTS(SELECT * FROM sys.procedures WHERE name = 'SP_Mostrar_Proveedores')
 PRINT 'Creando proceso SP_Mostrar_Proveedores';
@@ -212,13 +228,15 @@ GO
 
 GO
 CREATE PROCEDURE SP_Mostrar_Proveedores 
-@ClaProv VARCHAR(MAX)
+@ClaTien VARCHAR(MAX)
 AS
 BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
-	SELECT ClaProv as 'Clave', Nombre, Telefono, Correo, Direccion FROM Proveedores
-	WHERE ClaTien = @ClaProv ORDER BY Nombre;
+	SELECT Proveedores.ClaProv,Proveedores.Nombre,Proveedores.Telefono,Proveedores.Correo,Proveedores.Direccion FROM Proveedores 
+	INNER JOIN TiePro ON Proveedores.ClaProv = TiePro.ClaProv
+	INNER JOIN Tiendas ON Tiendas.ClaTien = TiePro.ClaTien
+	WHERE Tiendas.ClaTien = @ClaTien ORDER BY Proveedores.Nombre;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
@@ -243,15 +261,17 @@ GO
 GO
 CREATE PROCEDURE SP_Buscar_Proveedor 
 @Valor VARCHAR(MAX),
-@ClaProv VARCHAR(MAX)
+@ClaTien VARCHAR(MAX)
 AS
 BEGIN
 BEGIN TRANSACTION
 BEGIN TRY
-	SELECT ClaProv AS 'Clave', Nombre, Telefono, Correo, Direccion FROM Proveedores 
-	WHERE ClaProv LIKE '%'+@Valor+'%' OR Nombre LIKE '%'+@Valor+'%' 
-	OR Telefono LIKE '%'+@Valor+'%' OR Correo LIKE '%'+@Valor+'%'
-	AND ClaTien = @ClaProv ORDER BY Nombre;
+	SELECT Tiendas.ClaTien,Proveedores.ClaProv,Proveedores.Nombre,Proveedores.Telefono,Proveedores.Correo,Proveedores.Direccion FROM Proveedores 
+	INNER JOIN TiePro ON Proveedores.ClaProv = TiePro.ClaProv
+	INNER JOIN Tiendas ON Tiendas.ClaTien = TiePro.ClaTien
+	WHERE (Proveedores.ClaProv LIKE '%'+@Valor+'%' OR Proveedores.Nombre LIKE '%'+@Valor+'%' 
+	OR Proveedores.Telefono LIKE '%'+@Valor+'%' OR Proveedores.Correo LIKE '%'+@Valor+'%')
+	AND (Tiendas.ClaTien = @ClaTien) ORDER BY Nombre;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH

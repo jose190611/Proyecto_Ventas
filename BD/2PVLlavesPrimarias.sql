@@ -1,3 +1,4 @@
+USE Puntoventa;
 -----------CREACION LLAVES PRIMARIAS-----------
 
 
@@ -267,7 +268,7 @@ IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAIN
 		   ON A.CONSTRAINT_NAME = B.CONSTRAINT_NAME
 		 WHERE CONSTRAINT_TYPE='PRIMARY KEY' AND B.TABLE_NAME='ProPro')
 
-		 ALTER TABLE ProPro ADD CONSTRAINT Pk_ProPro_ClaProd_ClaProv_ClaTien PRIMARY KEY(ClaProd,ClaProv);
+		 ALTER TABLE ProPro ADD CONSTRAINT Pk_ProPro_ClaProd_ClaProv_ClaTien PRIMARY KEY(ClaProd,ClaProv,ClaTien);
 	  ELSE
 	     PRINT 'La tabla ProPro ya tiene una llave primaria';
    END
@@ -307,7 +308,7 @@ IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAIN
 		   ON A.CONSTRAINT_NAME = B.CONSTRAINT_NAME
 		 WHERE CONSTRAINT_TYPE='PRIMARY KEY' AND B.TABLE_NAME='ProUbi')
 
-		 ALTER TABLE ProUbi ADD CONSTRAINT Pk_ProUbi_ClaProd_ClaUbic_ClaTien PRIMARY KEY(ClaProd,ClaUbic);
+		 ALTER TABLE ProUbi ADD CONSTRAINT Pk_ProUbi_ClaProd_ClaUbic_ClaTien PRIMARY KEY(ClaProd,ClaUbic,ClaTien);
 	  ELSE
 	     PRINT 'La tabla ProUbic ya tiene una llave primaria';
    END
@@ -316,6 +317,48 @@ ELSE
 
 GO
 ---Fin llave de los ProUbi---
+
+
+---llave de los TiePro---
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'Pk_TiePro_ClaTien_ClaProv')
+   BEGIN
+      IF NOT EXISTS(SELECT A.CONSTRAINT_NAME,A.TABLE_NAME, B.COLUMN_NAME
+  		 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS A 
+		 INNER JOIN INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE AS B 
+		   ON A.CONSTRAINT_NAME = B.CONSTRAINT_NAME
+		 WHERE CONSTRAINT_TYPE='PRIMARY KEY' AND B.TABLE_NAME='TiePro')
+
+		 ALTER TABLE TiePro ADD CONSTRAINT Pk_TiePro_ClaTien_ClaProv PRIMARY KEY(ClaTien,ClaProv);
+	  ELSE
+	     PRINT 'La tabla ProUbic ya tiene una llave primaria';
+   END
+ELSE
+   PRINT 'Ya existe un Constraint con el nombre Pk_ProUbi_ClaProd_ClaUbic_ClaTien';
+
+GO
+---Fin llave de los TiePro---
+
+
+
+
+---llave de los TieUbic---
+IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_NAME = 'Pk_TieUbi_ClaTien_ClaUbic')
+   BEGIN
+      IF NOT EXISTS(SELECT A.CONSTRAINT_NAME,A.TABLE_NAME, B.COLUMN_NAME
+  		 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS A 
+		 INNER JOIN INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE AS B 
+		   ON A.CONSTRAINT_NAME = B.CONSTRAINT_NAME
+		 WHERE CONSTRAINT_TYPE='PRIMARY KEY' AND B.TABLE_NAME='TieUbi')
+
+		 ALTER TABLE TieUbi ADD CONSTRAINT Pk_TieUbi_ClaTien_ClaUbic PRIMARY KEY(ClaTien,ClaUbic);
+	  ELSE
+	     PRINT 'La tabla TieUbi ya tiene una llave primaria';
+   END
+ELSE
+   PRINT 'Ya existe un Constraint con el nombre Pk_TieUbi_ClaTien_ClaUbic';
+
+GO
+---Fin llave de los TieUbic---
 
 
 ----------fin Llave primaria de tablas de normalizacion-------------
