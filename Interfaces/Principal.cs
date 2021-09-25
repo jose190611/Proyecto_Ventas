@@ -122,7 +122,14 @@ namespace Interfaces
 
         private void btnmenu_Click(object sender, EventArgs e)
         {
-            timermenu.Start();
+            if(tiempoMenu.Enabled == true)
+            {
+                btnmenu.Enabled = false;                
+            }
+            else
+            {
+                timermenu.Start();
+            }
         }
 
         private void timermenu_Tick(object sender, EventArgs e)
@@ -158,6 +165,7 @@ namespace Interfaces
         #region RevisarEsteCodigo
         private void tiempoMenu_Tick(object sender, EventArgs e)
         {
+            btnmenu.Enabled = true;
             timermenu.Enabled = true;
             LogicaPrincipal p = new LogicaPrincipal();
             p.ReducirMenu(btnmenu, panelmenu, timermenu);
