@@ -31,12 +31,12 @@ namespace Interfaces
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tiendas));
             this.panelContenedorTiendas = new System.Windows.Forms.Panel();
+            this.Lsv_Entradas = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-
             this.BtnNuevo = new FontAwesome.Sharp.IconButton();
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnCargarImagen = new FontAwesome.Sharp.IconButton();
@@ -45,17 +45,6 @@ namespace Interfaces
             this.TbDireccion = new System.Windows.Forms.TextBox();
             this.TbNombre = new System.Windows.Forms.TextBox();
             this.TbClave = new System.Windows.Forms.TextBox();
-
-            this.Lsv_Entradas = new System.Windows.Forms.DataGridView();
-            this.BtnNuevo = new FontAwesome.Sharp.IconButton();
-            this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
-            this.btnCargarImagen = new FontAwesome.Sharp.IconButton();
-            this.PtbImg = new System.Windows.Forms.PictureBox();
-            this.TbTelefono = new System.Windows.Forms.TextBox();
-            this.TbDireccion = new System.Windows.Forms.TextBox();
-            this.TbNombre = new System.Windows.Forms.TextBox();
-            this.TbClave = new System.Windows.Forms.TextBox();
-
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,12 +53,6 @@ namespace Interfaces
             this.btnCerrarFormulario = new FontAwesome.Sharp.IconButton();
             this.lblNombreForm = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Lsv_Entradas = new System.Windows.Forms.DataGridView();
-            this.panelContenedorTiendas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PtbImg)).BeginInit();
-            this.panelHerramientasTiendas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Lsv_Entradas)).BeginInit();
             this.panelContenedorTiendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Lsv_Entradas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PtbImg)).BeginInit();
@@ -79,7 +62,6 @@ namespace Interfaces
             // 
             // panelContenedorTiendas
             // 
-
             this.panelContenedorTiendas.Controls.Add(this.Lsv_Entradas);
             this.panelContenedorTiendas.Controls.Add(this.btnBuscar);
             this.panelContenedorTiendas.Controls.Add(this.textBox5);
@@ -104,6 +86,14 @@ namespace Interfaces
             this.panelContenedorTiendas.Name = "panelContenedorTiendas";
             this.panelContenedorTiendas.Size = new System.Drawing.Size(1048, 749);
             this.panelContenedorTiendas.TabIndex = 0;
+            // 
+            // Lsv_Entradas
+            // 
+            this.Lsv_Entradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Lsv_Entradas.Location = new System.Drawing.Point(50, 469);
+            this.Lsv_Entradas.Name = "Lsv_Entradas";
+            this.Lsv_Entradas.Size = new System.Drawing.Size(925, 150);
+            this.Lsv_Entradas.TabIndex = 19;
             // 
             // btnBuscar
             // 
@@ -259,248 +249,6 @@ namespace Interfaces
             this.TbClave.Size = new System.Drawing.Size(379, 33);
             this.TbClave.TabIndex = 5;
             // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnBuscar.IconColor = System.Drawing.Color.Blue;
-            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBuscar.IconSize = 35;
-            this.btnBuscar.Location = new System.Drawing.Point(991, 346);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(35, 35);
-            this.btnBuscar.TabIndex = 18;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(738, 346);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(237, 33);
-            this.textBox5.TabIndex = 17;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(644, 349);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 24);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Buscar :";
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton4.IconColor = System.Drawing.Color.Black;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.Location = new System.Drawing.Point(889, 678);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(147, 33);
-            this.iconButton4.TabIndex = 15;
-            this.iconButton4.Text = "Editar";
-            this.iconButton4.UseVisualStyleBackColor = true;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.Location = new System.Drawing.Point(673, 678);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(147, 33);
-            this.iconButton3.TabIndex = 14;
-            this.iconButton3.Text = "Eliminar";
-            this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.Lsv_Entradas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Lsv_Entradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Lsv_Entradas.Location = new System.Drawing.Point(79, 385);
-            this.Lsv_Entradas.Name = "dataGridView1";
-            this.Lsv_Entradas.Size = new System.Drawing.Size(957, 232);
-            this.Lsv_Entradas.TabIndex = 13;
-            // 
-            // iconButton2
-            // 
-            this.BtnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnNuevo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNuevo.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.BtnNuevo.IconColor = System.Drawing.Color.Black;
-            this.BtnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnNuevo.Location = new System.Drawing.Point(861, 127);
-            this.BtnNuevo.Name = "iconButton2";
-            this.BtnNuevo.Size = new System.Drawing.Size(147, 33);
-            this.BtnNuevo.TabIndex = 12;
-            this.BtnNuevo.Text = "Nuevo";
-            this.BtnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 220);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 24);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Dirección";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 160);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre";
-            // 
-            // lblClave
-            // 
-            this.lblClave.AutoSize = true;
-            this.lblClave.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClave.Location = new System.Drawing.Point(46, 100);
-            this.lblClave.Name = "lblClave";
-            this.lblClave.Size = new System.Drawing.Size(73, 24);
-            this.lblClave.TabIndex = 1;
-            this.lblClave.Text = "Clave";
-            // 
-            // panelHerramientasTiendas
-            // 
-            this.panelHerramientasTiendas.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panelHerramientasTiendas.Controls.Add(this.btnCerrarFormulario);
-            this.panelHerramientasTiendas.Controls.Add(this.lblNombreForm);
-            this.panelHerramientasTiendas.Controls.Add(this.pictureBox1);
-            this.panelHerramientasTiendas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHerramientasTiendas.Location = new System.Drawing.Point(0, 0);
-            this.panelHerramientasTiendas.Name = "panelHerramientasTiendas";
-            this.panelHerramientasTiendas.Size = new System.Drawing.Size(1048, 40);
-            this.panelHerramientasTiendas.TabIndex = 0;
-            // 
-            // btnCerrarFormulario
-            // 
-            this.btnCerrarFormulario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrarFormulario.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarFormulario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarFormulario.FlatAppearance.BorderSize = 0;
-            this.btnCerrarFormulario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarFormulario.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.btnCerrarFormulario.IconColor = System.Drawing.Color.Red;
-            this.btnCerrarFormulario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCerrarFormulario.IconSize = 30;
-            this.btnCerrarFormulario.Location = new System.Drawing.Point(1006, 4);
-            this.btnCerrarFormulario.Name = "btnCerrarFormulario";
-            this.btnCerrarFormulario.Size = new System.Drawing.Size(30, 30);
-            this.btnCerrarFormulario.TabIndex = 2;
-            this.btnCerrarFormulario.UseVisualStyleBackColor = false;
-            this.btnCerrarFormulario.Click += new System.EventHandler(this.btnCerrarFormulario_Click);
-            // 
-            // lblNombreForm
-            // 
-            this.lblNombreForm.AutoSize = true;
-            this.lblNombreForm.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreForm.ForeColor = System.Drawing.Color.Aqua;
-            this.lblNombreForm.Location = new System.Drawing.Point(149, 4);
-            this.lblNombreForm.Name = "lblNombreForm";
-            this.lblNombreForm.Size = new System.Drawing.Size(101, 32);
-            this.lblNombreForm.TabIndex = 1;
-            this.lblNombreForm.Text = "Tienda";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::Interfaces.Properties.Resources.tienda;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(79, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Lsv_Entradas
-            // 
-            this.Lsv_Entradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Lsv_Entradas.Location = new System.Drawing.Point(50, 469);
-            this.Lsv_Entradas.Name = "Lsv_Entradas";
-            this.Lsv_Entradas.Size = new System.Drawing.Size(925, 150);
-            this.Lsv_Entradas.TabIndex = 19;
-            // iconButton1
-            // 
-            this.BtnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnLimpiar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.BtnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.BtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnLimpiar.Location = new System.Drawing.Point(861, 64);
-            this.BtnLimpiar.Name = "iconButton1";
-            this.BtnLimpiar.Size = new System.Drawing.Size(147, 33);
-            this.BtnLimpiar.TabIndex = 11;
-            this.BtnLimpiar.Text = "Limpiar";
-            this.BtnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnCargarImagen
-            // 
-            this.btnCargarImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCargarImagen.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarImagen.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnCargarImagen.IconColor = System.Drawing.Color.Black;
-            this.btnCargarImagen.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCargarImagen.Location = new System.Drawing.Point(618, 251);
-            this.btnCargarImagen.Name = "btnCargarImagen";
-            this.btnCargarImagen.Size = new System.Drawing.Size(147, 33);
-            this.btnCargarImagen.TabIndex = 10;
-            this.btnCargarImagen.Text = "Cargar imagen";
-            this.btnCargarImagen.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.PtbImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PtbImg.Location = new System.Drawing.Point(615, 85);
-            this.PtbImg.Name = "pictureBox2";
-            this.PtbImg.Size = new System.Drawing.Size(150, 150);
-            this.PtbImg.TabIndex = 9;
-            this.PtbImg.TabStop = false;
-            // 
-            // textBox4
-            // 
-            this.TbTelefono.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbTelefono.Location = new System.Drawing.Point(196, 280);
-            this.TbTelefono.Name = "textBox4";
-            this.TbTelefono.Size = new System.Drawing.Size(237, 33);
-            this.TbTelefono.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            this.TbDireccion.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbDireccion.Location = new System.Drawing.Point(196, 220);
-            this.TbDireccion.Name = "textBox3";
-            this.TbDireccion.Size = new System.Drawing.Size(237, 33);
-            this.TbDireccion.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            this.TbNombre.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbNombre.Location = new System.Drawing.Point(196, 160);
-            this.TbNombre.Name = "textBox2";
-            this.TbNombre.Size = new System.Drawing.Size(237, 33);
-            this.TbNombre.TabIndex = 6;
-            // 
-            // textBox1
-            // 
-            this.TbClave.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbClave.Location = new System.Drawing.Point(196, 100);
-            this.TbClave.Name = "textBox1";
-            this.TbClave.Size = new System.Drawing.Size(237, 33);
-            this.TbClave.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -602,11 +350,6 @@ namespace Interfaces
             this.Text = "Tiendas";
             this.panelContenedorTiendas.ResumeLayout(false);
             this.panelContenedorTiendas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PtbImg)).EndInit();
-            this.panelHerramientasTiendas.ResumeLayout(false);
-            this.panelHerramientasTiendas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Lsv_Entradas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Lsv_Entradas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PtbImg)).EndInit();
             this.panelHerramientasTiendas.ResumeLayout(false);
@@ -619,6 +362,7 @@ namespace Interfaces
         #endregion
 
         private System.Windows.Forms.Panel panelContenedorTiendas;
+        private System.Windows.Forms.Panel panelHerramientasTiendas;
         private System.Windows.Forms.Label lblNombreForm;
         private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton btnCerrarFormulario;
@@ -640,6 +384,5 @@ namespace Interfaces
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView Lsv_Entradas;
-        public System.Windows.Forms.Panel panelHerramientasTiendas;
     }
 }

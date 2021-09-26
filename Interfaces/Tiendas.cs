@@ -30,11 +30,10 @@ namespace Interfaces
             dato = obj.CargarTiendas();
             if (dato.Rows.Count > 0)
             {
-                Lsv_Entradas.DataSource  = obj.CargarTiendas();
+                Lsv_Entradas.DataSource = obj.CargarTiendas();
             }
 
         }
-
 
         private void btnCerrarFormulario_Click(object sender, EventArgs e)
         {
@@ -43,10 +42,10 @@ namespace Interfaces
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            if (TbNombre.Text == "" | TbNombre.Text == "" | TbDireccion.Text =="" | TbTelefono.Text =="" | PtbImg.Image == null)
+            if (TbNombre.Text == "" | TbNombre.Text == "" | TbDireccion.Text == "" | TbTelefono.Text == "" | PtbImg.Image == null)
             {
                 DividirCadenas cad = new DividirCadenas();
-                string y = "LLena los espacios.";
+                string y = "LLena los valores en balnco.";
                 Avisos fa = new Avisos();
                 fa.panelBarra.BackColor = Color.FromArgb(249, 172, 3);
                 fa.lblBarra.Text = "¡A d v e r t e n c i a!";
