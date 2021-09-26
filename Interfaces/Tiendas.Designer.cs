@@ -36,7 +36,7 @@ namespace Interfaces
             this.label4 = new System.Windows.Forms.Label();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-<<<<<<< HEAD
+
             this.BtnNuevo = new FontAwesome.Sharp.IconButton();
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnCargarImagen = new FontAwesome.Sharp.IconButton();
@@ -45,17 +45,17 @@ namespace Interfaces
             this.TbDireccion = new System.Windows.Forms.TextBox();
             this.TbNombre = new System.Windows.Forms.TextBox();
             this.TbClave = new System.Windows.Forms.TextBox();
-=======
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+
+            this.Lsv_Entradas = new System.Windows.Forms.DataGridView();
+            this.BtnNuevo = new FontAwesome.Sharp.IconButton();
+            this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnCargarImagen = new FontAwesome.Sharp.IconButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
->>>>>>> Jose
+            this.PtbImg = new System.Windows.Forms.PictureBox();
+            this.TbTelefono = new System.Windows.Forms.TextBox();
+            this.TbDireccion = new System.Windows.Forms.TextBox();
+            this.TbNombre = new System.Windows.Forms.TextBox();
+            this.TbClave = new System.Windows.Forms.TextBox();
+
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,24 +64,22 @@ namespace Interfaces
             this.btnCerrarFormulario = new FontAwesome.Sharp.IconButton();
             this.lblNombreForm = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-<<<<<<< HEAD
             this.Lsv_Entradas = new System.Windows.Forms.DataGridView();
             this.panelContenedorTiendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PtbImg)).BeginInit();
             this.panelHerramientasTiendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Lsv_Entradas)).BeginInit();
-=======
             this.panelContenedorTiendas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Lsv_Entradas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PtbImg)).BeginInit();
             this.panelHerramientasTiendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
->>>>>>> Jose
             this.SuspendLayout();
             // 
             // panelContenedorTiendas
             // 
+
             this.panelContenedorTiendas.Controls.Add(this.Lsv_Entradas);
             this.panelContenedorTiendas.Controls.Add(this.btnBuscar);
             this.panelContenedorTiendas.Controls.Add(this.textBox5);
@@ -108,7 +106,6 @@ namespace Interfaces
             this.panelContenedorTiendas.TabIndex = 0;
             // 
             // btnBuscar
-<<<<<<< HEAD
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -261,7 +258,6 @@ namespace Interfaces
             this.TbClave.Name = "TbClave";
             this.TbClave.Size = new System.Drawing.Size(379, 33);
             this.TbClave.TabIndex = 5;
-=======
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -327,29 +323,27 @@ namespace Interfaces
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(79, 385);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(957, 232);
-            this.dataGridView1.TabIndex = 13;
->>>>>>> Jose
+            this.Lsv_Entradas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Lsv_Entradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Lsv_Entradas.Location = new System.Drawing.Point(79, 385);
+            this.Lsv_Entradas.Name = "dataGridView1";
+            this.Lsv_Entradas.Size = new System.Drawing.Size(957, 232);
+            this.Lsv_Entradas.TabIndex = 13;
             // 
             // iconButton2
             // 
-            this.iconButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(861, 127);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(147, 33);
-            this.iconButton2.TabIndex = 12;
-            this.iconButton2.Text = "Nuevo";
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.BtnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnNuevo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNuevo.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnNuevo.IconColor = System.Drawing.Color.Black;
+            this.BtnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnNuevo.Location = new System.Drawing.Point(861, 127);
+            this.BtnNuevo.Name = "iconButton2";
+            this.BtnNuevo.Size = new System.Drawing.Size(147, 33);
+            this.BtnNuevo.TabIndex = 12;
+            this.BtnNuevo.Text = "Nuevo";
+            this.BtnNuevo.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
             // label2
             // 
             this.label2.AutoSize = true;
@@ -438,20 +432,19 @@ namespace Interfaces
             this.Lsv_Entradas.Name = "Lsv_Entradas";
             this.Lsv_Entradas.Size = new System.Drawing.Size(925, 150);
             this.Lsv_Entradas.TabIndex = 19;
-=======
             // iconButton1
             // 
-            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(861, 64);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(147, 33);
-            this.iconButton1.TabIndex = 11;
-            this.iconButton1.Text = "Limpiar";
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnLimpiar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.BtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnLimpiar.Location = new System.Drawing.Point(861, 64);
+            this.BtnLimpiar.Name = "iconButton1";
+            this.BtnLimpiar.Size = new System.Drawing.Size(147, 33);
+            this.BtnLimpiar.TabIndex = 11;
+            this.BtnLimpiar.Text = "Limpiar";
+            this.BtnLimpiar.UseVisualStyleBackColor = true;
             // 
             // btnCargarImagen
             // 
@@ -469,44 +462,44 @@ namespace Interfaces
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Location = new System.Drawing.Point(615, 85);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
+            this.PtbImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PtbImg.Location = new System.Drawing.Point(615, 85);
+            this.PtbImg.Name = "pictureBox2";
+            this.PtbImg.Size = new System.Drawing.Size(150, 150);
+            this.PtbImg.TabIndex = 9;
+            this.PtbImg.TabStop = false;
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(196, 280);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(237, 33);
-            this.textBox4.TabIndex = 8;
+            this.TbTelefono.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbTelefono.Location = new System.Drawing.Point(196, 280);
+            this.TbTelefono.Name = "textBox4";
+            this.TbTelefono.Size = new System.Drawing.Size(237, 33);
+            this.TbTelefono.TabIndex = 8;
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(196, 220);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(237, 33);
-            this.textBox3.TabIndex = 7;
+            this.TbDireccion.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbDireccion.Location = new System.Drawing.Point(196, 220);
+            this.TbDireccion.Name = "textBox3";
+            this.TbDireccion.Size = new System.Drawing.Size(237, 33);
+            this.TbDireccion.TabIndex = 7;
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(196, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(237, 33);
-            this.textBox2.TabIndex = 6;
+            this.TbNombre.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbNombre.Location = new System.Drawing.Point(196, 160);
+            this.TbNombre.Name = "textBox2";
+            this.TbNombre.Size = new System.Drawing.Size(237, 33);
+            this.TbNombre.TabIndex = 6;
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(196, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 33);
-            this.textBox1.TabIndex = 5;
+            this.TbClave.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbClave.Location = new System.Drawing.Point(196, 100);
+            this.TbClave.Name = "textBox1";
+            this.TbClave.Size = new System.Drawing.Size(237, 33);
+            this.TbClave.TabIndex = 5;
             // 
             // label3
             // 
@@ -598,7 +591,6 @@ namespace Interfaces
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
->>>>>>> Jose
             // 
             // Tiendas
             // 
@@ -610,19 +602,16 @@ namespace Interfaces
             this.Text = "Tiendas";
             this.panelContenedorTiendas.ResumeLayout(false);
             this.panelContenedorTiendas.PerformLayout();
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.PtbImg)).EndInit();
             this.panelHerramientasTiendas.ResumeLayout(false);
             this.panelHerramientasTiendas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Lsv_Entradas)).EndInit();
-=======
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Lsv_Entradas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PtbImg)).EndInit();
             this.panelHerramientasTiendas.ResumeLayout(false);
             this.panelHerramientasTiendas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
->>>>>>> Jose
             this.ResumeLayout(false);
 
         }
@@ -650,10 +639,7 @@ namespace Interfaces
         private FontAwesome.Sharp.IconButton btnBuscar;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label4;
-<<<<<<< HEAD
         private System.Windows.Forms.DataGridView Lsv_Entradas;
-=======
         public System.Windows.Forms.Panel panelHerramientasTiendas;
->>>>>>> Jose
     }
 }

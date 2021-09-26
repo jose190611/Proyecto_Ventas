@@ -10,7 +10,7 @@ namespace Neogcio.BL
 {
     public class TiendaBL
     {
-        public string NuevaTienda (string usuario, string nombre, string direccion, string telefono, byte[] img)
+        public string NuevaTienda(string usuario, string nombre, string direccion, string telefono, byte[] img)
         {
             ModeloTiendas tienda = new ModeloTiendas();
             Tienda t = new Tienda();
@@ -25,7 +25,7 @@ namespace Neogcio.BL
             return msj;
         }
 
-        public string EliminacionTienda (string usuario, string clave, string nombre)
+        public string EliminacionTienda(string usuario, string clave, string nombre)
         {
             ModeloTiendas tienda = new ModeloTiendas();
             Tienda t = new Tienda();
@@ -60,25 +60,6 @@ namespace Neogcio.BL
             return obj.ConsultaGeneral();
         }
 
-        /*
-        public List<ModeloBusquedaTienda> Consultar()
-        {
-            Tienda t = new Tienda();
 
-            var lista = t.ConsultaGeneral();
-            return lista;
-        }
-        */
-
-        public List<ModeloTiendas> PersonalizarConsulta(string clave)
-        {
-            ModeloTiendas tienda = new ModeloTiendas();
-            Tienda t = new Tienda();
-
-            tienda.ClaTien = clave;
-
-            var lista = t.ConsultaPersonalizada(tienda);
-            return lista;
-        }
     }
 }
