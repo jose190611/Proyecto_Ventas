@@ -14,6 +14,7 @@ namespace Interfaces
 {
     public partial class Principal : Form
     {
+        public Form FormularioActivo = null;
         #region MoverForm
         //--------------------Movimiento de formulario sin bordes-----------------------------------------
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -210,14 +211,111 @@ namespace Interfaces
         private void btnTienda_Click(object sender, EventArgs e)
         {
             Formularios f = new Formularios();
-            if (f.EstaAbiertoElFormulario("Tiendas"))
+            Tiendas t = new Tiendas();
+            if (f.EstaAbiertoElFormulario("Tiendas") == true)
             {
-                MessageBox.Show("No se puede abrir el mismo formulario");
+
             }
             else
             {
-                f.AbrirFormularioHijo(new Tiendas(), panelContenedor);
-            }       
+                AbrirFormularioHijo(t, panelContenedor);
+            }
+        }
+
+        private void btnUbicacion_Click(object sender, EventArgs e)
+        {
+            Formularios f = new Formularios();
+            Ubicacion u = new Ubicacion();
+            if (f.EstaAbiertoElFormulario("Ubicacion") == true)
+            {
+
+            }
+            else
+            {
+                AbrirFormularioHijo(u, panelContenedor);
+            }
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            Formularios f = new Formularios();
+            if (f.EstaAbiertoElFormulario("Proveedores") == true)
+            {
+
+            }
+            else
+            {
+                AbrirFormularioHijo(new Proveedores(), panelContenedor);
+            }
+        }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            Formularios f = new Formularios();
+            if (f.EstaAbiertoElFormulario("Empleados") == true)
+            {
+
+            }
+            else
+            {
+                AbrirFormularioHijo(new Empleados(), panelContenedor);
+            }
+        }
+        #region FormularioHijo
+        public void AbrirFormularioHijo(Form formHijo, Panel contenedor)
+        {
+            if (FormularioActivo != null)
+            {
+                FormularioActivo.Close();
+            }
+            FormularioActivo = formHijo;
+            formHijo.TopLevel = false;
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+            formHijo.Dock = DockStyle.Fill;
+            contenedor.Controls.Add(formHijo);
+            formHijo.BringToFront();
+            //formHijo.SendToBack();
+            formHijo.Show();
+        }
+        #endregion
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            Formularios f = new Formularios();
+            if (f.EstaAbiertoElFormulario("Clientes") == true)
+            {
+
+            }
+            else
+            {
+                AbrirFormularioHijo(new Clientes(), panelContenedor);
+            }
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            Formularios f = new Formularios();
+            if (f.EstaAbiertoElFormulario("Productos") == true)
+            {
+
+            }
+            else
+            {
+                AbrirFormularioHijo(new Productos(), panelContenedor);
+            }
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            Formularios f = new Formularios();
+            if (f.EstaAbiertoElFormulario("Ventas") == true)
+            {
+
+            }
+            else
+            {
+                AbrirFormularioHijo(new Ventas(), panelContenedor);
+            }
         }
     }    
 }

@@ -28,3 +28,9 @@ C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interface
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.exe
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.pdb
 C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Tiendas.resources
+C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Proveedores.resources
+C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Ubicacion.resources
+C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Empleados.resources
+C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Clientes.resources
+C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Productos.resources
+C:\Users\silvi.DESKTOP-J7MR0VK\Desktop\Sistemas_Ventas\Proyecto_Ventas\Interfaces\obj\Debug\Interfaces.Ventas.resources
