@@ -35,6 +35,7 @@ namespace Interfaces
 
         }
 
+
         private void btnCerrarFormulario_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -45,7 +46,7 @@ namespace Interfaces
             if (TbNombre.Text == "" | TbNombre.Text == "" | TbDireccion.Text =="" | TbTelefono.Text =="" | PtbImg.Image == null)
             {
                 DividirCadenas cad = new DividirCadenas();
-                string y = "LLena los valores en balnco.";
+                string y = "LLena los espacios.";
                 Avisos fa = new Avisos();
                 fa.panelBarra.BackColor = Color.FromArgb(249, 172, 3);
                 fa.lblBarra.Text = "¡A d v e r t e n c i a!";

@@ -148,36 +148,7 @@ namespace AccesoBD.Acceso
                 return mensaje;
             }
         }
-
-        // Para iniciar con la búsqueda general se harán los siguientes métodos
-        //Iniciamos con el método que permitirá hacer lectura fila por fila
-        //Será un método encapsulado para evitar que pueda ser leido en otras clases
-        private ModeloBusquedaTienda ObtenerUnaSolaFila(SqlDataReader lector)
-        {
-            ModeloBusquedaTienda mbt = new ModeloBusquedaTienda();
-
-            if (!Convert.IsDBNull(lector["ClaTien"])) { mbt.ClaTien = lector["ClaTien"].ToString(); }
-            else { mbt.ClaTien = "Null"; }
-            if (!Convert.IsDBNull(lector["Nombre"])) { mbt.Nombre = lector["Nombre"].ToString(); }
-            else { mbt.Nombre = "Null"; }
-
-            return mbt;
-        }
-
-        // El siguiente método permite obtener las filas leídas y almacenarlas en una lista
-        private List<ModeloBusquedaTienda> ObtenerFilas(SqlDataReader lector)
-        {
-            List<ModeloBusquedaTienda> lista = new List<ModeloBusquedaTienda>();
-            if (lector != null)
-            {
-                while (lector.Read())
-                {
-                    lista.Add(ObtenerUnaSolaFila(lector));
-                }
-            }
-
-            return lista;
-        }
+        
 
         //Finalmente el siguiente método retornará la lista con todos los campos llenos obtenidos de la BD
         
@@ -209,67 +180,5 @@ namespace AccesoBD.Acceso
 
         //---------------------------Métodos para búsqueda personalizada--------------------------------------
 
-        private ModeloTiendas ObtenerUnaFila(SqlDataReader lector)
-        {
-            
-            ModeloTiendas tienda = new ModeloTiendas();
-
-            if (!Convert.IsDBNull(lector["ClaTien"])) { tienda.ClaTien = lector["ClaTien"].ToString(); }
-            else { tienda.ClaTien = "Null"; }
-            if (!Convert.IsDBNull(lector["Nombre"])) { tienda.Nombre = lector["Nombre"].ToString(); }
-            else { tienda.Nombre = "Null"; }
-            if (!Convert.IsDBNull(lector["Img"])) { tienda.Imagen = Encoding.ASCII.GetBytes(lector["Img"].ToString()); }
-            else { tienda.Imagen = Encoding.ASCII.GetBytes("Null"); }
-
-            return tienda;
-        }
-
-
-        private List<ModeloTiendas> LeerFilas(SqlDataReader lector)
-        {
-            List<ModeloTiendas> lista = new List<ModeloTiendas>();
-            if (lector != null)
-            {
-                while (lector.Read())
-                {
-                    lista.Add(ObtenerUnaFila(lector));
-                }
-            }
-
-            return lista;
-        }
-
-        public List<ModeloTiendas> ConsultaPersonalizada(ModeloTiendas tienda)
-        {
-            string procedimiento = "SP_Buscar_Tienda";
-            List<ModeloTiendas> lista = new List<ModeloTiendas>();
-
-            try
-            {
-                using (SqlConnection conex = new SqlConnection(CadenaConexion.CadenaCon))
-                {
-                    if (conex.State == ConnectionState.Closed)
-                        conex.Open();
-
-                    using (SqlCommand comando = new SqlCommand())
-                    {
-                        comando.Connection = conex;
-                        comando.CommandText = procedimiento;
-                        comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.Add("@Clave", SqlDbType.VarChar);
-                        comando.Parameters["@Clave"].Value = tienda.ClaTien;
-                        using (SqlDataReader lector = comando.ExecuteReader())
-                        {
-                            lista = LeerFilas(lector);
-                        }
-                        return lista;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
     }
 }

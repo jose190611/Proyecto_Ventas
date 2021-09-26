@@ -30,15 +30,15 @@ namespace Interfaces
         private void InitializeComponent()
         {
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.lblMensaje = new System.Windows.Forms.Label();
-            this.panelBarra = new System.Windows.Forms.Panel();
-            this.lblBarra = new System.Windows.Forms.Label();
             this.btnSalir = new FontAwesome.Sharp.IconButton();
             this.btnAceptar = new FontAwesome.Sharp.IconButton();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.pbIcono = new System.Windows.Forms.PictureBox();
+            this.panelBarra = new System.Windows.Forms.Panel();
+            this.lblBarra = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
-            this.panelBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).BeginInit();
+            this.panelBarra.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelContenedor
@@ -55,36 +55,6 @@ namespace Interfaces
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(334, 161);
             this.panelContenedor.TabIndex = 0;
-            // 
-            // lblMensaje
-            // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(117, 45);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(65, 22);
-            this.lblMensaje.TabIndex = 2;
-            this.lblMensaje.Text = "label2";
-            // 
-            // panelBarra
-            // 
-            this.panelBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(59)))), ((int)(((byte)(70)))));
-            this.panelBarra.Controls.Add(this.lblBarra);
-            this.panelBarra.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBarra.Location = new System.Drawing.Point(0, 0);
-            this.panelBarra.Name = "panelBarra";
-            this.panelBarra.Size = new System.Drawing.Size(334, 30);
-            this.panelBarra.TabIndex = 0;
-            // 
-            // lblBarra
-            // 
-            this.lblBarra.AutoSize = true;
-            this.lblBarra.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBarra.Location = new System.Drawing.Point(69, 9);
-            this.lblBarra.Name = "lblBarra";
-            this.lblBarra.Size = new System.Drawing.Size(49, 16);
-            this.lblBarra.TabIndex = 2;
-            this.lblBarra.Text = "label1";
             // 
             // btnSalir
             // 
@@ -128,6 +98,16 @@ namespace Interfaces
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Location = new System.Drawing.Point(117, 45);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(53, 20);
+            this.lblMensaje.TabIndex = 2;
+            this.lblMensaje.Text = "label2";
+            // 
             // pbIcono
             // 
             this.pbIcono.Location = new System.Drawing.Point(12, 45);
@@ -135,6 +115,26 @@ namespace Interfaces
             this.pbIcono.Size = new System.Drawing.Size(80, 80);
             this.pbIcono.TabIndex = 1;
             this.pbIcono.TabStop = false;
+            // 
+            // panelBarra
+            // 
+            this.panelBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(59)))), ((int)(((byte)(70)))));
+            this.panelBarra.Controls.Add(this.lblBarra);
+            this.panelBarra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelBarra.Location = new System.Drawing.Point(0, 0);
+            this.panelBarra.Name = "panelBarra";
+            this.panelBarra.Size = new System.Drawing.Size(334, 30);
+            this.panelBarra.TabIndex = 0;
+            // 
+            // lblBarra
+            // 
+            this.lblBarra.AutoSize = true;
+            this.lblBarra.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBarra.Location = new System.Drawing.Point(69, 9);
+            this.lblBarra.Name = "lblBarra";
+            this.lblBarra.Size = new System.Drawing.Size(49, 16);
+            this.lblBarra.TabIndex = 2;
+            this.lblBarra.Text = "label1";
             // 
             // Avisos
             // 
@@ -147,9 +147,9 @@ namespace Interfaces
             this.Text = "Avisos";
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).EndInit();
             this.panelBarra.ResumeLayout(false);
             this.panelBarra.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).EndInit();
             this.ResumeLayout(false);
 
         }
